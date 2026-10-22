@@ -30,12 +30,15 @@ def ask(question: str) -> str:
 
     # Lecture 01 exercise: display input and output token counts
     usage = response.usage_metadata
-    print(
-        f"[tokens] input={usage.prompt_token_count} "
-        f"output={usage.candidates_token_count} "
-        f"thinking={usage.thoughts_token_count or 0} "
-        f"total={usage.total_token_count}"
-    )
+    if usage is None:
+        print("[tokens] usage metadata not available")
+    else:
+        print(
+            f"[tokens] input={usage.prompt_token_count or 0} "
+            f"output={usage.candidates_token_count or 0} "
+            f"thinking={usage.thoughts_token_count or 0} "
+            f"total={usage.total_token_count or 0}"
+        )
     print(f"[time] {elapsed:.2f}s\n")
 
     return response.text
