@@ -1,0 +1,27 @@
+=== gemini-3.5-flash-lite | What is LoRA?
+[tokens] input=6 output=779 thinking=0 total=785
+[time] 3.70s
+=== gemini-3.5-flash-lite | What are the 3 homework levels in the AIE2026 course?
+[tokens] input=18 output=45 thinking=0 total=63
+[time] 1.24s
+=== gemini-3.5-flash-lite | Explain the transformer architecture in detail.
+[tokens] input=8 output=1485 thinking=0 total=1493
+[time] 5.99s
+=== gemini-3.1-flash-lite | What is LoRA?
+[tokens] input=6 output=794 thinking=0 total=800
+[time] 4.07s
+=== gemini-3.1-flash-lite | What are the 3 homework levels in the AIE2026 course?
+[tokens] input=18 output=399 thinking=0 total=417
+[time] 2.74s
+=== gemini-3.1-flash-lite | Explain the transformer architecture in detail.
+[tokens] input=8 output=1092 thinking=0 total=1100
+[time] 4.53s
+=== gemini-3.8-flash | What is LoRA?
+[tokens] input=6 output=841 thinking=796 total=1643
+[time] 16.46s
+=== gemini-3.8-flash | What are the 3 homework levels in the AIE2026 course?
+[tokens] input=18 output=481 thinking=1545 total=2044
+[time] 20.63s
+=== gemini-3.8-flash | Explain the transformer architecture in detail.
+[tokens] input=8 output=2298 thinking=1391 total=3697
+[time] 34.03s
