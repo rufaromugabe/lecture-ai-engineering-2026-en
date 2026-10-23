@@ -1,0 +1,72 @@
+=== gemini-3.5-flash-lite run 1
+[model] gemini-3.5-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=77 thinking=0 total=103
+[time] 0.90s
+
+The AIE2026 course features three homework levels: 
+
+1. **Level 1 (Foundational):** Basic concepts and guided exercises.
+2. **Level 2 (Intermediate):** Standard practical applications and moderate problem-solving.
+3. **Level 3 (Advanced):** Complex, open-ended challenges requiring deeper critical thinking and advanced implementation.
+=== gemini-3.5-flash-lite run 2
+[model] gemini-3.5-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=84 thinking=0 total=110
+[time] 0.73s
+
+The three homework levels in the AIE2026 course are:
+
+1. **Level 1 (Foundational):** Basic exercises to reinforce core concepts and standard applications.
+2. **Level 2 (Intermediate):** More challenging problems requiring deeper analysis and problem-solving.
+3. **Level 3 (Advanced):** Highly complex, open-ended tasks designed for mastery and advanced exploration.
+=== gemini-3.5-flash-lite run 3
+[model] gemini-3.5-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=87 thinking=0 total=113
+[time] 0.73s
+
+The three homework levels in the AIE2026 course are:
+
+1. **Level 1 (Foundational):** Basic exercises to reinforce core concepts and ensure understanding of fundamental materials.
+2. **Level 2 (Intermediate):** More challenging tasks requiring application and critical thinking.
+3. **Level 3 (Advanced):** Complex, open-ended projects designed for deep exploration and advanced problem-solving.
+=== gemini-3.1-flash-lite run 1
+[model] gemini-3.1-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=99 thinking=0 total=125
+[time] 0.99s
+
+The AIE2026 course (Artificial Intelligence Engineering) features three homework levels designed to progressively build expertise:
+
+1. **Level 1 (Core):** Focuses on fundamental concepts and basic implementation.
+2. **Level 2 (Advanced):** Involves complex problem-solving and optimizing AI models.
+3. **Level 3 (Expert/Research):** Requires original research, architectural innovation, or the application of AI to sophisticated, real-world challenges.
+=== gemini-3.1-flash-lite run 2
+[model] gemini-3.1-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=91 thinking=0 total=117
+[time] 1.15s
+
+The AIE2026 course (Artificial Intelligence for Educators) categorizes homework into three levels:
+
+1.  **Level 1 (Foundational):** Basic comprehension and introductory AI tasks.
+2.  **Level 2 (Application):** Integrating AI tools into lesson planning and classroom workflows.
+3.  **Level 3 (Advanced/Innovation):** Designing original AI-driven curriculum or exploring complex ethical and strategic implementations.
+=== gemini-3.1-flash-lite run 3
+[model] gemini-3.1-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course? Answer in under 60 words.
+
+[tokens] input=26 output=74 thinking=0 total=100
+[time] 1.01s
+
+The three homework levels in the AIE2026 course are:
+
+1. **Foundations:** Focuses on core concepts and basic implementation.
+2. **Intermediate:** Requires applying concepts to more complex scenarios and data structures.
+3. **Advanced:** Involves open-ended challenges, architectural design, and optimization, pushing beyond standard curriculum requirements.

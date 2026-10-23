@@ -1,0 +1,25 @@
+[model] gemini-3.5-flash-lite
+[question] My name is Rufaro and I am studying LoRA. Explain LoRA in one sentence.
+
+[tokens] input=20 output=54 thinking=0 total=74
+[time] 0.68s
+
+Hi Rufaro, here is LoRA in one sentence:
+
+LoRA (Low-Rank Adaptation) is a technique that makes training large AI models much faster and cheaper by freezing the original model's weights and only training a tiny fraction of new, added parameters.
+
+You (empty line to quit): [question] What did I say my name was, and which topic am I studying?
+
+[tokens] input=91 output=13 thinking=0 total=104
+[time] 0.50s
+
+Your name is Rufaro, and you are studying LoRA.
+
+You (empty line to quit): [question] Summarise your first answer in exactly five words.
+
+[tokens] input=116 output=5 thinking=0 total=121
+[time] 0.41s
+
+Training large models efficiently.
+
+You (empty line to quit): 
