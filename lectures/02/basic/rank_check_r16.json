@@ -1,0 +1,34 @@
+{
+  "CONFIG_lora_r": 16,
+  "peft_config_r": 16,
+  "peft_config_alpha": 32,
+  "trainable_params": 6389760,
+  "total_params": 758782784,
+  "trainable_pct": 0.8421,
+  "example_lora_A": {
+    "name": "base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight",
+    "shape": [
+      16,
+      1024
+    ]
+  },
+  "train_runtime_s": 176.1597,
+  "loss_log": [
+    [
+      10,
+      1.6967975616455078
+    ],
+    [
+      20,
+      0.06709758043289185
+    ],
+    [
+      30,
+      0.018131907284259795
+    ],
+    [
+      40,
+      0.01448657363653183
+    ]
+  ]
+}
