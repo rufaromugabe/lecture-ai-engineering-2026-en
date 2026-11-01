@@ -1,0 +1,398 @@
+{
+  "abstain_answer": "That term is not in the course glossary.",
+  "train_absent_terms": [
+    "Direct Preference Optimization",
+    "speculative decoding",
+    "KV cache",
+    "perplexity",
+    "diffusion model",
+    "batch normalization",
+    "gradient checkpointing",
+    "BLEU score"
+  ],
+  "items": [
+    {
+      "group": "in_glossary",
+      "question": "What is LLM (Large Language Model)?",
+      "term_id": "llm",
+      "term": "LLM (Large Language Model)",
+      "gold": "A model trained on large amounts of text that generates text by predicting the tokens following its input. It can handle many tasks, including question answering, summarization, and code generation, simply by changing the instructions (prompt).",
+      "must_include": [
+        "predicting",
+        "summarization"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "Briefly explain Context window.",
+      "term_id": "context-window",
+      "term": "Context window",
+      "gold": "The maximum total number of input and output tokens an LLM can handle in one call. Conversation history and tool results must also fit within this limit, making the choice of what to pass to the model important.",
+      "must_include": [
+        "one call",
+        "tool results"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is Hallucination?",
+      "term_id": "hallucination",
+      "term": "Hallucination",
+      "gold": "The phenomenon of an LLM generating plausible content that is factually incorrect or nonexistent. It is more likely when asked about things the model does not know, such as recent information or organization- or course-specific details. Mitigations include consulting external data through tools, asking for evidence, and detecting errors through evaluation.",
+      "must_include": [
+        "course-specific",
+        "external data"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is LoRA?",
+      "term_id": "lora",
+      "term": "LoRA",
+      "gold": "A PEFT method that freezes pretrained weights, represents weight updates as the product of two small matrices (low-rank matrices), and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.",
+      "must_include": [
+        "low-rank",
+        "adapters",
+        "Lecture 02"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "Briefly explain QLoRA.",
+      "term_id": "qlora",
+      "term": "QLoRA",
+      "gold": "A method that saves memory by quantizing base-model weights to, for example, 4 bits, then trains with LoRA. This lets smaller GPUs handle larger models. In the Lecture 02 exercises, the model fits in GPU memory, so we train with LoRA and compare memory and output differences when loading in 4-bit in the advanced section.",
+      "must_include": [
+        "4 bits",
+        "smaller GPUs"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is Overfitting?",
+      "term_id": "overfitting",
+      "term": "Overfitting",
+      "gold": "A state in which the model fits training data excessively and performs worse on unseen inputs. Detect it by measuring performance on validation data not used for training.",
+      "must_include": [
+        "validation data",
+        "unseen"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is MCP (Model Context Protocol)?",
+      "term_id": "mcp",
+      "term": "MCP (Model Context Protocol)",
+      "gold": "An open standard protocol connecting AI applications to external tools and data sources. Tools exposed through an MCP server can be used in a common way from compatible agents and editors (MCP clients). In Lecture 05, you will experience this by turning glossary search into an MCP server.",
+      "must_include": [
+        "open standard",
+        "Lecture 05"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "Briefly explain Guardrail.",
+      "term_id": "guardrail",
+      "term": "Guardrail",
+      "gold": "A constraint or check designed to prevent undesirable agent behavior or outputs. Methods include rules in instructions, restricting tool permissions, checking outputs, and requesting human confirmation before important operations.",
+      "must_include": [
+        "tool permissions",
+        "human confirmation"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is Harness?",
+      "term_id": "harness",
+      "term": "Harness",
+      "gold": "A program that surrounds an LLM with a loop, tools, a user interface (UI), and so on to enable actual work. Claude Code and Pi are examples. Pi is known as a thin harness with just four built-in tools: read, write, edit, and bash.",
+      "must_include": [
+        "Claude Code",
+        "four built-in tools"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is Pi?",
+      "term_id": "pi",
+      "term": "Pi",
+      "gold": "An open-source (MIT-licensed) coding agent that runs in the terminal. It has minimal features and a minimal system prompt, designed for users to extend. Version 1.0 was released in October 2026. Its npm package name is @earendil-works/pi-coding-agent.",
+      "must_include": [
+        "MIT",
+        "terminal",
+        "@earendil-works/pi-coding-agent"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "What is Default model?",
+      "term_id": "default-model",
+      "term": "Default model",
+      "gold": "The standard model for AIE2026 exercises and homework is gemini-3.5-flash-lite, chosen with free-tier rate limits and stable course operation in mind. You may switch models with the AIE_MODEL environment variable or use your own API subscription.",
+      "must_include": [
+        "gemini-3.5-flash-lite",
+        "AIE_MODEL"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "in_glossary",
+      "question": "Briefly explain answer.md.",
+      "term_id": "answer-md",
+      "term": "answer.md",
+      "gold": "The file for recording exercise and homework results for each AIE2026 lecture. Located at lectures/NN/answer.md. Record the level attempted, what you did, results, and observations, then submit by opening a PR from your working branch to main in your own fork.",
+      "must_include": [
+        "lectures/NN/answer.md",
+        "working branch"
+      ],
+      "why": "Exact training template; measures memorization of a seen question."
+    },
+    {
+      "group": "paraphrased",
+      "question": "What does HITL mean in agent design?",
+      "term_id": "human-in-the-loop",
+      "term": "Human-in-the-loop",
+      "gold": "Incorporating human confirmation or approval into agent processing. Used before operations that are difficult to undo, such as writing or sending data. In Pydantic AI, tools with requires_approval=True support this.",
+      "must_include": [
+        "difficult to undo",
+        "requires_approval"
+      ],
+      "why": "Alias (acronym) plus extra context words; also contains the generic alias 'agent', which tempts a naive search."
+    },
+    {
+      "group": "paraphrased",
+      "question": "In LoRA, what does the r hyperparameter control?",
+      "term_id": "lora-rank",
+      "term": "Rank (LoRA r)",
+      "gold": "A hyperparameter that determines the size of the low-rank matrices used in LoRA. A larger value increases expressive capacity, but also increases the number of trainable parameters and memory use.",
+      "must_include": [
+        "expressive capacity",
+        "trainable parameters"
+      ],
+      "why": "Asks about the one-letter alias 'r' inside a LoRA question; tests whether the right entry (rank, not LoRA) is chosen."
+    },
+    {
+      "group": "paraphrased",
+      "question": "Why would I get a 429 error from an LLM API?",
+      "term_id": "rate-limit",
+      "term": "Rate limit",
+      "gold": "A limit on requests or tokens within a given time period. Exceeding it returns errors such as HTTP 429. Free tiers have particularly strict limits, and agents reach them easily because they call the LLM multiple times for one question.",
+      "must_include": [
+        "free tiers",
+        "multiple times"
+      ],
+      "why": "Symptom-style question: the alias '429 error' appears, but the term 'rate limit' never does."
+    },
+    {
+      "group": "paraphrased",
+      "question": "What does Low-Rank Adaptation do to a pretrained model?",
+      "term_id": "lora",
+      "term": "LoRA",
+      "gold": "A PEFT method that freezes pretrained weights, represents weight updates as the product of two small matrices (low-rank matrices), and trains only those small matrices. It trains few parameters and saves the results (adapters) in small files. The Lecture 02 exercises cover LoRA.",
+      "must_include": [
+        "adapters",
+        "Lecture 02"
+      ],
+      "why": "Long-form alias with a new question frame; course-specific keywords check it is the glossary answer, not general knowledge."
+    },
+    {
+      "group": "paraphrased",
+      "question": "How do I pass a Codespaces secret to my code, and what if my Codespace is already running?",
+      "term_id": "codespaces-secret",
+      "term": "Codespaces secret",
+      "gold": "A secret value registered in your GitHub account settings. It is passed as an environment variable when you start Codespaces for a selected repository. When registering it, select the repository you will use (your own fork). If registered while a Codespace is running, restart the Codespace.",
+      "must_include": [
+        "environment variable",
+        "restart",
+        "own fork"
+      ],
+      "why": "Two-part practical question that overlaps with the more generic 'Codespaces' entry."
+    },
+    {
+      "group": "paraphrased",
+      "question": "What goes into devcontainer.json?",
+      "term_id": "devcontainer",
+      "term": "devcontainer",
+      "gold": "A mechanism for defining a development environment as a container. Specify the Python version, extensions, and startup commands in .devcontainer/devcontainer.json so everyone opening Codespaces gets the same environment.",
+      "must_include": [
+        "Python version",
+        "startup commands"
+      ],
+      "why": "Asks via the file-name alias and about contents rather than 'what is'."
+    },
+    {
+      "group": "paraphrased",
+      "question": "What is instruction tuning?",
+      "term_id": "sft",
+      "term": "Supervised Fine-Tuning (SFT)",
+      "gold": "A method of further training a model using pairs of inputs and desired outputs, such as questions and model answers. A representative method for teaching instruction-following behavior.",
+      "must_include": [
+        "pairs",
+        "instruction-following"
+      ],
+      "why": "Synonym alias that never names SFT; general knowledge may give a different (broader) definition."
+    },
+    {
+      "group": "paraphrased",
+      "question": "Walk me through the tool-calling loop of an agent.",
+      "term_id": "agent-loop",
+      "term": "Agent loop",
+      "gold": "The process of passing input to the model → executing any tool calls returned by the model → returning results to the model, repeated until the model gives a final answer. Multiple LLM calls for one question have a substantial effect on time, charges, and rate limits.",
+      "must_include": [
+        "final answer",
+        "rate limits"
+      ],
+      "why": "Imperative wording with the alias 'tool-calling loop'; competes with 'tool' and 'agent' entries."
+    },
+    {
+      "group": "paraphrased",
+      "question": "Which model do the AIE2026 exercises use by default?",
+      "term_id": "default-model",
+      "term": "Default model",
+      "gold": "The standard model for AIE2026 exercises and homework is gemini-3.5-flash-lite, chosen with free-tier rate limits and stable course operation in mind. You may switch models with the AIE_MODEL environment variable or use your own API subscription.",
+      "must_include": [
+        "gemini-3.5-flash-lite",
+        "AIE_MODEL"
+      ],
+      "why": "Purely course-specific fact asked without the term or any alias; only memorized knowledge can answer it."
+    },
+    {
+      "group": "paraphrased",
+      "question": "What should I avoid doing with my API key, and how is it read in this course?",
+      "term_id": "api-key",
+      "term": "API key",
+      "gold": "A secret string that identifies the person calling an API. If it leaks, someone else can consume your usage allowance, so do not put it directly in code, commit it, or paste it into chat. In this course, register it as a Codespaces secret and read it through the GEMINI_API_KEY environment variable.",
+      "must_include": [
+        "commit",
+        "GEMINI_API_KEY"
+      ],
+      "why": "Advice-style question; GEMINI_API_KEY is a course-specific detail a generic answer would miss."
+    },
+    {
+      "group": "paraphrased",
+      "question": "Explain quantisation of model weights.",
+      "term_id": "quantization",
+      "term": "Quantization",
+      "gold": "A technique for representing model weights with fewer bits (for example, from 16 bits to 4 bits) to reduce memory use and computation. Accuracy may decrease slightly.",
+      "must_include": [
+        "fewer bits",
+        "4 bits"
+      ],
+      "why": "British spelling ('quantisation'): no exact match, tests the fuzzy fallback and spelling robustness."
+    },
+    {
+      "group": "paraphrased",
+      "question": "Why do LLMs sometimes confidently make up facts?",
+      "term_id": "hallucination",
+      "term": "Hallucination",
+      "gold": "The phenomenon of an LLM generating plausible content that is factually incorrect or nonexistent. It is more likely when asked about things the model does not know, such as recent information or organization- or course-specific details. Mitigations include consulting external data through tools, asking for evidence, and detecting errors through evaluation.",
+      "must_include": [
+        "course-specific",
+        "external data"
+      ],
+      "why": "Describes the phenomenon without naming it; keyword search has nothing to match."
+    },
+    {
+      "group": "paraphrased",
+      "question": "How do I avoid name collisions between tools from multiple MCP servers?",
+      "term_id": "tool-namespace",
+      "term": "Tool namespace",
+      "gold": "Adding a prefix such as \"server_name_tool_name\" to distinguish identically named tools when using multiple MCP servers. This course's app/agent.py automatically adds the server name from the configuration (for example, glossary_search_glossary; Pydantic AI's load_mcp_toolsets does the same). More tools mean more descriptions sent to the model, affecting tool-selection accuracy and token counts.",
+      "must_include": [
+        "prefix",
+        "server_name_tool_name"
+      ],
+      "why": "Plural of the alias 'name collision' plus the competing term 'MCP'; tests problem-to-term mapping."
+    },
+    {
+      "group": "absent",
+      "question": "What is RAG (retrieval-augmented generation)?",
+      "term": "RAG",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Very common AI term; closely related to the course's glossary-search agent but not a glossary entry."
+    },
+    {
+      "group": "absent",
+      "question": "Can you explain RLHF?",
+      "term": "RLHF",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Training-related acronym that sits next to SFT/fine-tuning, so the model may borrow those definitions."
+    },
+    {
+      "group": "absent",
+      "question": "What is a vector database used for?",
+      "term": "vector database",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Infrastructure term with no lexical overlap with glossary keys."
+    },
+    {
+      "group": "absent",
+      "question": "What is an embedding in machine learning?",
+      "term": "embedding",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Generic ML term the base model knows well; tests abstaining despite confident knowledge."
+    },
+    {
+      "group": "absent",
+      "question": "How does beam search decoding work?",
+      "term": "beam search",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Contains the word 'search' (the course builds a glossary search) but is a decoding method."
+    },
+    {
+      "group": "absent",
+      "question": "What is knowledge distillation?",
+      "term": "knowledge distillation",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Training technique adjacent to fine-tuning/LoRA."
+    },
+    {
+      "group": "absent",
+      "question": "What is a Mixture of Experts model?",
+      "term": "Mixture of Experts",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Architecture term; 'model' is generic and not a glossary key."
+    },
+    {
+      "group": "absent",
+      "question": "What is prompt injection?",
+      "term": "prompt injection",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Deliberately contains the glossary term 'prompt': a substring-based search will wrongly assert the Prompt definition."
+    },
+    {
+      "group": "absent",
+      "question": "What does top-p sampling do?",
+      "term": "top-p",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "Generation setting adjacent to the glossary's 'temperature' entry."
+    },
+    {
+      "group": "absent",
+      "question": "What is chain-of-thought prompting?",
+      "term": "chain-of-thought",
+      "gold": "That term is not in the course glossary.",
+      "must_include": [],
+      "why": "'prompting' is close to 'prompt'; tests the fuzzy-match threshold."
+    }
+  ]
+}
