@@ -1,5 +1,13 @@
 # Lecture 02 Answers
 
+> **Summary.** Advanced task: LoRA r16 on `Qwen/Qwen3.5-0.8B` for a course glossary, 3 seeds (42, 7, 2026), mean (min–max) over seeds.
+> - Plain SFT learns the exact terms (keyword hit 1.00) but not paraphrases (0.28, 0.15–0.38), and never abstains on absent terms (0.00).
+> - Augmented SFT (alias + abstention examples) lifts paraphrases to 0.79 (0.62–0.92) and alias F1 to 1.000, but abstains on only 0.10 of absent terms.
+> - Search + trained model keeps search's abstention on absent terms (0.90, same as search alone; trained models alone reach at most 0.20) with alias F1 0.95–0.99.
+> - Basic task: `lora_r` 4 matched 16 — 20/21 after-training outputs identical in the rerun (content 0.952 vs 0.905), with 4x fewer trainable params (1,597,440 vs 6,389,760).
+>
+> ![Keyword hit on exact and paraphrased glossary questions, mean over 3 seeds with min–max bars](advanced/v3/summary_chart.png)
+
 ## Exercises
 
 - Model and settings used (from `config` in `result.json`): `Qwen/Qwen3.5-0.8B` (revision 2fc0636), LoRA without quantization, seed 42, 20 epochs (40 steps), lr 2e-4, warmup 6, `lora_r` 16, `lora_alpha` 32, max_seq_len 512, greedy decoding (max_new_tokens 96). Colab T4 GPU; transformers 5.18.0, peft 0.21.1, trl 1.14.2, torch 2.11.0.
@@ -168,3 +176,14 @@ What I take from this:
 ### Overall
 
 - Discussion of when fine-tuning is and is not suitable: fine-tuning is suitable for teaching **how** to answer: a strict output format (the FAQ JSON), a tone, the exact wording of a glossary, or a fixed refusal phrase, where there are many examples and the content does not change often. It is not suitable as the source of **what** is true, especially facts that change (deadlines, instructor names, schedules), and it does not guarantee that a model says "I don't know" on unseen questions: in all three of my experiments the trained model still asserts answers for near-miss or absent items (office hours, the Kage listener questions, absent glossary terms: 0/10 abstained in the first run, and at most 2/10 in any v3 seed even with explicit abstention examples). For facts, retrieval (search the FAQ or glossary and answer from the entry) plus a rule such as "abstain or set `needs_review` when nothing was retrieved" is more reliable and easier to update. The glossary experiment shows the two combine well: the fine-tuned model is a better generator inside search + model than the base model, so fine-tuning is best used on top of retrieval for format and faithfulness, not instead of it.
+
+## Limitations
+
+- Small eval set: 12 in-glossary, 13 paraphrased, 10 absent, 12 alias and 10 made-up questions, so one question moves a rate by 0.08–0.10.
+- Only 3 seeds; the min–max ranges are wide on the small groups and are not confidence intervals.
+- A single 0.8B model (`Qwen/Qwen3.5-0.8B`, one revision); results may not carry over to larger models or other families.
+- Colab T4 constraints: short runs, max_new_tokens 150, greedy decoding only, no hyperparameter search.
+- The Basic rank rerun passed seed 42 only through `SFTConfig` and did not call `set_seed` before creating the adapter, so the adapter initialisation was not explicitly controlled and the one-question gap may come from that rather than from the rank.
+- Keyword hit and F1 are rough proxies for correctness; answers were not graded by hand.
+- The validation split reuses the training terms with a different prompt, so val loss measures fit, not generalisation to new terms.
+- `sft_jsonl_sha256` covers only the plain SFT file, not the augmented training set built in the notebook.
