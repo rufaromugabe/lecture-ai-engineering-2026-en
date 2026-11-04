@@ -1,0 +1,14 @@
+$ uv run python -m app.agent --trace "What is LoRA?"  # no save requested: no approval prompt
+[model] gemini-3.5-flash-lite
+**LoRA** (Low-Rank Adaptation) is a Parameter-Efficient Fine-Tuning (PEFT) method. Instead of updating all the enormous weights of a pretrained model, LoRA keeps the original base model frozen and represents weight updates using two smaller matrices (low-rank matrices). By training only these much smaller matrices, it drastically reduces the number of trainable parameters and memory usage while still adapting the model effectively.
+
+To think about how it works, imagine taking a large matrix of weights and approximating the changes needed for a new task using a low-rank decomposition. 
+
+To explore further, consider: *How does changing the rank ($r$) hyperparameter affect both the trainable parameter count and the model's expressive capacity?*
+
+Lecture 02
+
+--- trace ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[usage] RunUsage(cost=Decimal('0.0008672'), details={'text_prompt_tokens': 1449}, input_text_tokens=1449, input_tokens=1449, output_tokens=173, requests=2, tool_calls=1)

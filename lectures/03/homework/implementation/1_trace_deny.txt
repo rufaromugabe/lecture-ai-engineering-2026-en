@@ -1,0 +1,24 @@
+$ echo n | uv run python -m app.agent --trace "Please save a short learning log about the difference between LoRA and QLoRA, with the title 'LoRA vs QLoRA'."  # deny first: nothing must be written
+[model] gemini-3.5-flash-lite
+
+[approval needed] save_learning_log
+  content: - **LoRA (Low-Rank Adaptation):** Freezes the pretrained base model weights and trains only small low-rank matrices (adapters) to represent weight updates. It dramatically reduces the number of trainable parameters and adapter file sizes.
+- **QLoRA (Quantized LoRA):** Extends LoRA by quantizing the base model weights to a lower precision (e.g., 4-bit) to significantly reduce memory consumption, enabling the training of large models on smaller GPUs.
+  title: LoRA vs QLoRA
+Save this? [y/N] [approval] denied
+It looks like the request to save the learning log was declined. If you would like to try again or if you have any questions about LoRA, QLoRA, or anything else from Lecture 02, just let me know!
+
+Lecture 02
+
+--- trace ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'QLoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "QLoRA", "lecture": 2, "definition": "A method that saves memory by quantizing base-model weights to, for exam…
+[tool call]   save_learning_log({'content': '- **LoRA (Low-Rank Adaptation):** Freezes the pretrained base model weights and trains only small low-rank matrices (adapters) to represent weight updates. It dramatically reduces the number of trainable parameters and adapter file sizes.\n- **QLoRA (Quantized LoRA):** Extends LoRA by quantizing the base model weights to a lower precision (e.g., 4-bit) to significantly reduce memory consumption, enabling the training of large models on smaller GPUs.', 'title': 'LoRA vs QLoRA'})
+[tool return] save_learning_log -> The user declined to save this learning log. Nothing was written; do not retry unless asked.…
+[usage] RunUsage(cost=Decimal('0.0005195'), details={'text_prompt_tokens': 1290}, input_text_tokens=1290, input_tokens=1290, output_tokens=53, requests=1)
+[usage before approval pause 1] RunUsage(cost=Decimal('0.0009325'), details={'text_prompt_tokens': 1725}, input_text_tokens=1725, input_tokens=1725, output_tokens=166, requests=2, tool_calls=2)
+
+$ ls learning_log/
+ls: cannot access 'learning_log': No such file or directory

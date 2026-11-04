@@ -1,0 +1,24 @@
+$ echo y | uv run python -m app.agent --trace "Please save a short learning log about the difference between LoRA and QLoRA, with the title 'LoRA vs QLoRA'."  # approve: file created
+[model] gemini-3.5-flash-lite
+
+[approval needed] save_learning_log
+  title: LoRA vs QLoRA
+  content: - **LoRA (Low-Rank Adaptation):** Freezes the pretrained base model weights and trains only small low-rank matrices (adapters) to represent weight updates. This drastically reduces the number of trainable parameters and saves storage.
+- **QLoRA (Quantized LoRA):** Combines LoRA with weight quantization (e.g., quantizing the base model weights to 4 bits). This further reduces memory consumption, enabling larger models to be fine-tuned on smaller GPUs.
+Save this? [y/N] [approval] approved
+I have saved the learning log about **LoRA vs QLoRA** for you!
+
+Relevant Session: Lecture 02
+
+--- trace ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'QLoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "QLoRA", "lecture": 2, "definition": "A method that saves memory by quantizing base-model weights to, for exam…
+[tool call]   save_learning_log({'title': 'LoRA vs QLoRA', 'content': '- **LoRA (Low-Rank Adaptation):** Freezes the pretrained base model weights and trains only small low-rank matrices (adapters) to represent weight updates. This drastically reduces the number of trainable parameters and saves storage.\n- **QLoRA (Quantized LoRA):** Combines LoRA with weight quantization (e.g., quantizing the base model weights to 4 bits). This further reduces memory consumption, enabling larger models to be fine-tuned on smaller GPUs.'})
+[tool return] save_learning_log -> Saved learning_log/2026-11-05_lora-vs-qlora.md…
+[usage] RunUsage(cost=Decimal('0.0004538'), details={'text_prompt_tokens': 1296}, input_text_tokens=1296, input_tokens=1296, output_tokens=26, requests=1, tool_calls=1)
+[usage before approval pause 1] RunUsage(cost=Decimal('0.0009300'), details={'text_prompt_tokens': 1725}, input_text_tokens=1725, input_tokens=1725, output_tokens=165, requests=2, tool_calls=2)
+
+$ ls learning_log/
+2026-11-05_lora-vs-qlora.md
