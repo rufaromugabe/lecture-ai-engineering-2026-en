@@ -1,0 +1,166 @@
+[
+ {
+  "question": "Q1",
+  "run": 1,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "LoRA"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "QLoRA"
+    }
+   ]
+  ],
+  "answer": "To understand the difference, let's look at how each approach handles the model weights and memory:\n\n* **LoRA (Low-Rank Adaptation):** Freezes the pretrained base model weights and introduces small, trainable low-rank matrices to represent weight updates. This drastically reduces the number of parameters that need to be trained, saving both storage and compute time.\n* **QLoRA (Quantized LoRA):** Takes the concept of LoRA a step further by quantizing the base-model weights down to a lower precision (such as 4-bit) before applying LoRA. This significantly reduces the memory footprint required to load and train the model, allowing much larger models to fit onto smaller GPUs.\n\nThink about how quantization changes the memory requirements of the base model while LoRA focuses purely on training efficiency via low-rank updates. Combining them allows QLoRA to achieve memory savings that standard LoRA alone cannot provide.\n\nLecture 02"
+ },
+ {
+  "question": "Q1",
+  "run": 2,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "LoRA"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "QLoRA"
+    }
+   ]
+  ],
+  "answer": "To understand the difference between LoRA and QLoRA, let's break down how each approach works:\n\n* **LoRA (Low-Rank Adaptation):** This is a Parameter-Efficient Fine-Tuning (PEFT) method where the pretrained model's base weights are frozen. Instead of updating all parameters, it represents weight updates as the product of two small low-rank matrices and trains only those small matrices. This significantly reduces the number of trainable parameters and saves storage space by producing small adapter files.\n* **QLoRA (Quantized LoRA):** This builds upon LoRA by adding **quantization** (such as loading the base model weights in 4-bit precision). By quantizing the base model, QLoRA drastically reduces the memory required to load and run the model, enabling you to train larger models on smaller GPUs while still using LoRA for the actual weight updates.\n\nTo help you think about this: consider what happens to the precision and memory footprint of the base model weights before the low-rank adaptation is applied.\n\n(Lecture 02)"
+ },
+ {
+  "question": "Q2",
+  "run": 1,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "PEFT"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "LoRA"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "rank"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "quantization"
+    }
+   ]
+  ],
+  "answer": "To understand how these concepts relate to one another, it helps to start from the broad category and narrow down to the specific mechanisms:\n\n1. **PEFT (Parameter-Efficient Fine-Tuning):** Think of PEFT as the overarching strategy. Instead of updating every single parameter in a massive pretrained model, PEFT methods update only a small fraction of them (or a small set of added parameters), drastically reducing GPU memory and storage needs.\n\n2. **LoRA (Low-Rank Adaptation):** LoRA is one of the most popular and representative methods under the PEFT umbrella. Rather than modifying the original model weights, LoRA freezes them and instead models weight updates using a pair of smaller matrices.\n\n3. **Rank (LoRA $r$):** The **rank** is a key hyperparameter in LoRA. It determines the inner dimension and size of those small low-rank matrices. Adjusting the rank lets you trade off expressive capacity against the number of trainable parameters and memory usage.\n\n4. **Quantization:** Quantization is a technique that reduces the memory footprint of a model by representing its weights using fewer bits (such as dropping from 16-bit to 4-bit precision). When you combine quantization with LoRA (often called **QLoRA**), you can freeze and compress the base model weights into lower precision, and then train the small LoRA adapters on top of it. This allows much larger models to fit onto smaller GPUs.\n\nTo explore this further, think about how freezing a base model via PEFT and reducing its precision via quantization both serve the goal of saving memory, while LoRA and its rank control *how* the adaptation parameters are structured and sized.\n\n(Lecture 02)"
+ },
+ {
+  "question": "Q2",
+  "run": 2,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "PEFT"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "LoRA"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "rank"
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "quantization"
+    }
+   ]
+  ],
+  "answer": "To understand how these concepts fit together, let's look at them step-by-step:\n\n* **PEFT (Parameter-Efficient Fine-Tuning):** This is the broader family of techniques designed to adapt large pretrained models without updating all of their parameters. \n* **LoRA (Low-Rank Adaptation):** LoRA is one of the most popular PEFT methods. Instead of tuning every parameter in the model, LoRA freezes the original weights and approximates the weight updates by factoring them into two smaller matrices.\n* **Rank ($r$):** The rank is a hyperparameter in LoRA that determines the size (or dimensionality) of those small matrices. Think of it as a dial: a higher rank gives the model more capacity to learn complex updates, but it also increases the number of trainable parameters and memory usage.\n* **Quantization:** This is a technique that reduces the memory footprint of a model by representing its weights using fewer bits (e.g., shrinking 16-bit floats down to 4 bits). When you combine quantization with LoRA (often referred to as QLoRA), you quantize the frozen base model to save massive amounts of memory, while still training the small low-rank LoRA matrices in higher precision.\n\nTo think about how they relate: **PEFT** is the overarching goal, **LoRA** is the specific technique to achieve it, **rank** controls the size and capacity of the LoRA matrices, and **quantization** can be paired with LoRA to drastically cut down memory requirements for the base model.\n\n(Lecture 02)"
+ },
+ {
+  "question": "Q3",
+  "run": 1,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "RLHF"
+    }
+   ]
+  ],
+  "answer": "It is not in the glossary."
+ },
+ {
+  "question": "Q3",
+  "run": 2,
+  "calls": [
+   [
+    "search_glossary",
+    {
+     "query": "RLHF"
+    }
+   ]
+  ],
+  "answer": "It is not in the glossary. \n\nHowever, if you'd like to explore how alignment and training techniques are structured across the course, let me know and we can look into the specific lecture summaries!"
+ },
+ {
+  "question": "Q4",
+  "run": 1,
+  "calls": [
+   [
+    "get_lecture_summary",
+    {
+     "lecture": 3
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "harness"
+    }
+   ]
+  ],
+  "answer": "In **Lecture 03**, you will learn about AI agents, specifically focusing on:\n- Understanding that an AI agent's basic structure is **\"model + loop + tools\"**.\n- Building and running your own learning support agent that uses tools with Pydantic AI.\n- Exploring concepts like the cost of the agent loop, harnesses, frameworks (such as Pydantic AI and ADK), guardrails, and human-in-the-loop interactions.\n- Practicing exercises such as inspecting which tools were called with which arguments and adding a new tool.\n\nAs for a **harness**, according to the glossary:\n> A program that surrounds an LLM with a loop, tools, a user interface (UI), and so on to enable actual work. Claude Code and Pi are examples. Pi is known as a thin harness with just four built-in tools: read, write, edit, and bash.\n\n(Lecture 03)"
+ },
+ {
+  "question": "Q4",
+  "run": 2,
+  "calls": [
+   [
+    "get_lecture_summary",
+    {
+     "lecture": 3
+    }
+   ],
+   [
+    "search_glossary",
+    {
+     "query": "harness"
+    }
+   ]
+  ],
+  "answer": "In **Lecture 03**, you will learn about the foundational structure of **AI agents** (\"model + loop + tools\") and build and run your own learning support agent using Pydantic AI. Specifically, you will explore how agents use tools, understand the cost of the agent loop, examine how harnesses like Pi and Claude Code work, and practice adding tools and checking agent behaviors.\n\nA **harness** is defined in the glossary as:\n> A program that surrounds an LLM with a loop, tools, a user interface (UI), and so on to enable actual work. Claude Code and Pi are examples. Pi is known as a thin harness with just four built-in tools: read, write, edit, and bash.\n\n*(Lecture 03)*"
+ }
+]

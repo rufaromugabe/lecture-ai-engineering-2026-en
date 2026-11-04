@@ -1,0 +1,30 @@
+$ printf "<Q1..Q4>\nexit\n" | PYTHONPATH=. uv run --with google-adk adk run adk_agent/glossary_agent
+Running agent glossary_agent, type exit to exit.
+[user]: [glossary_agent]: To understand the difference between LoRA and QLoRA, it helps to look at what each technique does:
+
+* **LoRA (Low-Rank Adaptation):** This is a Parameter-Efficient Fine-Tuning (PEFT) method where the pretrained model's base weights are frozen, and weight updates are represented as the product of two small, low-rank matrices. Only these small matrices are trained, which significantly reduces the number of trainable parameters and saves storage space.
+* **QLoRA (Quantized LoRA):** This builds on LoRA by first quantizing the base model's weights down to a lower precision (such as 4-bit) to save a substantial amount of GPU memory. Then, it applies LoRA training on top of the quantized base model, allowing even larger models to be fine-tuned on more modest hardware.
+
+Think about how quantization affects the memory footprint of the base model before the low-rank adapters are even applied. 
+
+(Lecture 02)
+[user]: [glossary_agent]: These concepts connect as a hierarchy of techniques designed to make fine-tuning large language models more efficient:
+
+* **PEFT** is the broad umbrella category for any technique that avoids full fine-tuning by modifying or training only a small fraction of a model's parameters.
+* **LoRA** is a specific and popular method *under* the PEFT umbrella, which achieves parameter efficiency by freezing base weights and introducing low-rank trainable adapters.
+* **Rank (LoRA $r$)** is a key hyperparameter within LoRA that dictates the size and expressive capacity of those low-rank matrices.
+* **Quantization** is a memory-saving technique that reduces the bit-precision of the model weights (e.g., from 16-bit to 4-bit). When combined with LoRA, it creates **QLoRA**, enabling efficient training on smaller hardware.
+
+Consider how each concept tackles a different bottleneck—either the number of parameters you train (PEFT/LoRA/Rank) or the memory required to hold the model weights in memory (Quantization). How do you think reducing the rank affects the trade-off between model capacity and memory usage?
+
+(Lecture 02)
+[user]: [glossary_agent]: It is not in the glossary.
+[user]: [glossary_agent]: In **Lecture 03**, you will learn about **AI Agents**. The key topics include:
+* Understanding the basic structure of an agent: **model + loop + tools**.
+* Building and running your own learning support agent using **Pydantic AI**.
+* Examining the costs and mechanics of the agent loop, tool design, guardrails, and human-in-the-loop workflows.
+
+A **harness** is defined as a program that surrounds an LLM with a loop, tools, and a user interface (UI) to enable it to perform actual work. Examples include Claude Code and Pi (a thin harness featuring just four built-in tools: read, write, edit, and bash).
+
+(Lecture 03)
+[user]: 
