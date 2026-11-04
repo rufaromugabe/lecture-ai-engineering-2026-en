@@ -1,0 +1,16 @@
+# variant V3: INSTRUCTIONS: 'End your answer by indicating the relevant session' -> 'End your answer with one review question'
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 2
+
+[answer]
+It is not in the glossary. 
+
+However, thinking about how Reinforcement Learning from Human Feedback works in AI engineering generally: it is a training methodology where a model is fine-tuned using human preference data to align its behavior more closely with human intentions and safety guidelines. 
+
+To help you explore this concept further: How do you think reward models are used in the RLHF pipeline to guide the generation behavior of a language model?
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0005329'), details={'text_prompt_tokens': 893}, input_text_tokens=893, input_tokens=893, output_tokens=106, requests=2, tool_calls=1)

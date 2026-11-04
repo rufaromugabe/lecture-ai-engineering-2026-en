@@ -1,0 +1,38 @@
+# variant V1: INSTRUCTIONS: delete the 'Always check the glossary with search_glossary' line
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 2
+
+[answer]
+It is not in the glossary. 
+
+To give you a hint: RLHF (Reinforcement Learning from Human Feedback) is a method used to align language models with human preferences using reward signals derived from human evaluations. Think about which phase of model development or training this alignment process typically happens in—such as after pretraining, or alongside fine-tuning techniques covered earlier in the course. 
+
+Check the lecture covering model training and adaptation (Lecture 02)!
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[tool call]   get_lecture_summary({'lecture': 1})
+[tool return] get_lecture_summary -> # Lecture 01 Introduction to AI Engineering and the Development Environment
+
+## Aims
+
+- Understand that AI engineering f…
+[tool call]   get_lecture_summary({'lecture': 2})
+[tool return] get_lecture_summary -> # Lecture 02 Fine-Tuning and LoRA
+
+## Aims
+
+- Understand the difference between pretraining and fine-tuning, and when fi…
+[tool call]   search_glossary({'query': 'Reinforcement Learning from Human Feedback'})
+[tool return] search_glossary -> The term 'Reinforcement Learning from Human Feedback' was not found in the glossary.…
+[tool call]   get_lecture_summary({'lecture': 7})
+[tool return] get_lecture_summary -> Key points for Lecture 07 are not available yet. Available sessions: 01, 02, 03, 05…
+[tool call]   get_lecture_summary({'lecture': 5})
+[tool return] get_lecture_summary -> # Lecture 05 External Tools and MCP
+
+## Aims
+
+- Understand how to extract agent tools from functions inside an applicati…
+[usage] RunUsage(cost=Decimal('0.0028617'), details={'text_prompt_tokens': 7889}, input_text_tokens=7889, input_tokens=7889, output_tokens=198, requests=7, tool_calls=6)

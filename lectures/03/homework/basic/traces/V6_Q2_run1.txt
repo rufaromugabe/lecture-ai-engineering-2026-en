@@ -1,0 +1,25 @@
+# variant V6: COMBINED (2 changes): V1 + V5, no 'search first' rule anywhere
+# model gemini-3.5-flash-lite
+# question Q2: How are PEFT, LoRA, rank and quantization related to each other?
+# run 1
+
+[answer]
+These four concepts all work together to make large language models efficient to adapt and run on consumer-grade hardware. Here is how they connect:
+
+* **PEFT (Parameter-Efficient Fine-Tuning):** This is the overarching framework. Instead of updating all billions of parameters in a pretrained model, PEFT methods only update a small fraction of them.
+* **LoRA (Low-Rank Adaptation):** This is one of the most popular implementations of PEFT. Rather than tweaking original weights directly, LoRA freezes the base model and approximates the weight updates by factoring them into two smaller matrices.
+* **Rank ($r$):** This is a hyperparameter specific to LoRA that controls the dimension of those smaller matrices. A lower rank means fewer trainable parameters and less memory used, while a higher rank gives the model more expressive capacity.
+* **Quantization:** This is a technique that reduces the memory footprint of the model weights by representing them with fewer bits (e.g., from 16-bit to 4-bit). When combined with LoRA—often referred to as QLoRA—you can freeze a heavily quantized base model and train small LoRA adapters on top of it, drastically lowering the GPU memory required for fine-tuning.
+
+To think about how to apply these in practice, consider what happens to the number of trainable parameters if you decrease the rank $r$, or how quantizing the base model affects the precision of the frozen weights while you train your LoRA adapters.
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'PEFT'})
+[tool return] search_glossary -> [{"term": "PEFT", "lecture": 2, "definition": "An umbrella term for methods that train only a small subset of model para…
+[tool call]   search_glossary({'query': 'rank'})
+[tool return] search_glossary -> [{"term": "Rank (LoRA r)", "lecture": 2, "definition": "A hyperparameter that determines the size of the low-rank matric…
+[tool call]   search_glossary({'query': 'quantization'})
+[tool return] search_glossary -> [{"term": "Quantization", "lecture": 2, "definition": "A technique for representing model weights with fewer bits (for e…
+[usage] RunUsage(cost=Decimal('0.0017030'), details={'text_prompt_tokens': 2610}, input_text_tokens=2610, input_tokens=2610, output_tokens=368, requests=4, tool_calls=3)

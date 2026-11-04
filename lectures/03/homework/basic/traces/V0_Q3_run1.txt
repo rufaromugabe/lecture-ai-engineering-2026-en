@@ -1,0 +1,16 @@
+# variant V0: baseline (files as in the exercise)
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 1
+
+[answer]
+It is not in the glossary. 
+
+To help you find where it is covered or understand how it fits into the course, you can explore the lecture summaries (for example, sessions focusing on alignment, fine-tuning, or post-training). 
+
+*(Lecture NN)*
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0004529'), details={'text_prompt_tokens': 893}, input_text_tokens=893, input_tokens=893, output_tokens=74, requests=2, tool_calls=1)

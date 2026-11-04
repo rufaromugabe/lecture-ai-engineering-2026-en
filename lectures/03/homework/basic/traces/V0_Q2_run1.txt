@@ -1,0 +1,27 @@
+# variant V0: baseline (files as in the exercise)
+# model gemini-3.5-flash-lite
+# question Q2: How are PEFT, LoRA, rank and quantization related to each other?
+# run 1
+
+[answer]
+To understand how these concepts fit together, let's look at them step-by-step:
+
+* **PEFT (Parameter-Efficient Fine-Tuning)** is the broad umbrella term for approaches that update only a tiny fraction of a model's parameters rather than retraining the whole thing.
+* **LoRA** is a specific and widely used technique *within* the PEFT family. Instead of updating all the pretrained weights, LoRA freezes them and introduces small, trainable matrix updates.
+* **Rank** (often denoted as $r$) is the core hyperparameter of LoRA. It determines the dimensionality (size) of those low-rank update matrices. Think about how adjusting the rank controls the trade-off between the model's expressive capacity and the number of trainable parameters you have. 
+* **Quantization** reduces the memory footprint of the base model by storing its weights using fewer bits (such as 4-bit instead of 16-bit). When you combine quantization with LoRA—a technique known as QLoRA—you can fine-tune massive models on much smaller GPUs because the frozen base model takes up a fraction of its original memory.
+
+To help you connect this to your work: try thinking about what happens to your GPU memory and parameter count if you increase the LoRA rank versus if you apply 4-bit quantization to your base model. Which part of the network does each technique affect?
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'PEFT'})
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'rank'})
+[tool call]   search_glossary({'query': 'quantization'})
+[tool return] search_glossary -> [{"term": "PEFT", "lecture": 2, "definition": "An umbrella term for methods that train only a small subset of model para…
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "Rank (LoRA r)", "lecture": 2, "definition": "A hyperparameter that determines the size of the low-rank matric…
+[tool return] search_glossary -> [{"term": "Quantization", "lecture": 2, "definition": "A technique for representing model weights with fewer bits (for e…
+[usage] RunUsage(cost=Decimal('0.0014209'), details={'text_prompt_tokens': 1628}, input_text_tokens=1628, input_tokens=1628, output_tokens=373, requests=2, tool_calls=4)

@@ -1,0 +1,19 @@
+# variant V2: search_glossary docstring: 'Put only one term' -> 'Put several terms ... at once'
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 2
+
+[answer]
+It is not in the glossary. 
+
+However, RLHF stands for **Reinforcement Learning from Human Feedback**, which is a crucial training methodology used to align large language models with human preferences, values, and instructions. It typically involves three main steps:
+1. Supervised Fine-Tuning (SFT) on demonstration data.
+2. Training a reward model based on human comparisons of model outputs.
+3. Optimizing the language model using Reinforcement Learning (such as PPO) against that reward model.
+
+To find out which specific lecture covers this topic, you can check the session summaries or ask about a particular lecture's content!
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0006478'), details={'text_prompt_tokens': 901}, input_text_tokens=901, input_tokens=901, output_tokens=151, requests=2, tool_calls=1)

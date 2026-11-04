@@ -1,0 +1,32 @@
+# variant V1: INSTRUCTIONS: delete the 'Always check the glossary with search_glossary' line
+# model gemini-3.5-flash-lite
+# question Q4: What will we learn in Lecture 03, and what is a harness?
+# run 1
+
+[answer]
+In **Lecture 03**, you will learn about AI agents and how to build them. Specifically, you will cover:
+- The basic structure of an AI agent: **model + loop + tools**.
+- How agents achieve goals by letting an LLM call tools in a loop, examine the results, and decide its next step.
+- The cost implications of the agent loop (time, charges, and rate limits).
+- How to build and run your own learning support agent using **Pydantic AI** and tools.
+- Important concepts like guardrails, human-in-the-loop, and testing with a `TestModel`.
+
+As for a **harness**, according to the glossary:
+
+> A program that surrounds an LLM with a loop, tools, a user interface (UI), and so on to enable actual work. Claude Code and Pi are examples. Pi is known as a thin harness with just four built-in tools: read, write, edit, and bash.
+
+Think of the harness as the outer structure and environment that makes it practical to use an LLM for real tasks. 
+
+(Lecture 03)
+
+--- trace ---
+[tool call]   get_lecture_summary({'lecture': 3})
+[tool call]   search_glossary({'query': 'harness'})
+[tool return] get_lecture_summary -> # Lecture 03 AI Agents
+
+## Aims
+
+- Understand that an AI agent's basic structure is "model + loop + tools"
+- Build and r…
+[tool return] search_glossary -> [{"term": "Harness", "lecture": 3, "definition": "A program that surrounds an LLM with a loop, tools, a user interface (…
+[usage] RunUsage(cost=Decimal('0.0010856'), details={'text_prompt_tokens': 1352}, input_text_tokens=1352, input_tokens=1352, output_tokens=272, requests=2, tool_calls=2)

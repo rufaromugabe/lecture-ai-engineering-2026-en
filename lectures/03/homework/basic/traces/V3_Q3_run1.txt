@@ -1,0 +1,16 @@
+# variant V3: INSTRUCTIONS: 'End your answer by indicating the relevant session' -> 'End your answer with one review question'
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 1
+
+[answer]
+It is not in the glossary. 
+
+To help you find where reinforcement learning or alignment might be covered in the curriculum, you can check the session summaries or explore the course materials on how human feedback is used to align language models.
+
+*Review Question:* What are some common challenges or steps involved when fine-tuning a language model using human feedback?
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0004904'), details={'text_prompt_tokens': 893}, input_text_tokens=893, input_tokens=893, output_tokens=89, requests=2, tool_calls=1)

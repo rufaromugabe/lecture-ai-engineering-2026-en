@@ -1,0 +1,24 @@
+# variant V2: search_glossary docstring: 'Put only one term' -> 'Put several terms ... at once'
+# model gemini-3.5-flash-lite
+# question Q2: How are PEFT, LoRA, rank and quantization related to each other?
+# run 1
+
+[answer]
+These four concepts work together to make training large language models much more memory-efficient and practical on smaller hardware. 
+
+To help you think about how they connect, consider this roadmap:
+1. **PEFT** is the overarching strategy: instead of updating *all* the parameters of a massive pretrained model, we only modify a tiny fraction of them.
+2. **LoRA** is a specific technique *within* PEFT. Instead of full fine-tuning, it freezes the base model and approximates the weight updates using low-rank decomposition.
+3. **Rank** ($r$) is the core hyperparameter of LoRA that controls the dimension of those low-rank matrices—balancing how expressive the model update can be versus how many parameters you actually have to train.
+4. **Quantization** (as seen in QLoRA) tackles memory from another angle by reducing the bit-precision of the base model's weights (e.g., from 16-bit to 4-bit) so that even very large models can fit onto a single consumer GPU while you train your LoRA adapters.
+
+Think about how reducing both the number of trainable parameters (via PEFT/LoRA and rank) and the precision of the frozen weights (via quantization) compounds your memory savings!
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'PEFT LoRA rank quantization'})
+[tool return] search_glossary -> [{"term": "PEFT", "lecture": 2, "definition": "An umbrella term for methods that train only a small subset of model para…
+[tool call]   search_glossary({'query': 'quantization QLoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[usage] RunUsage(cost=Decimal('0.0014260'), details={'text_prompt_tokens': 2120}, input_text_tokens=2120, input_tokens=2120, output_tokens=316, requests=3, tool_calls=2)

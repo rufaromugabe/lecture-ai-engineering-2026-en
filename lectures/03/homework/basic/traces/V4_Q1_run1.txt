@@ -1,0 +1,23 @@
+# variant V4: INSTRUCTIONS: delete the 'If something is absent ... It is not in the glossary' line
+# model gemini-3.5-flash-lite
+# question Q1: What is the difference between LoRA and QLoRA?
+# run 1
+
+[answer]
+Both **LoRA** (Low-Rank Adaptation) and **QLoRA** (Quantized LoRA) are parameter-efficient fine-tuning (PEFT) techniques used to adapt large language models without updating all of their original weights. 
+
+Here is how to think about the difference between them:
+
+* **LoRA** freezes the pretrained base model weights and introduces small, trainable low-rank matrices (adapters) to approximate weight updates. While this drastically reduces the number of trainable parameters, the base model itself is typically still loaded in full precision (e.g., FP16 or BF16), which still requires significant GPU memory.
+* **QLoRA** builds directly on top of LoRA by adding **quantization** to the base model weights—for instance, compressing them down to 4-bits. 
+
+To help you think about this: how does quantizing the base model weights to 4-bits in QLoRA affect the memory required to load and train the model compared to standard LoRA?
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'QLoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "QLoRA", "lecture": 2, "definition": "A method that saves memory by quantizing base-model weights to, for exam…
+[usage] RunUsage(cost=Decimal('0.0010345'), details={'text_prompt_tokens': 1315}, input_text_tokens=1315, input_tokens=1315, output_tokens=256, requests=2, tool_calls=2)

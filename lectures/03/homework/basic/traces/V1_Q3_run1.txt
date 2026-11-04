@@ -1,0 +1,41 @@
+# variant V1: INSTRUCTIONS: delete the 'Always check the glossary with search_glossary' line
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 1
+
+[answer]
+It is not in the glossary. 
+
+To think about this concept: RLHF (Reinforcement Learning from Human Feedback) involves aligning a language model's behavior with human preferences by using reward signals derived from human judgments. When exploring how models are trained or adapted for specific tasks, you might consider how supervised fine-tuning (SFT) and parameter-efficient methods are structured in the course material (Lecture 02).
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[tool call]   get_lecture_summary({'lecture': 12})
+[tool return] get_lecture_summary -> Key points for Lecture 12 are not available yet. Available sessions: 01, 02, 03, 05…
+[tool call]   get_lecture_summary({'lecture': 5})
+[tool return] get_lecture_summary -> # Lecture 05 External Tools and MCP
+
+## Aims
+
+- Understand how to extract agent tools from functions inside an applicati…
+[tool call]   get_lecture_summary({'lecture': 3})
+[tool return] get_lecture_summary -> # Lecture 03 AI Agents
+
+## Aims
+
+- Understand that an AI agent's basic structure is "model + loop + tools"
+- Build and r…
+[tool call]   get_lecture_summary({'lecture': 2})
+[tool return] get_lecture_summary -> # Lecture 02 Fine-Tuning and LoRA
+
+## Aims
+
+- Understand the difference between pretraining and fine-tuning, and when fi…
+[tool call]   get_lecture_summary({'lecture': 1})
+[tool return] get_lecture_summary -> # Lecture 01 Introduction to AI Engineering and the Development Environment
+
+## Aims
+
+- Understand that AI engineering f…
+[usage] RunUsage(cost=Decimal('0.0028898'), details={'text_prompt_tokens': 8091}, input_text_tokens=8091, input_tokens=8091, output_tokens=185, requests=7, tool_calls=6)

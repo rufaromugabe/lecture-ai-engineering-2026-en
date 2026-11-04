@@ -1,0 +1,51 @@
+# variant V6: COMBINED (2 changes): V1 + V5, no 'search first' rule anywhere
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 2
+
+[answer]
+Regarding your question, "RLHF" (Reinforcement Learning from Human Feedback) is not in the course glossary, so I cannot provide an official course definition for it based on the materials. 
+
+However, looking at the course content:
+* **Lecture 01** covers LLM basics, tokens, and APIs.
+* **Lecture 02** covers fine-tuning, SFT (Supervised Fine-Tuning), PEFT, and LoRA.
+* **Lecture 03** covers AI agents and tools.
+* **Lecture 05** covers MCP (Model Context Protocol) and external tools.
+
+Since RLHF is a technique used to align language models with human preferences using reinforcement learning (often following Supervised Fine-Tuning), you might want to think about how it compares or relates to the fine-tuning concepts discussed in **Lecture 02**. 
+
+*(Note: If you're wondering about its specific coverage in this course, it is not mentioned in the current syllabus summaries.)*
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[tool call]   get_lecture_summary({'lecture': 1})
+[tool return] get_lecture_summary -> # Lecture 01 Introduction to AI Engineering and the Development Environment
+
+## Aims
+
+- Understand that AI engineering f…
+[tool call]   get_lecture_summary({'lecture': 2})
+[tool return] get_lecture_summary -> # Lecture 02 Fine-Tuning and LoRA
+
+## Aims
+
+- Understand the difference between pretraining and fine-tuning, and when fi…
+[tool call]   get_lecture_summary({'lecture': 3})
+[tool return] get_lecture_summary -> # Lecture 03 AI Agents
+
+## Aims
+
+- Understand that an AI agent's basic structure is "model + loop + tools"
+- Build and r…
+[tool call]   get_lecture_summary({'lecture': 4})
+[tool return] get_lecture_summary -> Key points for Lecture 04 are not available yet. Available sessions: 01, 02, 03, 05…
+[tool call]   get_lecture_summary({'lecture': 5})
+[tool return] get_lecture_summary -> # Lecture 05 External Tools and MCP
+
+## Aims
+
+- Understand how to extract agent tools from functions inside an applicati…
+[usage] RunUsage(cost=Decimal('0.0034408'), details={'text_prompt_tokens': 8836}, input_text_tokens=8836, input_tokens=8836, output_tokens=316, requests=7, tool_calls=6)

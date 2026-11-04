@@ -1,0 +1,23 @@
+# variant V2: search_glossary docstring: 'Put only one term' -> 'Put several terms ... at once'
+# model gemini-3.5-flash-lite
+# question Q2: How are PEFT, LoRA, rank and quantization related to each other?
+# run 2
+
+[answer]
+To understand how these concepts fit together, it helps to start with the big picture and narrow down to the specific mechanisms:
+
+1. **PEFT (Parameter-Efficient Fine-Tuning):** This is the overarching framework. Instead of updating all the billions of parameters in a large language model—which requires massive GPU memory—PEFT methods update only a small fraction of them. 
+2. **LoRA (Low-Rank Adaptation):** This is one of the most popular and representative PEFT methods. Instead of modifying the original (frozen) weights directly, LoRA approximates the weight updates by decomposing them into two smaller matrices.
+3. **Rank ($r$):** This is the key hyperparameter inside LoRA that controls the inner dimension (or size) of those two smaller matrices. Think of it as a dial for the "capacity" of the adaptation: a lower rank means fewer parameters and less memory, while a higher rank gives the model more expressive power to learn complex tasks.
+4. **Quantization:** While LoRA reduces the number of *trainable* parameters, the base model still takes up a lot of memory just to load into a GPU. Quantization addresses this by reducing the precision of the model weights (for example, from 16-bit floats down to 4-bit integers), drastically shrinking memory usage. When combined with LoRA (known as **QLoRA**), you can fine-tune huge models on much smaller consumer hardware.
+
+To explore this further: think about what happens to the number of trainable parameters and memory footprint when you increase the LoRA rank $r$, and how quantization acts independently on the precision of the model weights. 
+
+*(Lecture 02)*
+
+--- trace ---
+[tool call]   search_glossary({'query': 'PEFT LoRA rank quantization'})
+[tool return] search_glossary -> [{"term": "PEFT", "lecture": 2, "definition": "An umbrella term for methods that train only a small subset of model para…
+[tool call]   search_glossary({'query': 'quantization'})
+[tool return] search_glossary -> [{"term": "Quantization", "lecture": 2, "definition": "A technique for representing model weights with fewer bits (for e…
+[usage] RunUsage(cost=Decimal('0.0015591'), details={'text_prompt_tokens': 1922}, input_text_tokens=1922, input_tokens=1922, output_tokens=393, requests=3, tool_calls=2)

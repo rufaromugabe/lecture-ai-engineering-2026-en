@@ -1,0 +1,12 @@
+# variant V5: search_glossary docstring: delete the 'Use before answering about ... terms' sentence
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 1
+
+[answer]
+It is not in the glossary.
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0003172'), details={'text_prompt_tokens': 849}, input_text_tokens=849, input_tokens=849, output_tokens=25, requests=2, tool_calls=1)

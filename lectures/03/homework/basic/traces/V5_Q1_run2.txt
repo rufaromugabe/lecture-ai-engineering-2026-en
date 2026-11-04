@@ -1,0 +1,21 @@
+# variant V5: search_glossary docstring: delete the 'Use before answering about ... terms' sentence
+# model gemini-3.5-flash-lite
+# question Q1: What is the difference between LoRA and QLoRA?
+# run 2
+
+[answer]
+To understand the difference, it helps to look at how each method handles the model weights:
+
+* **LoRA (Low-Rank Adaptation):** Freezes the pretrained model weights and adds trainable low-rank matrices to represent weight updates, drastically reducing the number of parameters you need to train.
+* **QLoRA (Quantized LoRA):** Takes it a step further by quantizing the base model's weights (for example, down to 4 bits) to save a significant amount of memory, while still applying LoRA for training. This allows you to run and fine-tune much larger models on smaller GPUs.
+
+Think about how quantization affects the precision of the base model weights before the low-rank adapters are applied. How might reducing the weight precision to 4 bits impact memory consumption compared to standard LoRA?
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'QLoRA'})
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "QLoRA", "lecture": 2, "definition": "A method that saves memory by quantizing base-model weights to, for exam…
+[usage] RunUsage(cost=Decimal('0.0009300'), details={'text_prompt_tokens': 1325}, input_text_tokens=1325, input_tokens=1325, output_tokens=213, requests=2, tool_calls=2)

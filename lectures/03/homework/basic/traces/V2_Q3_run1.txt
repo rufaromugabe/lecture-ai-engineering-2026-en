@@ -1,0 +1,16 @@
+# variant V2: search_glossary docstring: 'Put only one term' -> 'Put several terms ... at once'
+# model gemini-3.5-flash-lite
+# question Q3: What is RLHF, and in which lecture is it covered?
+# run 1
+
+[answer]
+It is not in the glossary. 
+
+However, RLHF stands for **Reinforcement Learning from Human Feedback**, which is a crucial alignment technique used in AI engineering to train language models to follow human instructions, preferences, and safety guidelines using rewards derived from human feedback. 
+
+To find out which lecture covers this topic or related alignment concepts, you can check the specific session summaries in the course materials!
+
+--- trace ---
+[tool call]   search_glossary({'query': 'RLHF'})
+[tool return] search_glossary -> The term 'RLHF' was not found in the glossary.…
+[usage] RunUsage(cost=Decimal('0.0005178'), details={'text_prompt_tokens': 901}, input_text_tokens=901, input_tokens=901, output_tokens=99, requests=2, tool_calls=1)

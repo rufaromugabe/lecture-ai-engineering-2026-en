@@ -1,0 +1,30 @@
+# variant V3: INSTRUCTIONS: 'End your answer by indicating the relevant session' -> 'End your answer with one review question'
+# model gemini-3.5-flash-lite
+# question Q2: How are PEFT, LoRA, rank and quantization related to each other?
+# run 2
+
+[answer]
+These four concepts all work together to make fine-tuning large language models much more efficient and accessible on limited hardware:
+
+* **PEFT** (Parameter-Efficient Fine-Tuning) is the broad umbrella term for approaches that train only a small fraction of a model's parameters rather than all of them.
+* **LoRA** (Low-Rank Adaptation) is one of the most popular specific methods under the PEFT umbrella. Instead of changing all pretrained weights, LoRA freezes them and approximates the weight updates using low-rank matrices.
+* **Rank** (often denoted as $r$) is the hyperparameter that controls the dimensions of those low-rank matrices in LoRA. Choosing a smaller rank keeps your trainable parameter count and memory usage low, while a larger rank gives the model more expressive capacity at the cost of more memory.
+* **Quantization** reduces the memory footprint of the base model's weights by storing them in fewer bits (e.g., 4-bit instead of 16-bit). When you combine quantization with LoRA (often called **QLoRA**), you can load a massive base model in low-precision memory and train only the lightweight LoRA adapters on top of it.
+
+Think about how each layer builds on the previous one: PEFT provides the strategy, LoRA provides the mechanism, rank scales the size of that mechanism, and quantization shrinks the underlying model so the whole process fits into your GPU memory.
+
+***
+
+**Review Question:**
+What is the primary role of the rank hyperparameter in LoRA, and how does changing its value affect the model?
+
+--- trace ---
+[tool call]   search_glossary({'query': 'PEFT'})
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'rank'})
+[tool call]   search_glossary({'query': 'quantization'})
+[tool return] search_glossary -> [{"term": "PEFT", "lecture": 2, "definition": "An umbrella term for methods that train only a small subset of model para…
+[tool return] search_glossary -> [{"term": "LoRA", "lecture": 2, "definition": "A PEFT method that freezes pretrained weights, represents weight updates …
+[tool return] search_glossary -> [{"term": "Rank (LoRA r)", "lecture": 2, "definition": "A hyperparameter that determines the size of the low-rank matric…
+[tool return] search_glossary -> [{"term": "Quantization", "lecture": 2, "definition": "A technique for representing model weights with fewer bits (for e…
+[usage] RunUsage(cost=Decimal('0.0014984'), details={'text_prompt_tokens': 1628}, input_text_tokens=1628, input_tokens=1628, output_tokens=404, requests=2, tool_calls=4)
