@@ -1,5 +1,13 @@
 # Lecture 03 Answers
 
+## Summary
+
+- I ran 7 prompt/docstring configurations × 4 questions × 2 runs (56 traced runs), built an approval-gated `save_learning_log` tool (22 tests pass), rebuilt the agent in Google ADK, and compared our prompt with Pi's.
+- Removing the "not in the glossary" rule raised total input tokens from 10,568 to 25,872; on the absent term RLHF one run went from 893 to 8,817 tokens (~10×) and from 1 to 7 tool calls.
+- Changing the docstring to "several terms" cut LoRA vs QLoRA from 2 searches to 1; removing "Always check the glossary" left Q1/Q2/Q4 unchanged and only hurt the absent term.
+- ADK made exactly the same tool calls as Pydantic AI on all 4 questions in both runs, so behaviour comes from instructions and tool design, not the framework.
+- Deny writes nothing, approve writes, a second approve appends; Pi has no approval step at all.
+
 ## Exercises
 
 - **Bare LLM (Lecture 01) vs agent answers:** I asked "What are the 3 homework levels in the AIE2026 course?". `app.ask` made up "Foundations / Intermediate / Advanced" and even gave alternative names. The agent gave the correct Basic / Implementation / Advanced and cited Lecture 01, because it read the course data first. (`exercise/01_ask_vs_agent.txt`)
@@ -8,13 +16,6 @@
 - **Tool added and its docstring:** `make_quiz(lecture: int)` in `app/tools.py`: "Create one review question from the glossary terms of the specified session... Use when the learner asks for a quiz, a review question, or a check question about a session... Returns JSON with "question" and "answer". Show the question to the learner and keep the answer hidden until they reply." `--list-tools` shows 3 tools. "Give me a review question on Lecture 02" → `make_quiz({'lecture': 2})`, requests=2. The answer was not revealed. A lecture with no terms returns a message listing the valid sessions. (`exercise/02_make_quiz.txt`)
 
 ## Homework
-
-**Summary (5 lines)**
-1. Basic: 7 configs (baseline + 5 one-change variants + 1 combined) × 4 fixed questions × 2 runs = 56 traced runs.
-2. The biggest effect came from the *grounding* lines: dropping them made the absent term (RLHF) cost 7–8 requests and ~8–8.8k input tokens per run, vs 2 requests / 893 tokens at baseline.
-3. Implementation: `save_learning_log` with `requires_approval=True` and a CLI y/N loop. Deny writes nothing, approve writes `learning_log/`, and a second approve appends. 22 tests pass.
-4. Advanced (a): the ADK agent made exactly the same tool calls as Pydantic AI on all 4 questions in both runs, but answered absent terms more briefly.
-5. Advanced (b): Pi builds its prompt from per-tool snippets/guidelines. It has no grounding rule and no approval step, which I confirmed by running it in a sandbox.
 
 - **Level attempted:** Advanced (Basic, Implementation, Advanced (a) and (b) all done)
 
@@ -90,10 +91,31 @@ Save this? [y/N] [approval] denied
 
 **Advanced (b): Pi** (`advanced_b/comparison.md`). Pi's prompt is assembled from sections (`preamble`, `<tools>`, `<rules>`, `<docs>`, `<project_context>`, `<skills>`, `<cwd>`). Each tool contributes its own snippet and guidelines, and only changed sections are re-sent. In the sandbox run, pi called `write` then `bash python3 hello.py` with no confirmation: 3 requests, 1312 input tokens on the first.
 
+### Analysis
+
+**Why one missing rule cost ~10× on an absent term.** The "say 'It is not in the glossary'" line is the agent's only stopping condition for a miss. Without it (V4), an empty search did not end the turn: the model retried with the full name and then swept `get_lecture_summary` over sessions 7, 5, 3, 2, 1. That is 7 tool calls and 8 requests instead of 1 and 2, and 8,817 / 8,597 input tokens instead of 893. Deleting "Always check" (V1) caused a similar sweep (6 calls, 7,889–8,091 tokens). The model was not confused; it simply had no rule telling it when to give up, so every extra call re-sent the growing context.
+
+**Docstrings steer more than general instructions.** One sentence in the `search_glossary` docstring ("several terms") changed the call pattern on every multi-term question: Q1 dropped from 2 calls to 1 and Q2 from 4 to 2. Removing the general "Always check the glossary" instruction left Q1, Q2 and Q4 identical to baseline. The model reads the tool description at the moment it decides how to call the tool, so that is where call-level behaviour is set.
+
+**The framework was not the cause.** ADK, given the same `INSTRUCTIONS` and functions, produced the same tool calls in the same order as Pydantic AI on all 4 questions in both runs. Only surface details differed (ADK wraps returns as `{'result': ...}` and its Q3 answer was shorter). Changing frameworks is therefore not a fix for bad agent behaviour; the prompt and tool interface are.
+
+**What Pi's prompt teaches.** Pi keeps each tool's guidance next to the tool and only includes guidance for tools that are switched on. Our prompt hard-codes tool names in global rules, so a renamed or removed tool leaves a stale rule. My V1/V5/V6 results point the same way: guidance stored with the tool survived the loss of the global rule. Pi also shows the cost of leaving safety out of the prompt and code: it wrote and ran a file with no confirmation.
+
+**Approval gating.** Putting approval in code (`requires_approval=True`) rather than in the prompt made it reliable: denial wrote nothing, and the tool return told the model not to retry. Treating EOF as deny and appending instead of overwriting made the safe outcome the default. A question that did not ask to save never triggered a prompt, so gating did not add friction to normal use.
+
+**If I built this for real**
+1. Explicit stop rules per tool, e.g. "if the search finds nothing, say so and stop", ideally returned as a structured "not found" result.
+2. A hard tool-call budget per turn in the harness (e.g. 4), so a missing rule cannot turn into a 7-call sweep.
+3. A grounding requirement: answers must cite a tool result, otherwise say the term is not covered.
+4. Approval in code for every write or irreversible action, with deny as the default.
+5. Tracing plus a small regression eval (calls, requests, tokens per question) run after every prompt or docstring change.
+
+**Caveats.** Each configuration ran only twice, on 4 questions, with one model (gemini-3.5-flash-lite). Most cells were identical across runs, but variance appeared exactly where behaviour was interesting (absent term, V6). These findings are indicative, not measured rates.
+
 ### Observations and questions
 
 - The tool docstring alone is enough to keep searching. V1 and V5 each remove one "search first" sentence and still search on Q1/Q2/Q4. Even V6 (both removed) still searched; it only skipped one call on Q2 in run 1. Redundant guidance in two places made the agent robust, which matches Pi's choice of keeping rules with tools.
-- Grounding rules also limit *cost*. Without them, an absent term set off a sweep of `get_lecture_summary` over sessions that don't exist (4, 7, 12), about 9× the input tokens. A rule like "If a search returns nothing, say so and stop" would also cap the loop.
+- Grounding rules also limit *cost*. Without them, an absent term set off a sweep of `get_lecture_summary` over sessions that don't exist (4, 7, 12), about 9–10× the input tokens. A rule like "If a search returns nothing, say so and stop" would also cap the loop.
 - Rules can conflict. "End with (Lecture NN)" made the baseline invent "Lecture 06" for RLHF once (V0 Q3 run 2). V3's review question replaced the lecture reference entirely (0/8), so the two goals need separate wording.
 - V2 shows the tool interface and the instructions need to match. A multi-term query saves a call, but `MAX_RESULTS=3` silently cut results, so the model had to search again.
 - Runs were almost deterministic: same calls and same token counts in run 1 and run 2 for most cells. Variance showed up only on the absent term and in V6. 2 runs is too few to claim rates.
