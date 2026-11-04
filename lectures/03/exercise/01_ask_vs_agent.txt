@@ -1,0 +1,37 @@
+[model] gemini-3.5-flash-lite
+[question] What are the 3 homework levels in the AIE2026 course?
+
+Based on the structure of the AIE2026 (Artificial Intelligence Engineering 2026) course, the homework is typically divided into three distinct levels based on difficulty and depth:
+
+1. **Level 1 (Foundations / Basic):** Focuses on core concepts, basic implementation, and verifying that students understand the fundamental syntax, theory, and introductory tools taught in the lectures.
+2. **Level 2 (Intermediate / Application):** Involves more complex problem-solving, applying models to real-world datasets, fine-tuning parameters, and writing more advanced code to handle standard machine learning or AI engineering pipelines.
+3. **Level 3 (Advanced / Challenge):** Designed for deep exploration, optimization, architectural design, or tackling open-ended problems that require advanced critical thinking, research, and high-level coding skills.
+
+*(Note: Depending on the specific platform or cohort updates for the AIE2026 curriculum, these levels are sometimes referred to as Practice, Proficiency, and Mastery.)*
+===
+[model] gemini-3.5-flash-lite
+In the AIE2026 course, the three levels of homework are:
+
+1. **Basic**: Review the lecture content.
+2. **Implementation**: Write your own code.
+3. **Advanced**: Research and experimentation.
+
+Completing any *one* of these levels is enough to finish the homework for a given lecture, and as a rule, the homework is not graded. 
+
+When you are deciding which level to tackle, think about your current goals and how much time you want to spend experimenting:
+- If you want to solidify your understanding of the core concepts covered in the session, starting with **Basic** is a great way to review.
+- If you want hands-on practice building or modifying code, try the **Implementation** level.
+- If you are feeling curious and want to explore further or test out extra tools and frameworks, give the **Advanced** level a try!
+
+(Lecture 01)
+
+--- trace ---
+[tool call]   get_lecture_summary({'lecture': 1})
+[tool return] get_lecture_summary -> # Lecture 01 Introduction to AI Engineering and the Development Environment
+
+## Aims
+
+- Understand that AI engineering f…
+[tool call]   search_glossary({'query': 'homework'})
+[tool return] search_glossary -> [{"term": "3 homework levels", "lecture": 1, "definition": "The structure of AIE2026 homework. There are three levels: \…
+[usage] RunUsage(cost=Decimal('0.0011897'), details={'text_prompt_tokens': 2074}, input_text_tokens=2074, input_tokens=2074, output_tokens=227, requests=3, tool_calls=2)

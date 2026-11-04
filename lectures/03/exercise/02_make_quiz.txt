@@ -1,0 +1,39 @@
+Tools visible to the model: 3
+
+[search_glossary]
+  Search the course glossary and return definitions and the sessions that cover the terms.
+  
+  Use before answering about AI engineering terms or words specific to this course (AIE2026).
+  Put only one term to look up in query (for example, "LoRA").
+  Arguments: {"query": {"type": "string"}}
+
+[get_lecture_summary]
+  Return key points from the specified session (an integer starting at 1).
+  
+  Use when asked about session content or relationships, such as "What will we learn in Lecture 03?".
+  Arguments: {"lecture": {"type": "integer"}}
+
+[make_quiz]
+  Create one review question from the glossary terms of the specified session (an integer starting at 1).
+  
+  Use when the learner asks for a quiz, a review question, or a check question about a session,
+  such as "Give me a review question on Lecture 02". Returns JSON with "question" and "answer".
+  Show the question to the learner and keep the answer hidden until they reply.
+  Arguments: {"lecture": {"type": "integer"}}
+===
+[model] gemini-3.5-flash-lite
+Here is a review question based on Lecture 02:
+
+**Question:** What does "LoRA" mean?
+
+*(Take a moment to think about how parameter-efficient fine-tuning works, or look back at your Lecture 02 notes if you need a hint! Let me know your answer whenever you are ready.)*
+
+(Lecture 02)
+
+--- trace ---
+[tool call]   make_quiz({'lecture': 2})
+[tool return] make_quiz -> {"question": "What does \"LoRA\" mean?", "answer": "A PEFT method that freezes pretrained weights, represents weight upd…
+[usage] RunUsage(cost=Decimal('0.0005093'), details={'text_prompt_tokens': 956}, input_text_tokens=956, input_tokens=956, output_tokens=89, requests=2, tool_calls=1)
+===
+...........                                                              [100%]
+11 passed in 2.12s
