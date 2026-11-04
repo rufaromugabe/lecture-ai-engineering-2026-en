@@ -1,0 +1,56 @@
+# pi 1.5.0 (npm @earendil-works/pi-coding-agent), run in throwaway dir /tmp/pi-sandbox/work, HOME=/tmp/pi-sandbox/home
+# cmd: pi -p --model google/gemini-3.5-flash-lite --no-context-files --no-skills --no-extensions --no-mcp "Create a file hello.py ... run it with python3, and tell me the output."
+# Extracted from the session JSONL; thought signatures dropped.
+
+=== SYSTEM PROMPT (as sent) ===
+You are a coding assistant running inside pi, a coding agent harness. Help users inspect files, run commands, and modify code.
+
+<tools>
+- read: Read file contents
+- bash: Execute bash commands (ls, grep, find, etc.)
+- edit: Make precise file edits with exact text replacement, including multiple disjoint edits in one call
+- write: Create or overwrite files
+
+Additional tools may be available.
+</tools>
+
+<rules>
+- Use bash for file operations like ls, rg, find
+- Use read to examine files instead of cat or sed.
+- You can inspect PI_* environment variables for current model and session details.
+- Use edit for targeted changes. Batch changes to one file in a single call.
+- Each edits[].oldText must exactly and uniquely match the original file. Keep matches short and non-overlapping; merge nearby changes without including large unchanged regions.
+- Use write only for new files or complete rewrites.
+- Be concise in your responses
+- Show file paths clearly when working with files
+</rules>
+
+<docs>
+Pi documentation (read only when the user asks about the harness itself, its SDK, extensions, themes, skills, or TUI):
+- Main documentation: /tmp/pi-sandbox/npm/node_modules/@earendil-works/pi-coding-agent/README.md
+- Additional docs: /tmp/pi-sandbox/npm/node_modules/@earendil-works/pi-coding-agent/docs
+- Examples: /tmp/pi-sandbox/npm/node_modules/@earendil-works/pi-coding-agent/examples (extensions, custom tools, SDK)
+- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory
+- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), packages (docs/packages.md), environment variables (docs/environment-variables.md), MCP servers (docs/mcp.md), codemode scripts and non-LLM models such as classifiers and image models (docs/codemode.md)
+- Before implementing harness changes, read the relevant docs and examples in full, following related cross-references.
+</docs>
+
+<cwd>
+/tmp/pi-sandbox/work
+</cwd>
+
+=== USER ===
+Create a file hello.py in the current directory that prints 'hello from pi', run it with python3, and tell me the output.
+=== ASSISTANT tool call: write({"path": "hello.py", "content": "print('hello from pi')\n"})
+    [usage in=1312 out=115 stop=toolUse]
+=== TOOL RESULT write: 'Successfully wrote to hello.py'
+=== ASSISTANT tool call: bash({"timeout": null, "command": "python3 hello.py"})
+    [usage in=1444 out=33 stop=toolUse]
+=== TOOL RESULT bash: 'hello from pi\n'
+=== ASSISTANT text ===
+I have created `hello.py` and run it with `python3`. The output is:
+
+```
+hello from pi
+```
+    [usage in=1488 out=44 stop=stop]
