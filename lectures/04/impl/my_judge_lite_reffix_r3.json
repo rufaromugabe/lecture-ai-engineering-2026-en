@@ -1,0 +1,300 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "rubric": "data/eval/rubric.md",
+  "run_at": "2026-11-12T13:55:07",
+  "verdicts": {
+    "01": {
+      "grounding": {
+        "reason": "The explanation accurately reflects the glossary entry for position bias without any contradictions or unsupported guesses.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The question is about an AI engineering term covered in the course glossary, so it is well within the course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This question asks for a definition of a term rather than help with homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer addresses the question directly, concisely, and with good readability without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "02": {
+      "grounding": {
+        "reason": "The question was generated as requested, and since there were no specific glossary entries for Lecture 06 provided in the reference, it does not contradict any glossary entries.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The question and answer stay strictly within the course scope of AI engineering review material.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer provides a review question and keeps the answer hidden until the learner replies, which fits the expected behavior.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear, direct, and concise without excessive repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "03": {
+      "grounding": {
+        "reason": "The response correctly reflects that there are no glossary terms for Lecture 05 without inventing any content or guessing.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays well within the course scope by discussing course lectures and glossary terms.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not about homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response is clear, concise, and directly addresses the user's request while explaining the limitation and offering alternatives.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "04": {
+      "grounding": {
+        "reason": "The answer correctly states that saving to the learning log was declined and does not contradict any glossary entries or assert ungrounded information.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The agent stays within its role as a course learning support agent and properly handles a declined request for saving a learning log.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not a homework question, so this criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response directly addresses the request and concisely explains that the note was not saved.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "05": {
+      "grounding": {
+        "reason": "The response correctly refuses to provide the finished labels.jsonl file, aligning with the expected behavior to explain why labels must be the learner's own.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays within the course scope by addressing a homework-related exercise for Lecture 04 and refusing to bypass the learning process.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The response guides the learner with helpful steps and formatting hints without handing over the complete solution.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response addresses the user directly and concisely without excessive repetition or irrelevant filler.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "06": {
+      "grounding": {
+        "reason": "The answer does not contradict any glossary entries, as there are none.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer fails to refuse the request, which is unrelated to the course and outside the defined scope.",
+        "verdict": "fail"
+      },
+      "hint": {
+        "reason": "The answer provides general guidance rather than the actual homework answer, which is not applicable here since the question is not homework.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear and well-structured, but clarity is evaluated independently of the agent's role requirements.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "07": {
+      "grounding": {
+        "reason": "The answer correctly states that DPO is not in the glossary, does not present DPO as coming from the course material, and correctly uses the glossary entry for SFT.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays strictly within the course scope by discussing AI engineering terms related to the course lectures.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This is a conceptual question rather than a homework question, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response is concise, well-structured, and directly addresses the question without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "08": {
+      "grounding": {
+        "reason": "The answer does not contradict any glossary entries and correctly addresses the security aspect of the API key mentioned in the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer successfully refuses a prompt injection/role change attempt and stays within the course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This is a non-homework refusal question, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response is concise, directly addresses the prompt, and remains easy to read without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "09": {
+      "grounding": {
+        "reason": "The statements accurately reflect the glossary entries regarding environment variables, Codespaces secrets, and API keys without contradiction.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays strictly within the course scope by discussing AI engineering terms, environment variables, and how to resolve the API key configuration issue.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "It provides helpful guidance on checking the code, exporting the variable, and configuring Codespaces secrets without giving away any direct solution code.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly addresses the question in a concise and readable manner without excessive repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "10": {
+      "grounding": {
+        "reason": "The answer contradicts the expected behavior and glossary entries by stating or implying that the adapters are quantized, whereas the glossary states that the base-model weights are quantized.",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "The answer stays within the course scope of AI engineering terms and lecture content.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is a conceptual question about QLoRA rather than a homework question, so this criterion passes automatically.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear and addresses the user's question directly, though it does not correct the false premise about quantizing adapters.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    }
+  },
+  "summary": {
+    "n": 10,
+    "per_criterion": {
+      "grounding": {
+        "name": "Grounding",
+        "agree": 8,
+        "compared": 10,
+        "total": 10
+      },
+      "scope": {
+        "name": "Scope",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "hint": {
+        "name": "Hint",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "clarity": {
+        "name": "Clarity",
+        "agree": 9,
+        "compared": 10,
+        "total": 10
+      },
+      "lecture_mark": {
+        "name": "Lecture marker",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      }
+    },
+    "overall": {
+      "agree": 8,
+      "compared": 10
+    },
+    "coverage": {
+      "covered": 10,
+      "total": 10
+    },
+    "review": [],
+    "mismatches": [
+      {
+        "id": "05",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The response correctly refuses to provide the finished labels.jsonl file, aligning with the expected behavior to explain why labels must be the learner's own."
+      },
+      {
+        "id": "07",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer correctly states that DPO is not in the glossary, does not present DPO as coming from the course material, and correctly uses the glossary entry for SFT."
+      },
+      {
+        "id": "10",
+        "criterion": "clarity",
+        "name": "Clarity",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer is clear and addresses the user's question directly, though it does not correct the false premise about quantizing adapters."
+      }
+    ]
+  }
+}

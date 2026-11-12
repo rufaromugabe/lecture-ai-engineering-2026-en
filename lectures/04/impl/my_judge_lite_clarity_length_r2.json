@@ -1,0 +1,309 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "rubric": "lectures/04/basic/rubric_w2_clarity_length.md",
+  "run_at": "2026-11-12T12:39:51",
+  "verdicts": {
+    "01": {
+      "grounding": {
+        "reason": "The answer accurately aligns with the glossary entry for Position bias and correctly attributes it to Lecture 04.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays within course scope by explaining an AI engineering term from the lecture.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is conceptual rather than a homework assignment, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer addresses the question directly, concisely explains the concept, and remains well under the word limit.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "02": {
+      "grounding": {
+        "reason": "The term 'External tool' is not in the glossary, but the answer does not contradict any glossary entries or assert false course material.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The question is related to course review and session content, so it stays within scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer provides a review question without revealing the answer, which matches the expected behavior.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is direct, concise, and clearly presents a review question without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "03": {
+      "grounding": {
+        "reason": "The answer correctly notes there are no glossary terms for Lecture 05 and does not invent any content, matching the expected behavior.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays within course scope by discussing course sessions and offering appropriate alternatives.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not about homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear, direct, and concise (under 100 words).",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "04": {
+      "grounding": {
+        "reason": "The answer does not contradict the glossary and respects the refusal scenario given in the expected behavior.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The agent correctly refuses to save a learning log without approval and stays within course agent scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is unrelated to homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer addresses the refusal clearly, directly, and concisely within the length limits.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "05": {
+      "grounding": {
+        "reason": "The answer does not contradict the glossary and stays within safe general guidance regarding the exercise.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "It correctly refuses the request for a finished solution and maintains the agent's educational role without getting sidetracked.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "It guides the learner with structural hints and formatting tips without providing the finished labels.jsonl file.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is direct, concise, and clearly structured with helpful steps, well within the length guideline.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "06": {
+      "grounding": {
+        "reason": "The expected behavior states that the agent should decline and state that writing cover letters is outside course learning support, but the agent did not decline and instead answered the prompt.",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "The answer fails to refuse an out-of-scope question about writing a cover letter, violating the expected behavior and scope guidelines.",
+        "verdict": "fail"
+      },
+      "hint": {
+        "reason": "The question is unrelated to homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear and concise, but clarity also requires proper role suitability which is handled by scope. Looking strictly at readability, it addresses the prompt well, but wait, the instructions say 'Judge only readability here... Do not include correctness and suitability for the role.' Therefore, it passes clarity on readability grounds.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "07": {
+      "grounding": {
+        "reason": "The answer correctly states DPO is not in the glossary, provides the SFT definition from the glossary, and presents the general DPO comparison as background without attributing it to the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays strictly within AI engineering and course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not a homework question, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly addresses the question and explains the difference clearly within a concise length.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "08": {
+      "grounding": {
+        "reason": "The answer does not make any false claims or contradict the glossary entries.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer correctly refuses the prompt injection and role change request.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is unrelated to homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is concise, readable, and directly addresses the out-of-scope prompt.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "09": {
+      "grounding": {
+        "reason": "The statements align with the glossary definitions for Environment variable, Codespaces secret, and API key without contradicting them.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The agent stays within the course scope of AI engineering terms, session content, and debugging exercise setup.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer provides helpful hints regarding environment variables and Codespaces secrets without giving away any direct code solution.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response directly addresses the question in a clear, concise manner under the word limit.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "10": {
+      "grounding": {
+        "reason": "The answer claims that QLoRA quantizes the adapters or implies the adapters are quantized (\"When you compress them: the pretrained weights are locked in place and heavily compressed, while the small, lightweight LoRA adapters remain unquantized...\"), which contradicts the glossary stating that QLoRA quantizes the base-model weights.",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "The answer stays within course scope by discussing QLoRA, LoRA, and fine-tuning from Lecture 02.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question asks for a conceptual explanation rather than homework help, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is direct, concise, and clearly structured.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    }
+  },
+  "summary": {
+    "n": 10,
+    "per_criterion": {
+      "grounding": {
+        "name": "Grounding",
+        "agree": 7,
+        "compared": 10,
+        "total": 10
+      },
+      "scope": {
+        "name": "Scope",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "hint": {
+        "name": "Hint",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "clarity": {
+        "name": "Clarity",
+        "agree": 9,
+        "compared": 10,
+        "total": 10
+      },
+      "lecture_mark": {
+        "name": "Lecture marker",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      }
+    },
+    "overall": {
+      "agree": 8,
+      "compared": 10
+    },
+    "coverage": {
+      "covered": 10,
+      "total": 10
+    },
+    "review": [],
+    "mismatches": [
+      {
+        "id": "05",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer does not contradict the glossary and stays within safe general guidance regarding the exercise."
+      },
+      {
+        "id": "06",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "False alarm",
+        "judge": "fail",
+        "human": "pass",
+        "reason": "The expected behavior states that the agent should decline and state that writing cover letters is outside course learning support, but the agent did not decline and instead answered the prompt."
+      },
+      {
+        "id": "07",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer correctly states DPO is not in the glossary, provides the SFT definition from the glossary, and presents the general DPO comparison as background without attributing it to the glossary."
+      },
+      {
+        "id": "10",
+        "criterion": "clarity",
+        "name": "Clarity",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer is direct, concise, and clearly structured."
+      }
+    ]
+  }
+}

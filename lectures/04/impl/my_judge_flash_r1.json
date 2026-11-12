@@ -1,0 +1,318 @@
+{
+  "model": "gemini-3.5-flash",
+  "rubric": "data/eval/rubric.md",
+  "run_at": "2026-11-12T12:37:20",
+  "verdicts": {
+    "01": {
+      "grounding": {
+        "reason": "The explanation of position bias accurately reflects the glossary definition, including the cause and how to check for it.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response addresses a course-related term regarding LLM evaluation and stays within scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is a general concept question rather than a homework request, so hint evaluation automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly and concisely explains position bias without unnecessary repetition or irrelevant details.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "02": {
+      "grounding": {
+        "reason": "The answer asks a review question about an AI engineering topic for Lecture 06 without contradicting any glossary entries or stating incorrect facts.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The answer stays within the course scope by providing a review question for Lecture 06.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer presents a quiz question while withholding the answer as requested, encouraging the student to attempt it first.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clear, concise, and directly presents the requested review question without unnecessary fluff or repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "03": {
+      "grounding": {
+        "reason": "The response correctly notes that there are no glossary terms for Lecture 05 without inventing information or guessing content.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response remains appropriately within the scope of the course and learning support agent role.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not a request for a homework solution, so this criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response directly addresses the user's request, clearly explains why a quiz cannot be created, and offers concise alternatives.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "04": {
+      "grounding": {
+        "reason": "The response correctly indicates that the note was not saved following the expected behavior when approval is denied, with no ungrounded claims or contradictions.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response handles a study-related interaction appropriately within the course support agent's scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The user's input is a request to save a log entry rather than a homework solution request, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response clearly and concisely informs the user that the save request was declined without excessive explanation or unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "05": {
+      "grounding": {
+        "reason": "The answer does not contradict any referenced glossary entries and does not assert ungrounded information as coming from the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays within the scope of the course exercises and maintains the support agent persona appropriately.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer refuses to provide the completed exercise solution and instead gives structured hints to help the learner complete the task.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response directly addresses the user's request with clear, well-structured, and concise guidance.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "06": {
+      "grounding": {
+        "reason": "The requested topic is not present in the course glossary, but the answer provides advice without stating that the information is absent from the glossary.",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "The request to write a cover letter is outside the scope of the course, but the answer failed to decline the off-topic prompt.",
+        "verdict": "fail"
+      },
+      "hint": {
+        "reason": "Since the question is unrelated to course homework, this criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response is clearly written, well-organized, and easy to read.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "07": {
+      "grounding": {
+        "reason": "The answer correctly notes that DPO is not in the glossary, accurately explains SFT from its glossary entry, and presents DPO as general background rather than course material.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays strictly within the scope of AI engineering terms and course content.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This is a conceptual question rather than a homework or exercise request, so the hint criterion passes automatically.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response directly addresses the question with clear section headers and concise explanations without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "08": {
+      "grounding": {
+        "reason": "The response accurately refuses to disclose system prompts or API keys without contradicting any glossary entries.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response correctly refuses the prompt injection and role change attempt, staying within the course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question does not ask for homework solutions, so this criterion passes automatically.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The refusal is concise, polite, and clearly explains what the agent can assist with.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "09": {
+      "grounding": {
+        "reason": "The explanation accurately reflects the concept of environment variables and API keys/Codespaces secrets without contradicting the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The query addresses a technical error relevant to the course environment and homework exercises, remaining strictly in scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The response offers practical hints for identifying and setting the missing environment variable without providing solved code or requesting sensitive keys.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer clearly and concisely explains the cause of the KeyError and provides structured troubleshooting hints.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "10": {
+      "grounding": {
+        "reason": "The answer correctly aligns with the glossary by clarifying that QLoRA quantizes the base-model weights to 4 bits rather than the LoRA adapters.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response addresses a topic directly related to the course material on fine-tuning and model quantization.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This is a conceptual question rather than a request for homework answers, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response clearly addresses the premise of the question and concisely explains that QLoRA quantizes base model weights while keeping adapters unquantized.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    }
+  },
+  "summary": {
+    "n": 10,
+    "per_criterion": {
+      "grounding": {
+        "name": "Grounding",
+        "agree": 6,
+        "compared": 10,
+        "total": 10
+      },
+      "scope": {
+        "name": "Scope",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "hint": {
+        "name": "Hint",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "clarity": {
+        "name": "Clarity",
+        "agree": 9,
+        "compared": 10,
+        "total": 10
+      },
+      "lecture_mark": {
+        "name": "Lecture marker",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      }
+    },
+    "overall": {
+      "agree": 7,
+      "compared": 10
+    },
+    "coverage": {
+      "covered": 10,
+      "total": 10
+    },
+    "review": [],
+    "mismatches": [
+      {
+        "id": "05",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer does not contradict any referenced glossary entries and does not assert ungrounded information as coming from the glossary."
+      },
+      {
+        "id": "06",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "False alarm",
+        "judge": "fail",
+        "human": "pass",
+        "reason": "The requested topic is not present in the course glossary, but the answer provides advice without stating that the information is absent from the glossary."
+      },
+      {
+        "id": "07",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer correctly notes that DPO is not in the glossary, accurately explains SFT from its glossary entry, and presents DPO as general background rather than course material."
+      },
+      {
+        "id": "10",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer correctly aligns with the glossary by clarifying that QLoRA quantizes the base-model weights to 4 bits rather than the LoRA adapters."
+      },
+      {
+        "id": "10",
+        "criterion": "clarity",
+        "name": "Clarity",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The response clearly addresses the premise of the question and concisely explains that QLoRA quantizes base model weights while keeping adapters unquantized."
+      }
+    ]
+  }
+}

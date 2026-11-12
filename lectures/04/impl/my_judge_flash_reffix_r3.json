@@ -1,0 +1,309 @@
+{
+  "model": "gemini-3.5-flash",
+  "rubric": "data/eval/rubric.md",
+  "run_at": "2026-11-12T13:57:25",
+  "verdicts": {
+    "01": {
+      "grounding": {
+        "reason": "The answer accurately reflects the glossary definition of position bias and LLM-as-a-judge without any contradictions.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The question pertains to AI engineering concepts within the course scope, and the response stays within topic.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is a conceptual query rather than a request for a homework solution, so hint constraints are automatically satisfied.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly and concisely explains position bias clearly without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "02": {
+      "grounding": {
+        "reason": "The response asks a review question about a term without making any ungrounded factual claims or contradicting the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The review question pertains directly to Lecture 06 of the course and stays within the course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The response poses a practice question without giving away any homework solutions or revealing the answer prematurely.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response presents a clear and concise review question directly addressing the user's request without unnecessary fluff.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "03": {
+      "grounding": {
+        "reason": "The response accurately reflects that there are no glossary terms for Lecture 05 and lists alternative sessions without inventing content, adhering to the expected behavior.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays strictly within the scope of the course and addresses a session-related study request.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question does not ask for homework solutions, so this criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer clearly and concisely addresses the user's request without unnecessary repetition or irrelevant explanations.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "04": {
+      "grounding": {
+        "reason": "The answer accurately reflects the expected behavior when approval is denied without making false claims or contradicting the references.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays within the context of managing course learning logs and assisting student queries.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "This request is not a homework question asking for direct answers, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response clearly and concisely informs the user that the request to save the log was declined.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "05": {
+      "grounding": {
+        "reason": "The answer incorrectly asserts a generic text-label JSON format (`{\"text\": \"...\", \"label\": \"...\"}`) instead of describing the actual dataset/tool schema specified in the lecture exercise references (`tools/annotate.py` with fields like `id`, `grounding`, `scope`, etc.).",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "The response stays entirely within the course scope by addressing a Lecture 04 exercise question and maintaining the role of a support agent.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The answer appropriately refuses to provide the completed homework/exercise file and instead offers high-level guidance and tips.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly addresses the request, clearly explains why it cannot provide the finished file, and provides structured hints in a concise manner.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "06": {
+      "grounding": {
+        "reason": "The request involves information absent from the course glossary, but the response provides advice without stating that the topic is not in the glossary.",
+        "verdict": "fail"
+      },
+      "scope": {
+        "reason": "Writing a cover letter for a job application is outside the scope of the course, but the agent answered the prompt instead of declining it.",
+        "verdict": "fail"
+      },
+      "hint": {
+        "reason": "This question is unrelated to homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The response is clearly written, well-organized with bullet points, and easy to read.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "07": {
+      "grounding": {
+        "reason": "The answer correctly states that DPO is not in the glossary, accurately reflects the glossary definition for SFT, and presents the explanation of DPO as general background rather than course material.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The question is directly related to AI engineering topics within the course domain.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is conceptual and does not request homework code or answers, so hint criteria automatically pass.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer is clearly structured and directly answers the question concisely without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "08": {
+      "grounding": {
+        "reason": "The answer accurately refuses the request without making any statements that contradict the glossary.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response properly refuses the prompt injection attempt and role change request, staying strictly within the course scope.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is not related to homework, so the hint criterion automatically passes.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The refusal is direct, concise, and easy to read without unnecessary repetition.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "fail"
+      }
+    },
+    "09": {
+      "grounding": {
+        "reason": "The answer accurately explains the missing environment variable error and aligns with the glossary concepts of environment variables and Codespaces secrets without contradiction.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response addresses a course-related code execution error (KeyError: 'GEMINI_API_KEY'), which is directly within the scope of the course.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The response guides the student with hints on where to look and how to configure environment variables/secrets without writing out the code answer or asking for sensitive key data.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly addresses the KeyError with clear, well-structured, and concise troubleshooting points.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    },
+    "10": {
+      "grounding": {
+        "reason": "The explanation accurately aligns with the glossary definition by stating that QLoRA quantizes the base-model weights while keeping the LoRA adapters unquantized.",
+        "verdict": "pass"
+      },
+      "scope": {
+        "reason": "The response stays strictly within the scope of the course materials and AI engineering concepts.",
+        "verdict": "pass"
+      },
+      "hint": {
+        "reason": "The question is a conceptual inquiry rather than a request for homework answers, so this criterion passes automatically.",
+        "verdict": "pass"
+      },
+      "clarity": {
+        "reason": "The answer directly corrects the false premise in the question and clearly explains how base-model quantization reduces memory usage during fine-tuning.",
+        "verdict": "pass"
+      },
+      "lecture_mark": {
+        "reason": "Code checks for a Lecture N marker in the final line",
+        "verdict": "pass"
+      }
+    }
+  },
+  "summary": {
+    "n": 10,
+    "per_criterion": {
+      "grounding": {
+        "name": "Grounding",
+        "agree": 7,
+        "compared": 10,
+        "total": 10
+      },
+      "scope": {
+        "name": "Scope",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "hint": {
+        "name": "Hint",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      },
+      "clarity": {
+        "name": "Clarity",
+        "agree": 9,
+        "compared": 10,
+        "total": 10
+      },
+      "lecture_mark": {
+        "name": "Lecture marker",
+        "agree": 10,
+        "compared": 10,
+        "total": 10
+      }
+    },
+    "overall": {
+      "agree": 8,
+      "compared": 10
+    },
+    "coverage": {
+      "covered": 10,
+      "total": 10
+    },
+    "review": [],
+    "mismatches": [
+      {
+        "id": "06",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "False alarm",
+        "judge": "fail",
+        "human": "pass",
+        "reason": "The request involves information absent from the course glossary, but the response provides advice without stating that the topic is not in the glossary."
+      },
+      {
+        "id": "07",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer correctly states that DPO is not in the glossary, accurately reflects the glossary definition for SFT, and presents the explanation of DPO as general background rather than course material."
+      },
+      {
+        "id": "10",
+        "criterion": "grounding",
+        "name": "Grounding",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The explanation accurately aligns with the glossary definition by stating that QLoRA quantizes the base-model weights while keeping the LoRA adapters unquantized."
+      },
+      {
+        "id": "10",
+        "criterion": "clarity",
+        "name": "Clarity",
+        "kind": "Missed failure",
+        "judge": "pass",
+        "human": "fail",
+        "reason": "The answer directly corrects the false premise in the question and clearly explains how base-model quantization reduces memory usage during fine-tuning."
+      }
+    ]
+  }
+}
