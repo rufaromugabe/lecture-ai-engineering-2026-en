@@ -5,10 +5,16 @@ Rewriting descriptions changes whether the model uses a tool and which arguments
 """
 
 import json
+import random
+import re
+from datetime import datetime
 from functools import cache
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+# Homework (Implementation): where save_learning_log writes. Tests point this at a temp dir.
+LEARNING_LOG_DIR = Path(__file__).resolve().parent.parent / "learning_log"
+MAX_LOG_CHARS = 5000
 MAX_RESULTS = 3
 
 
@@ -77,3 +83,57 @@ def get_lecture_summary(lecture: int) -> str:
         available = sorted(p.stem for p in (DATA_DIR / "lectures").glob("*.md"))
         return f"Key points for Lecture {lecture:02d} are not available yet. Available sessions: {', '.join(available)}"
     return path.read_text(encoding="utf-8")
+
+
+def make_quiz(lecture: int) -> str:
+    """Create one review question from the glossary terms of the specified session (an integer starting at 1).
+
+    Use when the learner asks for a quiz, a review question, or a check question about a session,
+    such as "Give me a review question on Lecture 02". Returns JSON with "question" and "answer".
+    Show the question to the learner and keep the answer hidden until they reply.
+    """
+    candidates = [e for e in load_glossary() if e["lecture"] == lecture]
+    if not candidates:
+        available = sorted({e["lecture"] for e in load_glossary()})
+        return (
+            f"No glossary terms for Lecture {lecture:02d}, so no quiz can be made. "
+            f"Sessions with terms: {', '.join(f'{n:02d}' for n in available)}"
+        )
+    entry = random.choice(candidates)
+    return json.dumps(
+        {"question": f"What does \"{entry['term']}\" mean?", "answer": entry["definition"], "lecture": lecture},
+        ensure_ascii=False,
+    )
+
+
+def _safe_filename(title: str) -> str:
+    """Turn a free-text title into a safe file name: letters, digits, '-' only, no paths."""
+    slug = re.sub(r"[^a-z0-9]+", "-", title.casefold()).strip("-")[:60].strip("-")
+    return slug or "note"
+
+
+def save_learning_log(title: str, content: str) -> str:
+    """Save a learning record (what the learner studied or noticed) as a Markdown file in learning_log/.
+
+    Use only when the learner explicitly asks to save, record or log what they learned.
+    title is a short topic such as "LoRA vs QLoRA"; content is the note to save, written for the learner.
+    The file is learning_log/<YYYY-MM-DD>_<title>.md. If it already exists, the note is appended, never overwritten.
+    The user is asked to approve before anything is written.
+    """
+    if not title.strip() or not content.strip():
+        return "Nothing was saved: both title and content must be non-empty."
+    if len(content) > MAX_LOG_CHARS:
+        return f"Nothing was saved: content is longer than {MAX_LOG_CHARS} characters. Shorten it."
+    log_dir = LEARNING_LOG_DIR.resolve()
+    log_dir.mkdir(parents=True, exist_ok=True)
+    now = datetime.now()
+    path = (log_dir / f"{now:%Y-%m-%d}_{_safe_filename(title)}.md").resolve()
+    if path.parent != log_dir:  # defence in depth; _safe_filename already removes separators
+        return "Nothing was saved: unsafe file name."
+    existed = path.exists()
+    with path.open("a", encoding="utf-8") as f:
+        if not existed:
+            f.write(f"# {title.strip()}\n")
+        f.write(f"\n## {now:%Y-%m-%d %H:%M}\n\n{content.strip()}\n")
+    rel = path.relative_to(log_dir.parent)
+    return f"{'Appended to' if existed else 'Saved'} {rel.as_posix()}"

@@ -16,7 +16,7 @@ import inspect
 import json
 from pathlib import Path
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, DeferredToolRequests, DeferredToolResults, ToolDenied
 from pydantic_ai.exceptions import ModelHTTPError
 from fastmcp import Client
 from pydantic_ai.mcp import MCPToolset, StdioTransport
@@ -38,11 +38,16 @@ You are a learning support agent for the AI Engineering Pilot Course (AIE2026).
 """
 
 # Pass the model at runtime (so tests can substitute TestModel without calling an API)
-agent = Agent(instructions=INSTRUCTIONS)
+# output_type includes DeferredToolRequests: a run pauses and returns it when an approval-required tool is called
+agent = Agent(instructions=INSTRUCTIONS, output_type=[str, DeferredToolRequests])
 agent.tool_plain(tools.search_glossary)
 agent.tool_plain(tools.get_lecture_summary)
 
-# TODO(Lecture 03 exercise): create make_quiz in tools.py and register it here
+# Lecture 03 exercise: review-question tool
+agent.tool_plain(tools.make_quiz)
+
+# Homework (Implementation): writing a file is hard to undo, so it needs the user's approval first
+agent.tool_plain(tools.save_learning_log, requires_approval=True)
 
 # Lecture 05: MCP server configuration file. Uses the same "mcpServers" format as Claude Desktop and Cursor
 MCP_CONFIG = Path(__file__).resolve().parent / "mcp_servers.json"
@@ -108,6 +113,47 @@ def print_trace(result) -> None:
             elif isinstance(part, ToolReturnPart):
                 print(f"[tool return] {part.tool_name} -> {str(part.content)[:120]}…")
     print(f"[usage] {result.usage}")
+    for i, usage in enumerate(getattr(result, "paused_usage", []), 1):
+        print(f"[usage before approval pause {i}] {usage}")
+
+
+def ask_approvals(requests: DeferredToolRequests, decide=None) -> DeferredToolResults:
+    """Ask the user (y/n) about each tool call waiting for approval and build DeferredToolResults.
+
+    decide(call) -> bool can replace the interactive prompt (used in tests).
+    """
+    results = DeferredToolResults()
+    for call in requests.approvals:
+        args = call.args_as_dict()
+        print(f"\n[approval needed] {call.tool_name}")
+        for key, value in args.items():
+            print(f"  {key}: {value}")
+        if decide is not None:
+            ok = decide(call)
+        else:
+            try:
+                ok = input("Save this? [y/N] ").strip().casefold() in ("y", "yes")
+            except EOFError:  # no terminal input: deny by default (the safe choice)
+                ok = False
+        print(f"[approval] {'approved' if ok else 'denied'}")
+        results.approvals[call.tool_call_id] = True if ok else ToolDenied(
+            "The user declined to save this learning log. Nothing was written; do not retry unless asked."
+        )
+    return results
+
+
+def run_with_approvals(target: Agent, question: str, model, decide=None, max_rounds: int = 5):
+    """Run the agent; while it pauses for approval, ask the user and continue the same conversation."""
+    result = target.run_sync(question, model=model)
+    paused_usage = []  # usage of runs that ended in an approval pause (result.usage covers only the last run)
+    for _ in range(max_rounds):
+        if not isinstance(result.output, DeferredToolRequests):
+            result.paused_usage = paused_usage
+            return result
+        paused_usage.append(result.usage)
+        results = ask_approvals(result.output, decide)
+        result = target.run_sync(message_history=result.all_messages(), deferred_tool_results=results, model=model)
+    raise SystemExit("Too many approval rounds; stopping.")
 
 
 def main() -> None:
@@ -129,7 +175,7 @@ def main() -> None:
     if args.mcp:
         print("[tools] MCP servers (app/mcp_servers.json)")
     try:
-        result = target.run_sync(args.question, model=build_model())
+        result = run_with_approvals(target, args.question, build_model())
     except ModelHTTPError as e:
         print(api_error_message(e.status_code, str(e.body)[:200]))
         raise SystemExit(1)

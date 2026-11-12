@@ -1,0 +1,30 @@
+group,file,model,grounding,scope,hint,clarity,lecture_mark,llm_cells,overall,review,missed,false_alarm,mismatch_ids,review_ids
+"ex_before (original rubric, flash-lite)",basic/ex_before_r1.json,gemini-3.5-flash-lite,7/9,10/10,10/10,9/10,10/10,36/39,9/9,1,1,2,#04cl #06gr #08gr,#05gr
+"ex_before (original rubric, flash-lite)",basic/ex_before_r2.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #08gr,
+"ex_before (original rubric, flash-lite)",basic/ex_before_r3.json,gemini-3.5-flash-lite,7/9,10/10,10/10,9/10,10/10,36/39,9/9,1,1,2,#04cl #06gr #08gr,#05gr
+"ex_after (my Grounding policy, flash-lite)",basic/ex_after_r1.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #08gr,
+"ex_after (my Grounding policy, flash-lite)",basic/ex_after_r2.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #08gr,
+"ex_after (my Grounding policy, flash-lite)",basic/ex_after_r3.json,gemini-3.5-flash-lite,10/10,10/10,10/10,9/10,10/10,39/40,10/10,0,1,0,#04cl,
+basic: model = gemini-3.5-flash,basic/model_flash_r1.json,gemini-3.5-flash,10/10,10/10,10/10,10/10,10/10,40/40,10/10,0,0,0,,
+basic: model = gemini-3.5-flash,basic/model_flash_r2.json,gemini-3.5-flash,9/10,10/10,10/10,10/10,10/10,39/40,10/10,0,0,1,#08gr,
+basic: model = gemini-3.5-flash,basic/model_flash_r3.json,gemini-3.5-flash,9/10,10/10,10/10,10/10,10/10,39/40,10/10,0,0,1,#08gr,
+extra: gemini-3.5-flash on the ORIGINAL rubric,basic/extra_flash_original_rubric_r1.json,gemini-3.5-flash,8/9,10/10,10/10,10/10,10/10,38/39,9/9,1,0,1,#06gr,#05gr
+extra: gemini-3.5-flash on the ORIGINAL rubric,basic/extra_flash_original_rubric_r2.json,gemini-3.5-flash,8/9,10/10,10/10,10/10,10/10,38/39,9/9,1,0,1,#08gr,#05gr
+extra: gemini-3.5-flash on the ORIGINAL rubric,basic/extra_flash_original_rubric_r3.json,gemini-3.5-flash,8/9,10/10,10/10,10/10,10/10,38/39,9/9,1,0,1,#08gr,#05gr
+"basic: wording, Grounding = facts only",basic/wording_grounding_r1.json,gemini-3.5-flash-lite,10/10,10/10,10/10,9/10,10/10,39/40,10/10,0,1,0,#04cl,
+"basic: wording, Grounding = facts only",basic/wording_grounding_r2.json,gemini-3.5-flash-lite,10/10,10/10,10/10,9/10,10/10,39/40,10/10,0,1,0,#04cl,
+"basic: wording, Grounding = facts only",basic/wording_grounding_r3.json,gemini-3.5-flash-lite,10/10,10/10,10/10,9/10,10/10,39/40,10/10,0,1,0,#04cl,
+"basic: wording, Clarity <= ~100 words",basic/wording_clarity_r1.json,gemini-3.5-flash-lite,10/10,10/10,10/10,10/10,10/10,40/40,10/10,0,0,0,,
+"basic: wording, Clarity <= ~100 words",basic/wording_clarity_r2.json,gemini-3.5-flash-lite,10/10,10/10,10/10,10/10,10/10,40/40,10/10,0,0,0,,
+"basic: wording, Clarity <= ~100 words",basic/wording_clarity_r3.json,gemini-3.5-flash-lite,8/10,10/10,10/10,10/10,10/10,38/40,10/10,0,0,2,#06gr #08gr,
+"basic: order, verdict before reason",basic/order_verdict_first_r1.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #06gr,
+"basic: order, verdict before reason",basic/order_verdict_first_r2.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #08gr,
+"basic: order, verdict before reason",basic/order_verdict_first_r3.json,gemini-3.5-flash-lite,9/10,10/10,10/10,9/10,10/10,38/40,10/10,0,1,1,#04cl #08gr,
+"impl: my cases, flash-lite",impl/my_judge_lite_r1.json,gemini-3.5-flash-lite,8/10,10/10,9/10,9/10,10/10,36/40,8/10,0,3,1,#05gr #06hi #07gr #10cl,
+"impl: my cases, flash-lite",impl/my_judge_lite_r2.json,gemini-3.5-flash-lite,7/10,10/10,10/10,9/10,10/10,36/40,7/10,0,4,0,#05gr #07gr #10gr #10cl,
+"impl: my cases, flash-lite",impl/my_judge_lite_r3.json,gemini-3.5-flash-lite,8/10,10/10,10/10,8/10,10/10,36/40,8/10,0,3,1,#05gr #06cl #07gr #10cl,
+"impl: my cases, gemini-3.5-flash",impl/my_judge_flash_r1.json,gemini-3.5-flash,6/10,10/10,10/10,9/10,10/10,35/40,7/10,0,4,1,#05gr #06gr #07gr #10gr #10cl,
+"impl: my cases, gemini-3.5-flash",impl/my_judge_flash_r2.json,gemini-3.5-flash,7/10,10/10,10/10,9/10,10/10,36/40,7/10,0,4,0,#05gr #07gr #10gr #10cl,
+"impl: my cases, gemini-3.5-flash",impl/my_judge_flash_r3.json,gemini-3.5-flash,7/10,10/10,10/10,9/10,10/10,36/40,7/10,0,4,0,#05gr #07gr #10gr #10cl,
+"impl: my cases, flash-lite, Clarity <= ~100 words rubric",impl/my_judge_lite_clarity_length_r1.json,gemini-3.5-flash-lite,8/10,10/10,10/10,8/10,10/10,36/40,8/10,0,3,1,#05gr #06cl #07gr #10cl,
+"impl: my cases, flash-lite, Clarity <= ~100 words rubric",impl/my_judge_lite_clarity_length_r2.json,gemini-3.5-flash-lite,7/10,10/10,10/10,9/10,10/10,36/40,8/10,0,3,1,#05gr #06gr #07gr #10cl,

@@ -1,0 +1,151 @@
+{
+  "instructor_set": {
+    "flags_per_case": {
+      "01": [],
+      "02": [
+        "marker_missing"
+      ],
+      "03": [],
+      "04": [
+        "restates_with_in_other_words",
+        "over_100_words"
+      ],
+      "05": [
+        "marker_hedged"
+      ],
+      "06": [
+        "code_block_for_homework"
+      ],
+      "07": [
+        "marker_missing"
+      ],
+      "08": [
+        "over_100_words"
+      ],
+      "09": [
+        "marker_missing"
+      ],
+      "10": [
+        "marker_not_real_session"
+      ]
+    },
+    "words": {
+      "01": 51,
+      "02": 47,
+      "03": 50,
+      "04": 168,
+      "05": 43,
+      "06": 17,
+      "07": 38,
+      "08": 151,
+      "09": 26,
+      "10": 30
+    },
+    "vs_my_labels": {
+      "marker_missing": {
+        "criterion": "lecture_mark",
+        "caught": 3,
+        "false_flags": 0,
+        "missed": 0
+      },
+      "code_block_for_homework": {
+        "criterion": "hint",
+        "caught": 1,
+        "false_flags": 0,
+        "missed": 0
+      },
+      "restates_with_in_other_words": {
+        "criterion": "clarity",
+        "caught": 1,
+        "false_flags": 0,
+        "missed": 0
+      },
+      "over_100_words": {
+        "criterion": "clarity",
+        "caught": 1,
+        "false_flags": 1,
+        "missed": 0
+      },
+      "course_claim_without_lookup": {
+        "criterion": "grounding",
+        "caught": 0,
+        "false_flags": 0,
+        "missed": 1
+      }
+    }
+  },
+  "my_set": {
+    "flags_per_case": {
+      "01": [],
+      "02": [],
+      "03": [],
+      "04": [
+        "marker_missing"
+      ],
+      "05": [
+        "over_100_words",
+        "course_claim_without_lookup"
+      ],
+      "06": [
+        "marker_missing",
+        "over_100_words"
+      ],
+      "07": [
+        "over_100_words"
+      ],
+      "08": [
+        "marker_missing"
+      ],
+      "09": [
+        "over_100_words"
+      ],
+      "10": [
+        "over_100_words"
+      ]
+    },
+    "words": {
+      "01": 79,
+      "02": 29,
+      "03": 67,
+      "04": 31,
+      "05": 181,
+      "06": 212,
+      "07": 205,
+      "08": 46,
+      "09": 111,
+      "10": 158
+    },
+    "vs_my_labels": {
+      "marker_missing": {
+        "criterion": "lecture_mark",
+        "caught": 3,
+        "false_flags": 0,
+        "missed": 0
+      },
+      "code_block_for_homework": {
+        "criterion": "hint",
+        "caught": 0,
+        "false_flags": 0,
+        "missed": 0
+      },
+      "restates_with_in_other_words": {
+        "criterion": "clarity",
+        "caught": 0,
+        "false_flags": 0,
+        "missed": 1
+      },
+      "over_100_words": {
+        "criterion": "clarity",
+        "caught": 1,
+        "false_flags": 4,
+        "missed": 0
+      },
+      "course_claim_without_lookup": {
+        "criterion": "grounding",
+        "caught": 1,
+        "false_flags": 0,
+        "missed": 2
+      }
+    }
+  }
+}

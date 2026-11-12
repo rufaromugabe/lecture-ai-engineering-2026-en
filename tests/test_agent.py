@@ -28,7 +28,7 @@ def test_base_tools_are_registered_and_called():
 
     called = {p.tool_name for p in _parts(result, ToolCallPart)}
     assert BASE_TOOLS <= called
-    # Tools requiring approval (requires_approval=True) wait without executing and therefore have no return value
+    # Tools with requires_approval=True are not executed; they wait for approval and have no return yet
     waiting = len(result.output.approvals) if isinstance(result.output, DeferredToolRequests) else 0
     assert len(_parts(result, ToolReturnPart)) + waiting == len(_parts(result, ToolCallPart))
     assert result.output
