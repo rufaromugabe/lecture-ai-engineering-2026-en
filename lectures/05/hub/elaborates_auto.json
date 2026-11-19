@@ -1,0 +1,364 @@
+{
+ "description": "Automatic overview -> detail links from build_links.py (DIVIDER_CHARS=150, MAX_LINKS=6); not hand-checked.",
+ "edges": [
+  {
+   "source": "lec01-main-p002",
+   "kind": "lecture",
+   "targets": [
+    "lec01-main-p023",
+    "lec01-main-p006",
+    "lec01-main-p021",
+    "lec01-main-p007",
+    "lec01-main-p008",
+    "lec01-main-p005"
+   ],
+   "why": "lecture page -> 6 most similar of 60 candidates"
+  },
+  {
+   "source": "lec01-main-p004",
+   "kind": "section",
+   "targets": [
+    "lec01-main-p007",
+    "lec01-main-p006",
+    "lec01-main-p021",
+    "lec01-main-p008",
+    "lec01-main-p023",
+    "lec01-main-p005"
+   ],
+   "why": "section page -> 6 most similar of 23 candidates"
+  },
+  {
+   "source": "lec01-main-p028",
+   "kind": "summary",
+   "targets": [
+    "lec01-main-p021",
+    "lec01-main-p006",
+    "lec01-main-p012",
+    "lec01-main-p023",
+    "lec01-main-p005",
+    "lec01-main-p008"
+   ],
+   "why": "summary page -> 6 most similar of 23 candidates"
+  },
+  {
+   "source": "lec01-main-p030",
+   "kind": "section",
+   "targets": [
+    "lec01-main-p031",
+    "lec01-main-p032",
+    "lec01-main-p033",
+    "lec01-main-p034",
+    "lec01-main-p037",
+    "lec01-main-p035"
+   ],
+   "why": "section page -> 6 most similar of 23 candidates"
+  },
+  {
+   "source": "lec01-main-p054",
+   "kind": "summary",
+   "targets": [
+    "lec01-main-p034",
+    "lec01-main-p037",
+    "lec01-main-p032",
+    "lec01-main-p051",
+    "lec01-main-p047",
+    "lec01-main-p044"
+   ],
+   "why": "summary page -> 6 most similar of 46 candidates"
+  },
+  {
+   "source": "lec01-main-p059",
+   "kind": "lecture",
+   "targets": [
+    "lec01-main-p060",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p063",
+    "lec01-main-p062",
+    "lec01-main-p070"
+   ],
+   "why": "lecture page -> 6 most similar of 12 candidates"
+  },
+  {
+   "source": "lec01-main-p061",
+   "kind": "lecture",
+   "targets": [
+    "lec01-main-p062",
+    "lec01-main-p063",
+    "lec01-main-p064",
+    "lec01-main-p065",
+    "lec01-main-p069",
+    "lec01-main-p066"
+   ],
+   "why": "lecture page -> 6 most similar of 11 candidates"
+  },
+  {
+   "source": "lec02-main-p002",
+   "kind": "lecture",
+   "targets": [
+    "lec02-main-p029",
+    "lec02-main-p061",
+    "lec02-main-p062",
+    "lec02-main-p022",
+    "lec02-main-p028",
+    "lec02-main-p044"
+   ],
+   "why": "lecture page -> 6 most similar of 54 candidates"
+  },
+  {
+   "source": "lec02-main-p003",
+   "kind": "lecture",
+   "targets": [
+    "lec02-main-p014",
+    "lec02-main-p013",
+    "lec02-main-p015",
+    "lec02-main-p062",
+    "lec02-main-p029",
+    "lec02-main-p018"
+   ],
+   "why": "lecture page -> 6 most similar of 54 candidates"
+  },
+  {
+   "source": "lec02-main-p004",
+   "kind": "lecture",
+   "targets": [
+    "lec02-main-p029",
+    "lec02-main-p013",
+    "lec02-main-p050",
+    "lec02-main-p028",
+    "lec02-main-p014",
+    "lec02-main-p017"
+   ],
+   "why": "lecture page -> 6 most similar of 54 candidates"
+  },
+  {
+   "source": "lec02-main-p005",
+   "kind": "lecture",
+   "targets": [
+    "lec02-main-p062",
+    "lec02-main-p022",
+    "lec02-main-p029",
+    "lec02-main-p015",
+    "lec02-main-p013",
+    "lec02-main-p014"
+   ],
+   "why": "lecture page -> 6 most similar of 54 candidates"
+  },
+  {
+   "source": "lec02-main-p006",
+   "kind": "lecture",
+   "targets": [
+    "lec02-main-p009",
+    "lec02-main-p011",
+    "lec02-main-p010",
+    "lec02-main-p021",
+    "lec02-main-p024",
+    "lec02-main-p050"
+   ],
+   "why": "lecture page -> 6 most similar of 54 candidates"
+  },
+  {
+   "source": "lec02-main-p008",
+   "kind": "section",
+   "targets": [
+    "lec02-main-p010",
+    "lec02-main-p009",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p011",
+    "lec02-main-p014"
+   ],
+   "why": "section page -> 6 most similar of 10 candidates"
+  },
+  {
+   "source": "lec02-main-p020",
+   "kind": "section",
+   "targets": [
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p024",
+    "lec02-main-p023",
+    "lec02-main-p027",
+    "lec02-main-p022"
+   ],
+   "why": "section page -> 6 most similar of 9 candidates"
+  },
+  {
+   "source": "lec02-main-p031",
+   "kind": "section",
+   "targets": [
+    "lec02-main-p044",
+    "lec02-main-p032",
+    "lec02-main-p038",
+    "lec02-main-p040",
+    "lec02-main-p033",
+    "lec02-main-p039"
+   ],
+   "why": "section page -> 6 most similar of 13 candidates"
+  },
+  {
+   "source": "lec02-main-p046",
+   "kind": "section",
+   "targets": [
+    "lec02-main-p050",
+    "lec02-main-p053",
+    "lec02-main-p047",
+    "lec02-main-p058",
+    "lec02-main-p057",
+    "lec02-main-p049"
+   ],
+   "why": "section page -> 6 most similar of 12 candidates"
+  },
+  {
+   "source": "lec02-main-p059",
+   "kind": "summary",
+   "targets": [
+    "lec02-main-p050",
+    "lec02-main-p058",
+    "lec02-main-p028",
+    "lec02-main-p029",
+    "lec02-main-p018",
+    "lec02-main-p044"
+   ],
+   "why": "summary page -> 6 most similar of 44 candidates"
+  },
+  {
+   "source": "lec03-main-p002",
+   "kind": "lecture",
+   "targets": [
+    "lec03-main-p015",
+    "lec03-main-p014",
+    "lec03-main-p009",
+    "lec03-main-p021",
+    "lec03-main-p011",
+    "lec03-main-p010"
+   ],
+   "why": "lecture page -> 6 most similar of 49 candidates"
+  },
+  {
+   "source": "lec03-main-p003",
+   "kind": "lecture",
+   "targets": [
+    "lec03-main-p014",
+    "lec03-main-p008",
+    "lec03-main-p013",
+    "lec03-main-p010",
+    "lec03-main-p012",
+    "lec03-main-p015"
+   ],
+   "why": "lecture page -> 6 most similar of 49 candidates"
+  },
+  {
+   "source": "lec03-main-p004",
+   "kind": "lecture",
+   "targets": [
+    "lec03-main-p014",
+    "lec03-main-p012",
+    "lec03-main-p010",
+    "lec03-main-p013",
+    "lec03-main-p008",
+    "lec03-main-p009"
+   ],
+   "why": "lecture page -> 6 most similar of 49 candidates"
+  },
+  {
+   "source": "lec03-main-p006",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p007",
+    "lec03-main-p010",
+    "lec03-main-p008",
+    "lec03-main-p014",
+    "lec03-main-p013",
+    "lec03-main-p009"
+   ],
+   "why": "section page -> 6 most similar of 11 candidates"
+  },
+  {
+   "source": "lec03-main-p019",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p020",
+    "lec03-main-p021"
+   ],
+   "why": "section page -> 2 most similar of 2 candidates"
+  },
+  {
+   "source": "lec03-main-p023",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p029",
+    "lec03-main-p030",
+    "lec03-main-p031",
+    "lec03-main-p032",
+    "lec03-main-p025",
+    "lec03-main-p026"
+   ],
+   "why": "section page -> 6 most similar of 9 candidates"
+  },
+  {
+   "source": "lec03-main-p034",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p035",
+    "lec03-main-p036"
+   ],
+   "why": "section page -> 2 most similar of 2 candidates"
+  },
+  {
+   "source": "lec03-main-p038",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p039",
+    "lec03-main-p040",
+    "lec03-main-p041"
+   ],
+   "why": "section page -> 3 most similar of 3 candidates"
+  },
+  {
+   "source": "lec03-main-p043",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p044",
+    "lec03-main-p045",
+    "lec03-main-p046",
+    "lec03-main-p047",
+    "lec03-main-p048"
+   ],
+   "why": "section page -> 5 most similar of 5 candidates"
+  },
+  {
+   "source": "lec03-main-p050",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p051",
+    "lec03-main-p053",
+    "lec03-main-p052"
+   ],
+   "why": "section page -> 3 most similar of 3 candidates"
+  },
+  {
+   "source": "lec03-main-p055",
+   "kind": "section",
+   "targets": [
+    "lec03-main-p058",
+    "lec03-main-p057",
+    "lec03-main-p056"
+   ],
+   "why": "section page -> 3 most similar of 3 candidates"
+  },
+  {
+   "source": "lec03-main-p059",
+   "kind": "summary",
+   "targets": [
+    "lec03-main-p014",
+    "lec03-main-p058",
+    "lec03-main-p012",
+    "lec03-main-p010",
+    "lec03-main-p057",
+    "lec03-main-p051"
+   ],
+   "why": "summary page -> 6 most similar of 38 candidates"
+  }
+ ]
+}
