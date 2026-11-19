@@ -222,7 +222,7 @@ if __name__ == "__main__":
 from contextvars import ContextVar
 from functools import cache
 
-from app.config import (HUB_DETAIL_PER_SEED, HUB_EDGES, HUB_MAX_RESULTS, HUB_PER_MISSING_LECTURE,
+from app.config import (HUB_DETAIL_PER_SEED, HUB_EDGES, HUB_EDGES_AUTO, HUB_MAX_RESULTS, HUB_PER_MISSING_LECTURE,
                         HUB_START_K, NEIGHBOR_MIN_CHARS, RAG_RETRIEVER)
 
 RETRIEVER = RAG_RETRIEVER
@@ -284,9 +284,9 @@ def named_lectures(text: str) -> set[int]:
 
 
 @cache
-def elaborates() -> dict[str, list[str]]:
-    """Hand-checked overview -> detail links (lectures/05/hub/elaborates.json)."""
-    data = json.loads(HUB_EDGES.read_text(encoding="utf-8"))
+def elaborates(auto: bool = False) -> dict[str, list[str]]:
+    """Overview -> detail links: hand-checked (elaborates.json) or built by build_links.py (elaborates_auto.json)."""
+    data = json.loads((HUB_EDGES_AUTO if auto else HUB_EDGES).read_text(encoding="utf-8"))
     return {edge["source"]: edge["targets"] for edge in data["edges"]}
 
 
@@ -304,7 +304,7 @@ def rank_all(query: str) -> list[dict]:
         return [dict(row) for row in rows]
 
 
-def search_hub(query: str, question: str | None = None) -> list[dict]:
+def search_hub(query: str, question: str | None = None, auto: bool = False) -> list[dict]:
     """Advanced level: vector seeds, then two typed expansions. Each page says why it was returned.
 
     1. elaborates: a seed that is an overview / agenda / summary page brings in its most query-similar detail pages
@@ -314,7 +314,7 @@ def search_hub(query: str, question: str | None = None) -> list[dict]:
     ranked = rank_all(query)
     distance = {row["page_id"]: row["distance"] for row in ranked}
     rows = {row["page_id"]: row for row in ranked}
-    links = elaborates()
+    links = elaborates(auto)
     results = [{**row, "role": "seed", "rank": i} for i, row in enumerate(ranked[:HUB_START_K], 1)]
     chosen = {row["page_id"] for row in results}
 
@@ -326,7 +326,7 @@ def search_hub(query: str, question: str | None = None) -> list[dict]:
     for seed in list(results):
         targets = sorted((t for t in links.get(seed["page_id"], []) if t not in chosen), key=lambda t: distance.get(t, 9))
         for target in targets[:HUB_DETAIL_PER_SEED]:
-            add(target, f"detail of overview {seed['page_id']}")
+            add(target, f"detail of overview {seed['page_id']}" + (" (auto link)" if auto else ""))
 
     named = named_lectures((question or CURRENT_QUESTION.get() or "") + " " + query)
     for lecture in sorted(named - {row["lecture"] for row in results}):
@@ -344,4 +344,6 @@ def retrieve(query: str) -> list[dict]:
         return search_with_neighbors(query)
     if RETRIEVER == "hub":
         return search_hub(query)
+    if RETRIEVER == "hub_auto":
+        return search_hub(query, auto=True)
     raise ValueError(f"Unknown retriever: {RETRIEVER}")

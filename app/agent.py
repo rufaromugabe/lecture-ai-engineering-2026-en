@@ -201,7 +201,7 @@ def main() -> None:
     modes.add_argument("--tree", action="store_true", help="Follow the table of contents and read the necessary pages to answer")
     modes.add_argument("--full-context", action="store_true", help="Pass all materials in lectures.json at once, without searching")
     parser.add_argument("--list-tools", action="store_true", help="List tools visible to the model and exit (no API key needed)")
-    parser.add_argument("--retriever", choices=["vector", "neighbors", "hub"], default=None,
+    parser.add_argument("--retriever", choices=["vector", "neighbors", "hub", "hub_auto"], default=None,
                         help="Lecture 05 homework: what search_materials returns (default: vector, or AIE_RAG_RETRIEVER)")
     args = parser.parse_args()
 
