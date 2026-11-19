@@ -2,7 +2,7 @@
 
 Same agent, INSTRUCTIONS, model and data as `python -m app.agent`; only the condition changes.
     uv run python lectures/05/experiments/harness.py CONDITION K DB REP QID QUESTIONS.json OUTDIR
-CONDITION: vector | neighbors | hub | graph (stock --graph mode)
+CONDITION: vector | neighbors | hub | hub_auto | graph (stock --graph mode)
 K:  RAG_TOP_K for vector / neighbors (hub and graph use their own settings in config.py)
 DB: ja = bundled index (Japanese-text vectors) | en = experimental index, English text re-embedded
 """

@@ -1,6 +1,7 @@
 """Score saved runs: cited pages (parsed from the answer), evidence groups, key facts, searches, tokens, cost.
 
     uv run python lectures/05/experiments/score.py RUNS_DIR [RUNS_DIR ...] > scored.json
+    uv run python lectures/05/experiments/score.py --questions heldout_questions.json RUNS_DIR > scored.json
 Citations on the English data come in three shapes, and all three are handled:
   "Lecture 2 · Japanese source p.52"  /  "Lecture 2 · translated PDF p.98"  /  bare "Lecture 2, p. 51–52".
 For Lecture 2 the two numberings differ on 21 pages, so a bare number is read as the Japanese/page number
@@ -12,7 +13,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-QUESTIONS = {q["id"]: q for q in json.loads((Path(__file__).with_name("questions.json")).read_text(encoding="utf-8"))}
+QFILE = sys.argv[2] if sys.argv[1:2] == ["--questions"] else "questions.json"   # held-out set: --questions heldout_questions.json
+QUESTIONS = {q["id"]: q for q in json.loads((Path(__file__).with_name(Path(QFILE).name)).read_text(encoding="utf-8"))}
 SOURCES = json.loads((ROOT / "data/rag_data/page_sources.json").read_text(encoding="utf-8"))
 LABEL = {}   # (lecture, kind, number) -> page_id, main decks only
 for pid, src in SOURCES.items():
@@ -87,7 +89,7 @@ def score(record: dict) -> dict:
 
 if __name__ == "__main__":
     rows = []
-    for d in sys.argv[1:]:
+    for d in (sys.argv[3:] if sys.argv[1:2] == ["--questions"] else sys.argv[1:]):
         for f in sorted(Path(d).glob("*.json")):
             rows.append(score(json.loads(f.read_text(encoding="utf-8"))))
     print(json.dumps(rows, ensure_ascii=False, indent=1))
