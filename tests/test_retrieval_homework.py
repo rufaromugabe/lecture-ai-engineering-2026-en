@@ -87,3 +87,64 @@ def test_default_retriever_is_plain_vector_search(monkeypatch):
     monkeypatch.setattr(r, "RETRIEVER", "vector")
     monkeypatch.setattr(r, "search", lambda q: [hit("lec02-main-p052")])
     assert r.retrieve("LoRA") == [hit("lec02-main-p052")]
+
+
+# --- automatic overview links (lectures/05/hub/build_links.py) ---
+import importlib.util  # noqa: E402
+import json  # noqa: E402
+
+from app.config import HUB_EDGES_AUTO, RAG_DB, ROOT  # noqa: E402
+
+
+def load_builder():
+    spec = importlib.util.spec_from_file_location("build_links", ROOT / "lectures/05/hub/build_links.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def page(n, section, title, content="x" * 200, doc="lec09-main"):
+    return {"page_id": f"{doc}-p{n:03d}", "document_id": doc, "section": section, "title": title, "page": n, "content": content}
+
+
+def test_builder_rules_on_synthetic_lecture():
+    b = load_builder()
+    pages = [page(1, "Opening", "Title", "short"), page(2, "Opening", "Agenda"),
+             page(3, "Part 1", "Part 1", "short"), page(4, "Part 1", "Intro to part 1"), page(5, "Part 1", "Detail A"),
+             page(6, "Part 1", "Detail B"), page(7, "Part 2", "Part 2"), page(8, "Part 2", "Opener 2"),
+             page(9, "Part 2", "Summary of the lecture"), page(10, "Appendix", "Appendix"), page(11, "Appendix", "Extra")]
+    kinds = b.detect(pages)
+    assert kinds == {"lec09-main-p002": "lecture", "lec09-main-p004": "section",
+                     "lec09-main-p008": "section", "lec09-main-p009": "summary"}
+    # section opener: following pages up to the section break; no dividers, no other overviews
+    assert b.candidates(pages, 3, "section", kinds) == ["lec09-main-p005", "lec09-main-p006"]
+    assert b.candidates(pages, 7, "section", kinds) == []                       # next page is an overview
+    assert b.candidates(pages, 8, "summary", kinds) == ["lec09-main-p005", "lec09-main-p006"]
+    vectors = {p["page_id"]: (1.0, 0.0) for p in pages}
+    vectors["lec09-main-p006"] = (0.9, 0.1)
+    vectors["lec09-main-p005"] = (0.0, 1.0)
+    edges = {e["source"]: e["targets"] for e in b.build(pages, vectors)}
+    assert edges["lec09-main-p004"] == ["lec09-main-p006", "lec09-main-p005"]  # most similar first
+    assert all(len(t) <= b.MAX_LINKS for t in edges.values())
+
+
+@pytest.mark.skipif(not RAG_DB.is_file() or not HUB_EDGES_AUTO.is_file(), reason="index or auto links not present")
+def test_auto_link_file_is_reproducible_and_stays_inside_each_lecture():
+    b = load_builder()
+    saved = json.loads(HUB_EDGES_AUTO.read_text(encoding="utf-8"))["edges"]
+    assert saved == b.build(r.load_pages(), b.embeddings())
+    by_id, _ = r._pages_by_position()
+    for edge in saved:
+        assert edge["source"] in by_id and edge["targets"]
+        assert all(by_id[t]["document_id"] == by_id[edge["source"]]["document_id"] for t in edge["targets"])
+
+
+def test_hub_auto_uses_the_auto_links(monkeypatch):
+    auto = r.elaborates(auto=True)
+    source = next(iter(auto))
+    by_id, _ = r._pages_by_position()
+    order = [source] + [p for p in by_id if p != source]
+    monkeypatch.setattr(r, "rank_all", lambda q: fake_ranking(order))
+    out = r.search_hub("anything", question="no lecture named", auto=True)
+    added = [p for p in out if p["role"] == "expanded"]
+    assert added and all(p["page_id"] in auto[source] and p["via"].endswith("(auto link)") for p in added)
