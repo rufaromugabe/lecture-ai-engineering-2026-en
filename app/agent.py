@@ -137,6 +137,19 @@ def print_tools(target: Agent) -> None:
         print(f"  Arguments: {json.dumps(params, ensure_ascii=False)}")
 
 
+def _print_roles(part) -> None:
+    """Lecture 05 homework: for neighbour / hub results, list each returned page and why it is there."""
+    try:
+        results = json.loads(part.content).get("results", [])
+    except (TypeError, ValueError, AttributeError):
+        return
+    for page in results:
+        if "role" not in page:
+            return
+        why = page.get("via") or (f"{page['side']} {page['neighbor_of']}" if page.get("neighbor_of") else f"rank {page.get('rank')}")
+        print(f"    - {page['role']:<8} {page['page_id']}  {page['title'][:45]}  ({why})")
+
+
 def print_trace(result, elapsed_seconds: float | None = None) -> None:
     """Display which tools were called with which arguments and what they returned."""
     print("\n--- trace ---")
@@ -169,6 +182,7 @@ def print_trace(result, elapsed_seconds: float | None = None) -> None:
                             print(f"    (Leaf page: retrieved {len(node.get('content', ''))} characters of text)")
                 else:
                     print(f"[tool return] {part.tool_name} -> {str(part.content)[:120]}…")
+                    _print_roles(part)
     usage = result.usage
     if elapsed_seconds is not None:
         print(f"[time] Answer completed in {elapsed_seconds:.2f} seconds (including retrieval and embedding)")
@@ -187,6 +201,8 @@ def main() -> None:
     modes.add_argument("--tree", action="store_true", help="Follow the table of contents and read the necessary pages to answer")
     modes.add_argument("--full-context", action="store_true", help="Pass all materials in lectures.json at once, without searching")
     parser.add_argument("--list-tools", action="store_true", help="List tools visible to the model and exit (no API key needed)")
+    parser.add_argument("--retriever", choices=["vector", "neighbors", "hub", "hub_auto"], default=None,
+                        help="Lecture 05 homework: what search_materials returns (default: vector, or AIE_RAG_RETRIEVER)")
     args = parser.parse_args()
 
     target = build_mcp_agent() if args.mcp else agent
@@ -206,7 +222,13 @@ def main() -> None:
         if not args.question:
             parser.error("Please provide a question")
 
+        from app import retrieval
+        if args.retriever:
+            retrieval.RETRIEVER = args.retriever
+        retrieval.CURRENT_QUESTION.set(args.question)
         print(f"[model] {MODEL}")
+        if retrieval.RETRIEVER != "vector" and not (args.tree or args.graph or args.full_context):
+            print(f"[retriever] {retrieval.RETRIEVER}")
         if args.mcp:
             print("[tools] MCP servers (app/mcp_servers.json)")
 

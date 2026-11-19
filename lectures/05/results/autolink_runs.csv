@@ -1,0 +1,96 @@
+experiment,condition,k,db,qid,rep,searches,input_tokens,output_tokens,requests,time,cost,evidence_retrieved,evidence_cited,facts,refused,pages_returned,cited,added_evidence_cited,bare_cites,n_cites,queries
+autolink,hub_auto,3,ja,A1,1,1,2196,385,2,2.8,0.0016213,0.5,0.5,0.5,False,5,lec01-main-p035 lec01-main-p040 lec03-main-p020,,0,4,developer model sense succeeded success evaluation testing lecture 01 lecture 03
+autolink,hub_auto,3,ja,A1,2,2,5978,554,3,4.05,0.0031784,0.5,0.5,1.0,False,10,lec01-main-p040 lec01-main-p041 lec01-main-p042 lec03-main-p020 lec03-main-p044,lec03-main-p044,10,10,developer model sense success lecture 01 03 || model own sense success evaluation lecture 03
+autolink,hub_auto,3,ja,A1,3,2,6154,349,3,10.76,0.0027187,1.0,1.0,0.5,False,10,lec01-main-p035 lec01-main-p041 lec03-main-p044,lec01-main-p035,0,4,developer model sense success lecture 01 03 || Lecture 03 model sense success evaluate agent
+autolink,hub_auto,3,ja,A2,1,1,2344,316,2,2.47,0.0014932,1.0,1.0,1.0,False,3,lec02-main-p049 lec03-main-p001 lec03-main-p016,,4,6,prompt caching
+autolink,hub_auto,3,ja,A2,2,1,2344,223,2,2.35,0.0012607,1.0,0.0,1.0,False,3,,,0,0,prompt caching
+autolink,hub_auto,3,ja,A2,3,1,2344,302,2,2.48,0.0014582,1.0,1.0,1.0,False,3,lec02-main-p049 lec03-main-p016,,2,5,prompt caching
+autolink,hub_auto,3,ja,A3,1,1,3281,496,2,8.99,0.0022243,1.0,1.0,1.0,False,7,lec01-main-p019 lec01-main-p049 lec02-main-p046 lec02-main-p047 lec02-main-p057,lec01-main-p049,10,10,RAG fine tuning adding knowledge first choice
+autolink,hub_auto,3,ja,A3,2,1,3282,411,2,3.22,0.0020121,1.0,1.0,1.0,False,7,lec01-main-p019 lec01-main-p049 lec02-main-p046 lec02-main-p047 lec02-main-p050 lec02-main-p057,lec01-main-p049,8,8,RAG fine-tuning first choice adding knowledge
+autolink,hub_auto,3,ja,A3,3,1,3367,498,2,2.63,0.0022551,1.0,1.0,1.0,False,7,lec01-main-p019 lec01-main-p049 lec02-main-p013 lec02-main-p046 lec02-main-p047 lec02-main-p057,lec01-main-p049 lec02-main-p057,12,12,RAG fine-tuning first choice adding knowledge Lecture 01 Lecture 02
+autolink,hub_auto,3,ja,A4,1,2,6210,368,3,3.77,0.002783,0.75,0.75,1.0,False,10,lec02-main-p003 lec02-main-p012 lec02-main-p014 lec02-main-p015 lec02-main-p018,lec02-main-p014 lec02-main-p015,9,9,troublesome behaviours chatbots Lecture 02 || Consequence 1 variation Lecture 2
+autolink,hub_auto,3,ja,A4,2,2,7422,352,3,3.43,0.0031066,0.75,0.75,1.0,False,12,lec02-main-p003 lec02-main-p014 lec02-main-p015,lec02-main-p014 lec02-main-p015,4,4,three troublesome behaviours chatbots lecture 02 || misses the middle different answer confident wrong lecture 02
+autolink,hub_auto,3,ja,A4,3,2,6349,495,3,11.22,0.0031422,1.0,1.0,1.0,False,10,lec02-main-p003 lec02-main-p013 lec02-main-p014 lec02-main-p015 lec02-main-p017,lec02-main-p014 lec02-main-p015,12,12,"troublesome behaviours of chatbots Lecture 02 || ""The same question gets a different answer each time"" Lecture 2"
+autolink,hub_auto,3,ja,A5,1,1,2159,271,2,2.15,0.0013252,0.5,0.5,1.0,False,5,lec03-main-p003,,0,3,Lecture 03 model properties Lecture 02 agents
+autolink,hub_auto,3,ja,A5,2,1,2951,298,2,2.59,0.0016303,0.5,0.5,1.0,False,7,lec03-main-p003,,2,2,Lecture 03 model properties Lecture 02 agents examples
+autolink,hub_auto,3,ja,A5,3,1,3079,294,2,3.01,0.0016587,1.0,0.5,1.0,False,7,lec03-main-p003,,3,3,Lecture 03 model properties Lecture 02 agent problems consequences examples
+autolink,hub_auto,3,ja,M1,1,1,2439,305,2,2.47,0.0014942,1.0,1.0,1.0,False,5,lec03-main-p038 lec03-main-p039 lec03-main-p040 lec03-main-p065,lec03-main-p040,5,5,compaction memory sessions daily notes long-term memory
+autolink,hub_auto,3,ja,M1,2,1,2440,207,2,7.84,0.0012495,1.0,1.0,0.0,False,5,lec03-main-p039 lec03-main-p040 lec03-main-p065,lec03-main-p040,0,3,compaction memory across sessions daily notes long-term memory
+autolink,hub_auto,3,ja,M1,3,1,2443,193,2,2.22,0.0012154,1.0,1.0,0.0,False,5,lec03-main-p039 lec03-main-p040 lec03-main-p065,lec03-main-p039,0,3,compaction memory daily notes long-term memory Lecture 03
+autolink,hub_auto,3,ja,M2,1,1,2455,545,2,3.79,0.002099,1.0,1.0,1.0,False,5,lec02-main-p013 lec02-main-p014 lec02-main-p017 lec02-main-p018,lec02-main-p013 lec02-main-p018,13,13,same question different answers fluent wrong answers Lecture 02
+autolink,hub_auto,3,ja,M2,2,3,9462,576,4,5.74,0.0042786,1.0,1.0,1.0,False,11,lec02-main-p013 lec02-main-p014 lec02-main-p017 lec02-main-p018,lec02-main-p013 lec02-main-p018,15,15,same question different answers fluent wrong answers Lecture 02 || Consequence 1 the same question can get a different answer each time mechanism lecture 2 || mechanism the same question can get a different answer each time Lecture 2
+autolink,hub_auto,3,ja,M3,1,2,6091,249,3,3.06,0.0024498,1.0,1.0,1.0,False,12,lec01-main-p032 lec01-main-p034 lec01-main-p054,lec01-main-p032 lec01-main-p034,0,3,five stages of AI engineering Lecture 01 || important especially key AI engineering Lecture 01
+autolink,hub_auto,3,ja,M3,2,2,4977,455,3,7.51,0.0026306,1.0,1.0,1.0,False,8,lec01-main-p034 lec01-main-p035 lec01-main-p052 lec01-main-p054,,12,12,five stages of AI engineering Lecture 01 || especially important key Lecture 01 cycle evaluation improvement
+autolink,hub_auto,3,ja,M3,3,2,5540,262,3,3.38,0.002317,1.0,1.0,1.0,False,10,lec01-main-p034 lec01-main-p052 lec01-main-p054,,0,4,five stages of AI engineering Lecture 01 || especially important key lecture 01 AI engineering cycle
+autolink,hub,3,ja,M4,1,2,3876,309,3,3.81,0.0019353,1.0,1.0,1.0,False,6,lec03-main-p027 lec03-main-p048,,0,5,retrying a tool call problems countermeasure || countermeasure idempotent retry
+autolink,hub,3,ja,M4,2,3,6481,345,4,11.23,0.0028068,1.0,1.0,1.0,False,9,lec03-main-p027 lec03-main-p045 lec03-main-p048,,0,8,retrying a tool call problems countermeasure Lecture 03 || countermeasure idempotent request key retry tool call Lecture 03 || idempotency key design Lecture 03
+autolink,hub,3,ja,M4,3,2,3770,460,3,9.82,0.002281,1.0,1.0,1.0,True,6,lec03-main-p027 lec03-main-p045 lec03-main-p048,,0,8,retry tool call problems countermeasure || idempotent countermeasure retry tool
+autolink,hub_auto,3,ja,M4,1,4,12152,406,5,17.79,0.0046606,1.0,1.0,1.0,False,14,lec03-main-p025 lec03-main-p027 lec03-main-p045 lec03-main-p048,,6,6,retrying a tool call problems countermeasure Lecture 03 || idempotency countermeasure retry Lecture 03 || Idempotency key Lecture 03 || idempotent tool safety Lecture 03
+autolink,hub_auto,3,ja,M4,2,2,3878,395,3,10.81,0.0021509,1.0,1.0,1.0,False,6,lec03-main-p027 lec03-main-p045 lec03-main-p048,,0,8,retrying a tool call problems countermeasure || idempotency countermeasure retry
+autolink,hub_auto,3,ja,M4,3,2,3879,325,3,3.31,0.0019762,1.0,1.0,1.0,True,6,lec03-main-p027 lec03-main-p048,,5,5,retrying a tool call problems countermeasure || idempotent countermeasure retry
+autolink,hub_auto,3,ja,N1,1,2,5169,506,3,3.65,0.0028157,1.0,1.0,1.0,False,8,lec01-main-p040 lec01-main-p041 lec01-main-p042,lec01-main-p041,3,3,95 of 100 test questions || Probably not sufficient reasons
+autolink,hub_auto,3,ja,N1,2,2,5169,553,3,4.16,0.0029332,1.0,1.0,1.0,False,8,lec01-main-p041 lec01-main-p042,lec01-main-p041,6,6,95 of 100 test questions || Probably not sufficient reasons
+autolink,hub,3,ja,N2,1,1,1860,479,2,3.63,0.0017555,1.0,1.0,1.0,True,3,lec03-main-p025 lec03-main-p026,,0,10,human-in-the-loop irreversible operations in on out of the loop
+autolink,hub,3,ja,N2,2,1,1872,268,2,8.96,0.0012316,1.0,1.0,0.5,True,3,lec03-main-p025 lec03-main-p026,,0,4,human in the loop irreversible operations in on out of the loop
+autolink,hub_auto,3,ja,N2,1,1,2633,356,2,2.83,0.0016799,1.0,1.0,1.0,True,5,lec03-main-p025 lec03-main-p026,,0,5,human in the loop irreversible operations in on out of the loop
+autolink,hub_auto,3,ja,N2,2,1,1860,420,2,2.86,0.001608,1.0,1.0,0.5,True,3,lec03-main-p025 lec03-main-p026,,0,6,human-in-the-loop irreversible operations in on out of the loop
+autolink,hub,3,ja,N3,1,1,1501,325,2,2.29,0.0012628,1.0,1.0,1.0,False,3,lec02-main-p046 lec02-main-p057,,8,8,Lecture 02 Quiz 4 fine-tuning suits best
+autolink,hub,3,ja,N3,2,1,1505,336,2,2.42,0.0012915,1.0,1.0,1.0,False,3,lec02-main-p057,,0,4,Quiz 4 fine-tuning suits best Lecture 02
+autolink,hub,3,ja,N3,3,1,1422,211,2,2.38,0.0009541,1.0,1.0,1.0,False,3,lec02-main-p057,,1,1,Lecture 02 Quiz 4 fine-tuning
+autolink,hub_auto,3,ja,N3,1,1,2255,312,2,8.68,0.0014565,1.0,1.0,0.5,False,5,lec02-main-p046 lec02-main-p057,,1,7,Lecture 02 Quiz 4 fine-tuning suits best
+autolink,hub_auto,3,ja,N3,2,1,2255,352,2,2.47,0.0015565,1.0,1.0,1.0,False,5,lec02-main-p046 lec02-main-p057,,1,6,Lecture 02 Quiz 4 fine-tuning suits best
+autolink,hub_auto,3,ja,N3,3,1,2259,306,2,2.48,0.0014427,1.0,1.0,1.0,False,5,lec02-main-p046 lec02-main-p057,,1,7,fine-tuning suits best Lecture 02 Quiz 4
+autolink,hub_auto,3,ja,O1,1,4,17109,196,5,4.86,0.0056227,,,,False,14,lec02-main-p060 lec02-main-p061,,2,2,learning rate LoRA rank hands-on exercise Lecture 02 || learning rate r alpha target modules training arguments Lecture 02 || learning rate rank || learning rate
+autolink,hub_auto,3,ja,O1,2,4,14811,195,5,4.53,0.00438594,,,,True,12,lec02-main-p052 lec02-main-p060 lec02-main-p061,,3,3,learning rate LoRA rank hands-on exercise Lecture 02 || learning rate rank r lora lecture 02 || learning_rate OR lr OR rank OR lora_r || exercise configuration hyperparameter learning rate rank
+autolink,hub_auto,3,ja,O1,3,4,15933,196,5,5.38,0.00417802,,,,True,14,lec02-main-p060 lec02-main-p061,,2,2,learning rate LoRA rank hands-on exercise Lecture 02 || learning rate rank lora exercise configuration code || learning_rate OR lr OR r= OR rank= Lecture 2 || LoRA rank lr learning rate
+autolink,hub,3,ja,S1,1,1,1746,164,2,2.09,0.0009338,1.0,1.0,1.0,False,3,lec01-main-p027,,0,2,METR study speed-up developers measured Lecture 01
+autolink,hub,3,ja,S1,2,1,1734,171,2,1.94,0.0009477,1.0,1.0,1.0,False,3,lec01-main-p027,,0,3,METR study speed-up measured developers Lecture 01
+autolink,hub,3,ja,S1,3,1,1746,169,2,1.77,0.0009463,1.0,1.0,1.0,False,3,lec01-main-p027,,0,3,METR study speed-up developers measured Lecture 01
+autolink,hub_auto,3,ja,S1,1,1,1734,176,2,2.16,0.0009602,1.0,1.0,1.0,False,3,lec01-main-p027,,0,3,METR study speed-up measured developers Lecture 01
+autolink,hub_auto,3,ja,S1,2,1,1746,174,2,8.31,0.0009588,1.0,1.0,1.0,False,3,lec01-main-p027,,0,3,METR study speed-up developers measured Lecture 01
+autolink,hub_auto,3,ja,S1,3,1,1746,179,2,6.99,0.0009713,1.0,1.0,1.0,False,3,lec01-main-p027,,3,3,METR study speed-up developers measured Lecture 01
+autolink,hub,3,ja,S2,1,1,1857,218,2,2.17,0.0011021,1.0,1.0,1.0,False,3,lec02-main-p070,,0,4,Lecture 02 cost estimate 200 questions large model small model
+autolink,hub,3,ja,S2,2,1,1858,204,2,1.87,0.0010674,1.0,1.0,1.0,False,3,lec02-main-p070,,0,2,cost estimate 200 questions large model small model Lecture 02
+autolink,hub,3,ja,S2,3,1,1858,281,2,2.21,0.0012599,1.0,1.0,1.0,False,3,lec02-main-p070,,0,4,cost estimate 200 questions large model small model Lecture 02
+autolink,hub_auto,3,ja,S2,1,1,1858,229,2,2.46,0.0011299,1.0,1.0,1.0,False,3,lec02-main-p070,,0,2,cost estimate 200 questions large model small model Lecture 02
+autolink,hub_auto,3,ja,S2,2,1,1858,255,2,3.21,0.0011949,1.0,1.0,1.0,False,3,lec02-main-p070,,0,2,cost estimate 200 questions large model small model Lecture 02
+autolink,hub_auto,3,ja,S2,3,1,1858,204,2,1.98,0.0010674,1.0,1.0,1.0,False,3,lec02-main-p070,,0,2,cost estimate 200 questions large model small model Lecture 02
+autolink,hub,3,ja,S3,1,1,1638,223,2,2.24,0.0010489,1.0,1.0,1.0,False,3,lec02-main-p042 lec02-main-p043,,4,4,"Quiz 3 10,000 student inquiries sorting Lecture 02"
+autolink,hub,3,ja,S3,2,1,1638,204,2,2.55,0.0010014,1.0,1.0,1.0,False,3,lec02-main-p043,,3,3,Lecture 02 Quiz 3 sorting 10000 student inquiries
+autolink,hub,3,ja,S3,3,1,1638,225,2,2.41,0.0010539,1.0,1.0,1.0,False,3,lec02-main-p043,,4,4,Lecture 02 Quiz 3 sorting 10000 student inquiries
+autolink,hub_auto,3,ja,S3,1,1,1638,217,2,2.18,0.0010339,1.0,1.0,1.0,False,3,lec02-main-p043,,1,4,Lecture 02 Quiz 3 sorting 10000 student inquiries
+autolink,hub_auto,3,ja,S3,2,1,1635,246,2,2.27,0.0011055,1.0,1.0,1.0,False,3,lec02-main-p043,,3,3,"Quiz 3 sorting 10,000 student inquiries"
+autolink,hub_auto,3,ja,S3,3,1,1635,260,2,8.75,0.0011405,1.0,1.0,1.0,False,3,lec02-main-p043,,3,3,"Quiz 3 sorting 10,000 student inquiries"
+autolink,hub_auto,3,ja,X1,1,1,2449,266,2,2.33,0.0013997,1.0,1.0,1.0,False,5,lec01-main-p046 lec02-main-p039,lec01-main-p046,4,4,public benchmarks not enough choosing trusting model
+autolink,hub_auto,3,ja,X1,2,1,2449,299,2,2.3,0.0014822,1.0,1.0,1.0,False,5,lec01-main-p046 lec02-main-p039 lec02-main-p044,lec01-main-p046,6,6,public benchmarks not enough choosing trusting model
+autolink,hub_auto,3,ja,X1,3,1,2243,266,2,2.27,0.0013379,1.0,1.0,1.0,False,5,lec01-main-p046 lec02-main-p039,lec01-main-p046,4,4,public benchmarks choosing trusting model limitations
+autolink-heldout,hub_auto,3,ja,H1,1,1,2944,142,2,3.01,0.0012382,1.0,1.0,1.0,False,5,lec01-main-p009,,1,3,Claude Opus 4.6 length of tasks AI can complete on its own
+autolink-heldout,hub_auto,3,ja,H1,2,1,2940,134,2,1.78,0.001217,1.0,1.0,1.0,False,5,lec01-main-p009 lec03-main-p019,,4,4,length of tasks Claude Opus 4.6
+autolink-heldout,hub_auto,3,ja,H1,3,1,2944,134,2,8.85,0.0012182,1.0,1.0,1.0,False,5,lec01-main-p009,,1,3,Claude Opus 4.6 length of tasks AI can complete
+autolink-heldout,hub_auto,3,ja,H2,1,1,1866,236,2,2.23,0.0011498,1.0,1.0,1.0,True,3,lec03-main-p053,,5,5,sandbox coding agent stop protect against
+autolink-heldout,hub_auto,3,ja,H2,2,1,1865,220,2,8.16,0.0011095,1.0,1.0,1.0,True,3,lec03-main-p053,,1,3,sandbox coding agent stop protect
+autolink-heldout,hub_auto,3,ja,H2,3,1,1866,219,2,2.52,0.0011073,1.0,1.0,1.0,True,3,lec03-main-p053,,4,4,sandbox coding agent protect stop
+autolink-heldout,hub_auto,3,ja,H3,1,1,1798,80,2,2.25,0.0007394,1.0,1.0,1.0,False,3,lec03-main-p058,,1,1,Darwin Gödel Machine SWE-bench
+autolink-heldout,hub_auto,3,ja,H3,2,1,1726,180,2,1.98,0.0009678,1.0,1.0,1.0,False,3,lec03-main-p058,,0,2,Darwin Gödel Machine SWE-bench improve problem
+autolink-heldout,hub_auto,3,ja,H3,3,1,1726,148,2,2.23,0.0008878,1.0,1.0,1.0,False,3,lec03-main-p058,,2,2,Darwin Gödel Machine SWE-bench improve problem
+autolink-heldout,hub_auto,3,ja,H4,1,1,1697,466,2,2.74,0.0016741,1.0,1.0,1.0,False,3,lec03-main-p011 lec03-main-p031 lec03-main-p032,,7,7,subagents Tool Search context
+autolink-heldout,hub_auto,3,ja,H4,2,1,1697,430,2,2.79,0.0015841,1.0,1.0,1.0,False,3,lec03-main-p031 lec03-main-p032,,4,4,subagents Tool Search context
+autolink-heldout,hub_auto,3,ja,H4,3,1,1697,363,2,2.55,0.0014166,1.0,1.0,1.0,False,3,lec03-main-p031 lec03-main-p032,,4,4,subagents Tool Search context
+autolink-heldout,hub_auto,3,ja,H5,1,1,2312,373,2,2.7,0.0016261,1.0,1.0,1.0,True,5,lec03-main-p043 lec03-main-p045,,0,6,tool call fails three things check agent loop stopped
+autolink-heldout,hub_auto,3,ja,H5,2,1,2312,425,2,7.97,0.0017561,1.0,1.0,1.0,True,5,lec03-main-p043 lec03-main-p045,,6,6,tool call fails three things check agent loop stopped
+autolink-heldout,hub_auto,3,ja,H5,3,1,2312,337,2,2.59,0.0015361,1.0,1.0,1.0,True,5,lec03-main-p043 lec03-main-p045,,6,6,tool call fails three things check agent loop stopped
+autolink-heldout,hub_auto,3,ja,H6,1,1,2064,177,2,2.52,0.0010617,1.0,1.0,1.0,False,3,lec02-main-p025,,2,2,o1 AIME accuracy trade-off think more
+autolink-heldout,hub_auto,3,ja,H6,2,1,2090,230,2,2.19,0.001202,1.0,1.0,1.0,False,3,lec02-main-p025,,4,4,o1 accuracy on AIME let it think more trade-off
+autolink-heldout,hub_auto,3,ja,H6,3,1,2066,199,2,8.51,0.0011173,1.0,1.0,1.0,False,3,lec02-main-p025,,3,3,o1 AIME accuracy trade off think more
+autolink-heldout,hub_auto,3,ja,H7,1,1,1949,356,2,8.66,0.0014747,1.0,1.0,1.0,False,3,lec02-main-p060 lec03-main-p036,,3,3,Jev structured output constrained decoding
+autolink-heldout,hub_auto,3,ja,H7,2,1,1949,424,2,9.04,0.0016447,1.0,1.0,1.0,False,3,lec02-main-p060 lec03-main-p035 lec03-main-p036,,10,10,Jev structured output constrained decoding
+autolink-heldout,hub_auto,3,ja,H8,1,1,1704,251,2,2.16,0.0011387,1.0,1.0,1.0,False,3,lec01-main-p026,,0,1,four directions for delegating more to AI
+autolink-heldout,hub_auto,3,ja,H8,2,1,1704,267,2,2.33,0.0011787,1.0,1.0,1.0,False,3,lec01-main-p026,,4,4,four directions for delegating more to AI
+autolink-heldout,hub_auto,3,ja,H8,3,1,1704,245,2,2.35,0.0011237,1.0,1.0,1.0,False,3,lec01-main-p026,,0,1,four directions for delegating more to AI
+autolink-heldout,hub_auto,3,ja,H9,1,1,2340,568,2,3.19,0.002122,1.0,1.0,1.0,True,5,lec01-main-p010 lec03-main-p055 lec03-main-p056 lec03-main-p057 lec03-main-p058,lec03-main-p056 lec03-main-p057,11,11,recursive self-improvement RSI
+autolink-heldout,hub_auto,3,ja,H9,2,1,2337,468,2,7.99,0.0018711,1.0,1.0,1.0,True,5,lec01-main-p010 lec03-main-p055 lec03-main-p057 lec03-main-p058,lec03-main-p057,6,6,recursive self-improvement
+autolink-heldout,hub_auto,3,ja,H10,1,1,2178,315,2,2.85,0.0014409,1.0,1.0,1.0,False,5,lec01-main-p033 lec03-main-p014,lec03-main-p014,0,2,model is only a small part of an ML system
+autolink-heldout,hub_auto,3,ja,H10,2,1,2178,353,2,2.8,0.0015359,1.0,1.0,1.0,False,5,lec01-main-p033 lec03-main-p014,lec03-main-p014,0,2,model is only a small part of an ML system
+autolink-heldout,hub_auto,3,ja,H11,1,4,16187,518,4,5.17,0.00505733,0.5,0.5,1.0,False,21,lec01-main-p007 lec02-main-p051 lec02-main-p058,,3,3,adaptation methods adaptation over training Lecture 01 || checklist fine-tune Lecture 02 || adaptation methods Lecture 1 || adaptation over training Lecture 1
+autolink-heldout,hub_auto,3,ja,H11,2,3,12101,523,4,11.12,0.0049378,0.5,0.5,1.0,False,13,lec01-main-p007 lec02-main-p051 lec02-main-p058,,6,6,"adaptation methods fine-tune checklist Lecture 01 Lecture 02 || adaptation methods Lecture 1 adaptation over training || ""adaptation"" ""Lecture 1"""
+autolink-heldout,hub_auto,3,ja,H11,3,3,12694,644,4,4.88,0.0054182,0.5,0.5,1.0,False,15,lec01-main-p007 lec02-main-p051 lec02-main-p058,,4,4,adaptation methods training fine tune checklist || adaptation over training Lecture 1 adaptation methods || adaptation over training

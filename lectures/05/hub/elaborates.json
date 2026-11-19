@@ -1,0 +1,220 @@
+{
+ "description": "Overview -> detail links for the Lecture 01-03 main slides (20 overview pages, 95 links). Each source page lists or summarises topics that are explained on the target pages. Written by hand from the page text; re-checked against the English text at upstream 2e201d1 (page IDs are the same as the Japanese data).",
+ "edges": [
+  {
+   "source": "lec01-main-p005",
+   "targets": [
+    "lec01-main-p007",
+    "lec01-main-p009",
+    "lec01-main-p013"
+   ],
+   "why": "two changes: (1) foundation models -> p.7, p.9; (2) ecosystem -> p.13"
+  },
+  {
+   "source": "lec01-main-p023",
+   "targets": [
+    "lec01-main-p024",
+    "lec01-main-p025",
+    "lec01-main-p026",
+    "lec01-main-p027"
+   ],
+   "why": "what you can do / caveats -> math problems, vulnerabilities, design, felt vs measured"
+  },
+  {
+   "source": "lec01-main-p028",
+   "targets": [
+    "lec01-main-p007",
+    "lec01-main-p009",
+    "lec01-main-p013",
+    "lec01-main-p027"
+   ],
+   "why": "'why now' summary: one model many tasks, task length doubles in 4 months, ecosystem, felt vs measured"
+  },
+  {
+   "source": "lec01-main-p030",
+   "targets": [
+    "lec01-main-p032",
+    "lec01-main-p034",
+    "lec01-main-p035"
+   ],
+   "why": "two ways of thinking: (1) understand beyond the model -> p.32/p.34, (2) evaluate and improve -> p.35"
+  },
+  {
+   "source": "lec01-main-p054",
+   "targets": [
+    "lec01-main-p034",
+    "lec01-main-p035",
+    "lec01-main-p037",
+    "lec01-main-p044",
+    "lec01-main-p047",
+    "lec01-main-p051",
+    "lec01-main-p052"
+   ],
+   "why": "summary of the five stages -> each stage page and the evaluation/improvement page"
+  },
+  {
+   "source": "lec02-main-p003",
+   "targets": [
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015"
+   ],
+   "why": "three troubles: answers vary (p.13), confident errors (p.14), middle of long context missed (p.15)"
+  },
+  {
+   "source": "lec02-main-p004",
+   "targets": [
+    "lec02-main-p008",
+    "lec02-main-p020",
+    "lec02-main-p031",
+    "lec02-main-p046"
+   ],
+   "why": "today's four questions -> core page of each block"
+  },
+  {
+   "source": "lec02-main-p006",
+   "targets": [
+    "lec02-main-p009",
+    "lec02-main-p011",
+    "lec02-main-p021",
+    "lec02-main-p023",
+    "lec02-main-p025",
+    "lec02-main-p046"
+   ],
+   "why": "six terms: token, parameters, pre-training, post-training, inference-time compute, fine-tuning"
+  },
+  {
+   "source": "lec02-main-p008",
+   "targets": [
+    "lec02-main-p009",
+    "lec02-main-p010",
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014"
+   ],
+   "why": "core of block 1: tokens, next-token probability, sampling, so answers vary and plausible errors appear"
+  },
+  {
+   "source": "lec02-main-p018",
+   "targets": [
+    "lec02-main-p012",
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015"
+   ],
+   "why": "practical guide rows: repeat questions, fix temperature, include unanswerable questions, pass only relevant parts"
+  },
+  {
+   "source": "lec02-main-p020",
+   "targets": [
+    "lec02-main-p021",
+    "lec02-main-p023",
+    "lec02-main-p025"
+   ],
+   "why": "pass/choose (pre-training), fix (post-training), make it think (inference-time compute)"
+  },
+  {
+   "source": "lec02-main-p028",
+   "targets": [
+    "lec02-main-p021",
+    "lec02-main-p022",
+    "lec02-main-p023",
+    "lec02-main-p025",
+    "lec02-main-p044",
+    "lec02-main-p046"
+   ],
+   "why": "symptom -> fix table"
+  },
+  {
+   "source": "lec02-main-p029",
+   "targets": [
+    "lec02-main-p031",
+    "lec02-main-p046"
+   ],
+   "why": "second half: choose (block 3) and fix (block 4)"
+  },
+  {
+   "source": "lec02-main-p031",
+   "targets": [
+    "lec02-main-p032",
+    "lec02-main-p039",
+    "lec02-main-p044"
+   ],
+   "why": "map of models, choose with your own evaluation set"
+  },
+  {
+   "source": "lec02-main-p044",
+   "targets": [
+    "lec02-main-p038",
+    "lec02-main-p039",
+    "lec02-main-p040",
+    "lec02-main-p070"
+   ],
+   "why": "model selection steps: where to get models, own eval set, cost < benefit, appendix prices"
+  },
+  {
+   "source": "lec02-main-p059",
+   "targets": [
+    "lec02-main-p018",
+    "lec02-main-p028",
+    "lec02-main-p044",
+    "lec02-main-p058"
+   ],
+   "why": "Lecture 02 summary -> practical guides 1-4"
+  },
+  {
+   "source": "lec03-main-p003",
+   "targets": [
+    "lec02-main-p013",
+    "lec02-main-p014",
+    "lec02-main-p015",
+    "lec02-main-p022",
+    "lec03-main-p019",
+    "lec03-main-p023",
+    "lec03-main-p038",
+    "lec03-main-p046",
+    "lec03-main-p050"
+   ],
+   "why": "Lecture 02 properties (1)-(6) mapped to Lecture 03 parts: vary -> loop error, plausible errors -> failure, cutoff -> tools, long context -> memory, instructions in input -> trust boundary, sycophancy -> 'done' reports"
+  },
+  {
+   "source": "lec03-main-p004",
+   "targets": [
+    "lec03-main-p006",
+    "lec03-main-p019",
+    "lec03-main-p023",
+    "lec03-main-p034",
+    "lec03-main-p038",
+    "lec03-main-p043",
+    "lec03-main-p045",
+    "lec03-main-p050",
+    "lec03-main-p055"
+   ],
+   "why": "agenda Part 2-10 -> first content page of each part"
+  },
+  {
+   "source": "lec03-main-p014",
+   "targets": [
+    "lec03-main-p011",
+    "lec03-main-p012",
+    "lec03-main-p013",
+    "lec03-main-p025"
+   ],
+   "why": "harness builds context, runs tools, keeps records (memory), checks permissions"
+  },
+  {
+   "source": "lec03-main-p059",
+   "targets": [
+    "lec03-main-p017",
+    "lec03-main-p019",
+    "lec03-main-p030",
+    "lec03-main-p041",
+    "lec03-main-p044",
+    "lec03-main-p046",
+    "lec03-main-p053",
+    "lec03-main-p058"
+   ],
+   "why": "Lecture 03 summary per part"
+  }
+ ]
+}

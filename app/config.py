@@ -23,6 +23,18 @@ RAG_TOP_K = 5
 GRAPH_START_K = 3
 GRAPH_HOPS = 2
 GRAPH_MAX_RESULTS = 10
+# Lecture 05 homework: what search_materials returns. "vector" (default) is the original top-k search.
+#   neighbors : top-k hits plus the page before and after each hit (same document and section, no duplicates)
+#   hub       : top-3 hits + hand-checked overview->detail links + a per-lecture search for named lectures with no hit
+#   hub_auto  : the same, but the overview->detail links come from lectures/05/hub/build_links.py (no hand labels)
+RAG_RETRIEVER = os.getenv("AIE_RAG_RETRIEVER", "vector")
+NEIGHBOR_MIN_CHARS = 150  # shorter pages (11 of 214: "Part N" dividers, title and appendix pages) are never added as neighbours
+HUB_EDGES = ROOT / "lectures/05/hub/elaborates.json"
+HUB_EDGES_AUTO = ROOT / "lectures/05/hub/elaborates_auto.json"
+HUB_START_K = 3
+HUB_DETAIL_PER_SEED = 2
+HUB_PER_MISSING_LECTURE = 2
+HUB_MAX_RESULTS = 8
 EMBEDDING_MODEL = "gemini-embedding-001"
 EMBEDDING_DIMENSIONS = 768
 # Leave room below the 2,048-token limit for the task specification and other overhead. Stop instead of truncating on overflow.
