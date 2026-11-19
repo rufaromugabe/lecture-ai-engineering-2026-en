@@ -1,0 +1,67 @@
+experiment,condition,k,db,qid,rep,searches,input_tokens,output_tokens,requests,time,cost,evidence_retrieved,evidence_cited,facts,refused,pages_returned,cited,added_evidence_cited,bare_cites,n_cites,queries
+heldout,hub,3,ja,H1,1,1,2180,178,2,2.21,0.001099,1.0,1.0,1.0,False,3,lec01-main-p009 lec03-main-p019,,4,4,length of tasks Claude Opus 4.6
+heldout,hub,3,ja,H1,2,1,2183,154,2,2.08,0.0010399,1.0,1.0,1.0,False,3,lec01-main-p009 lec03-main-p019,,4,4,Claude Opus 4.6 length of tasks AI can complete on its own
+heldout,hub,3,ja,H1,3,1,2183,152,2,3.1,0.0010349,1.0,1.0,1.0,False,3,lec01-main-p009 lec03-main-p019 lec03-main-p064,,5,5,Claude Opus 4.6 length of tasks AI can complete on its own
+heldout,vector,3,ja,H1,1,1,2147,136,2,2.44,0.0009841,1.0,1.0,1.0,False,3,lec01-main-p009,,1,3,length of tasks AI can complete Claude Opus 4.6
+heldout,vector,3,ja,H1,2,1,2147,201,2,2.19,0.0011466,1.0,1.0,1.0,False,3,lec01-main-p009,,1,4,length of tasks AI can complete Claude Opus 4.6
+heldout,vector,3,ja,H1,3,1,2147,197,2,2.27,0.0011366,1.0,1.0,1.0,False,3,lec01-main-p009,,4,4,Claude Opus 4.6 length of tasks AI can complete
+heldout,hub,3,ja,H2,1,1,1865,242,2,2.69,0.0011645,1.0,1.0,1.0,True,3,lec03-main-p053,,4,4,sandbox coding agent protect against stop
+heldout,hub,3,ja,H2,2,1,1865,234,2,2.53,0.0011445,1.0,1.0,1.0,True,3,lec03-main-p053,,1,5,sandbox coding agent stop protect
+heldout,hub,3,ja,H2,3,1,1865,215,2,2.21,0.001097,1.0,1.0,1.0,True,3,lec03-main-p053,,2,2,sandbox coding agent stop protect
+heldout,vector,3,ja,H2,1,1,1830,237,2,2.41,0.0011415,1.0,1.0,1.0,True,3,lec03-main-p053,,5,5,sandbox coding agent stop protect against
+heldout,vector,3,ja,H2,2,1,1830,207,2,2.35,0.0010665,1.0,1.0,1.0,True,3,lec03-main-p053,,1,1,sandbox coding agent stop protect against
+heldout,vector,3,ja,H2,3,1,1829,228,2,2.26,0.0011187,1.0,1.0,1.0,True,3,lec03-main-p053,,4,4,sandbox coding agent stop protect
+heldout,hub,3,ja,H3,1,1,1798,138,2,2.25,0.0008844,1.0,1.0,1.0,False,3,lec03-main-p058,,2,2,Darwin Gödel Machine SWE-bench
+heldout,hub,3,ja,H3,2,1,1798,100,2,1.89,0.0007894,1.0,1.0,0.5,False,3,lec03-main-p058,,0,1,Darwin Gödel Machine SWE-bench
+heldout,hub,3,ja,H3,3,1,1798,85,2,1.85,0.0007519,1.0,1.0,1.0,False,3,lec03-main-p058,,0,1,Darwin Gödel Machine SWE-bench
+heldout,vector,3,ja,H3,1,1,1690,156,2,1.94,0.000897,1.0,1.0,1.0,False,3,lec03-main-p058,,0,2,Darwin Gödel Machine SWE-bench improve problem
+heldout,vector,3,ja,H3,2,1,1762,172,2,2.14,0.0009586,1.0,1.0,1.0,False,3,lec03-main-p058,,0,2,Darwin Godel Machine SWE-bench
+heldout,vector,3,ja,H3,3,1,1690,143,2,2.04,0.0008645,1.0,1.0,1.0,False,3,lec03-main-p058,,1,1,Darwin Gödel Machine SWE-bench improve problem
+heldout,hub,3,ja,H4,1,1,1697,466,2,2.66,0.0016741,1.0,1.0,1.0,False,3,lec03-main-p031 lec03-main-p032,,5,5,subagents Tool Search context
+heldout,hub,3,ja,H4,2,1,1697,363,2,2.71,0.0014166,1.0,1.0,0.5,False,3,lec03-main-p031 lec03-main-p032,,4,4,subagents Tool Search context
+heldout,hub,3,ja,H4,3,1,1697,387,2,2.82,0.0014766,1.0,1.0,1.0,False,3,lec03-main-p031 lec03-main-p032,,4,4,subagents Tool Search context
+heldout,vector,3,ja,H4,1,1,1661,433,2,2.9,0.0015808,1.0,1.0,1.0,False,3,lec03-main-p031 lec03-main-p032,,0,4,subagents Tool Search context
+heldout,vector,3,ja,H4,2,1,1661,385,2,12.08,0.0014608,1.0,1.0,1.0,False,3,lec03-main-p011 lec03-main-p031 lec03-main-p032,,0,6,subagents Tool Search context
+heldout,vector,3,ja,H4,3,1,1661,474,2,2.98,0.0016833,1.0,1.0,1.0,False,3,lec03-main-p011 lec03-main-p031 lec03-main-p032,,6,6,subagents Tool Search context
+heldout,hub,3,ja,H5,1,1,1445,343,2,2.7,0.001291,1.0,1.0,1.0,True,3,lec03-main-p043 lec03-main-p045,,6,6,tool call fails three things agent loop stopped three ways
+heldout,hub,3,ja,H5,2,3,7377,380,4,10.42,0.0031631,1.0,1.0,1.0,True,9,lec03-main-p043 lec03-main-p045,,2,2,tool call fails check stop agent loop || tool call fails check || failure check three things tool call
+heldout,hub,3,ja,H5,3,1,1443,375,2,2.67,0.0013704,1.0,1.0,1.0,True,3,lec03-main-p043 lec03-main-p045,,0,6,tool call fails three things check agent loop stopped
+heldout,vector,3,ja,H5,1,3,7055,353,4,4.41,0.002999,1.0,1.0,1.0,True,9,lec03-main-p043 lec03-main-p045,,2,2,tool call fails check stop agent loop || tool call fails check || fail check
+heldout,vector,3,ja,H5,2,3,7311,399,4,10.1,0.0031908,1.0,1.0,1.0,True,9,lec03-main-p043 lec03-main-p045,,6,6,tool call fails check stop agent loop || tool call fail check || fail check three things
+heldout,vector,3,ja,H5,3,3,7266,383,4,4.47,0.0031373,1.0,1.0,1.0,True,9,lec03-main-p043 lec03-main-p045,,6,6,tool call fails check stop agent loop || tool call fails check || three things check tool call fails
+heldout,hub,3,ja,H6,1,1,2089,195,2,2.49,0.0011142,1.0,1.0,1.0,False,3,lec02-main-p025,,1,4,let it think more o1 AIME accuracy trade-off
+heldout,hub,3,ja,H6,2,1,2089,168,2,1.95,0.0010467,1.0,1.0,1.0,False,3,lec02-main-p025,,0,3,let it think more o1 AIME accuracy trade-off
+heldout,hub,3,ja,H6,3,1,2090,186,2,2.62,0.001092,1.0,1.0,1.0,False,3,lec02-main-p025,,1,3,o1 accuracy AIME trade-off let it think more
+heldout,vector,3,ja,H6,1,1,2053,236,2,6.99,0.0012059,1.0,1.0,1.0,False,3,lec02-main-p025,,3,3,let it think more o1 AIME accuracy trade-off
+heldout,vector,3,ja,H6,2,1,2028,190,2,2.06,0.0010834,1.0,1.0,1.0,False,3,lec02-main-p025,,1,3,o1 AIME accuracy trade-off think more
+heldout,vector,3,ja,H6,3,1,2214,187,2,2.05,0.0011317,1.0,1.0,1.0,False,3,lec02-main-p025,,3,3,o1 accuracy AIME let it think more trade off
+heldout,hub,3,ja,H7,1,1,1949,386,2,2.95,0.0015497,1.0,1.0,1.0,False,3,lec02-main-p060 lec03-main-p035 lec03-main-p036,,7,7,Jev structured output constrained decoding
+heldout,hub,3,ja,H7,2,1,1949,374,2,2.74,0.0015197,1.0,0.0,1.0,False,3,,,0,0,Jev structured output constrained decoding
+heldout,hub,3,ja,H7,3,1,1950,326,2,2.61,0.0014,1.0,1.0,1.0,False,3,lec03-main-p035 lec03-main-p036,,4,4,Jev constrained decoding structured output
+heldout,vector,3,ja,H7,1,1,1913,334,2,3.17,0.0014089,1.0,1.0,1.0,False,3,lec03-main-p035 lec03-main-p036,,6,7,Jev structured output constrained decoding
+heldout,vector,3,ja,H7,2,1,1913,395,2,2.78,0.0015614,1.0,1.0,1.0,False,3,lec02-main-p041 lec03-main-p035 lec03-main-p036,,7,7,Jev structured output constrained decoding
+heldout,vector,3,ja,H7,3,1,1913,330,2,7.78,0.0013989,1.0,1.0,1.0,False,3,lec03-main-p035 lec03-main-p036,,6,6,Jev structured output constrained decoding
+heldout,hub,3,ja,H8,1,1,1704,277,2,2.44,0.0012037,1.0,1.0,1.0,False,3,lec01-main-p026,,4,4,four directions for delegating more to AI
+heldout,hub,3,ja,H8,2,1,1701,190,2,2.23,0.0009853,1.0,1.0,1.0,False,3,lec01-main-p026,,0,1,four directions delegating more to AI
+heldout,hub,3,ja,H8,3,1,1704,272,2,1.95,0.0011912,1.0,1.0,1.0,False,3,lec01-main-p026,,4,4,four directions for delegating more to AI
+heldout,vector,3,ja,H8,1,1,1668,183,2,1.89,0.0009579,1.0,1.0,1.0,False,3,lec01-main-p026,,0,1,four directions for delegating more to AI
+heldout,vector,3,ja,H8,2,1,1668,269,2,2.18,0.0011729,1.0,1.0,1.0,False,3,lec01-main-p026,,4,4,four directions for delegating more to AI
+heldout,vector,3,ja,H8,3,1,1668,288,2,2.22,0.0012204,1.0,1.0,1.0,False,3,lec01-main-p026,,0,4,four directions for delegating more to AI
+heldout,hub,3,ja,H9,1,2,4943,586,3,4.39,0.0029479,1.0,1.0,1.0,False,8,lec01-main-p010 lec03-main-p055 lec03-main-p057 lec03-main-p058 lec03-main-p069,lec01-main-p010,11,11,recursive self-improvement || how far along RSI
+heldout,hub,3,ja,H9,2,2,5039,737,3,4.45,0.0033542,1.0,1.0,1.0,False,8,lec01-main-p009 lec01-main-p010 lec03-main-p055 lec03-main-p058 lec03-main-p069,lec01-main-p010,11,11,recursive self-improvement || how far along recursive self improvement RSI today
+heldout,hub,3,ja,H9,3,2,5039,583,3,4.09,0.0029692,1.0,1.0,1.0,False,8,lec01-main-p009 lec01-main-p010 lec03-main-p055 lec03-main-p058 lec03-main-p069,lec01-main-p010,9,9,recursive self-improvement || how far along recursive self improvement RSI today
+heldout,vector,3,ja,H9,1,2,3982,743,3,6.15,0.0030521,1.0,1.0,1.0,False,6,lec01-main-p010 lec03-main-p055 lec03-main-p057 lec03-main-p058 lec03-main-p069,,11,11,recursive self-improvement || how far along RSI
+heldout,vector,3,ja,H9,2,2,3981,587,3,4.79,0.0026618,1.0,1.0,1.0,False,6,lec01-main-p010 lec03-main-p055 lec03-main-p057 lec03-main-p058 lec03-main-p069,,9,9,recursive self-improvement || RSI how far along
+heldout,vector,3,ja,H9,3,2,3732,589,3,4.01,0.0025921,1.0,1.0,1.0,False,6,lec01-main-p010 lec03-main-p055 lec03-main-p057 lec03-main-p058,,10,10,recursive self-improvement RSI || RSI reached
+heldout,hub,3,ja,H10,1,2,4761,484,2,3.86,0.0026383,1.0,1.0,1.0,False,13,lec01-main-p033 lec03-main-p014 lec03-main-p017 lec03-main-p059,lec03-main-p014,9,9,model is only a small part of an ML system || agent = model + harness
+heldout,hub,3,ja,H10,2,2,4761,375,2,3.33,0.00182013,1.0,1.0,1.0,False,13,lec01-main-p033 lec03-main-p012 lec03-main-p014 lec03-main-p059,lec03-main-p014,6,6,model is only a small part of an ML system || agent = model + harness
+heldout,hub,3,ja,H10,3,2,4761,506,2,2.83,0.00214763,1.0,1.0,1.0,False,13,lec01-main-p033 lec03-main-p014 lec03-main-p017 lec03-main-p059,lec03-main-p014,10,10,model is only a small part of an ML system || agent = model + harness
+heldout,vector,3,ja,H10,1,2,3492,363,3,4.38,0.0019551,1.0,1.0,1.0,False,6,lec01-main-p033 lec03-main-p014 lec03-main-p059,,0,3,model is only a small part of an ML system || agent = model + harness
+heldout,vector,3,ja,H10,2,2,3492,388,3,4.04,0.0020176,1.0,1.0,1.0,False,6,lec01-main-p033 lec03-main-p014 lec03-main-p059,,0,4,model is only a small part of an ML system || agent = model + harness
+heldout,vector,3,ja,H10,3,2,2565,368,2,3.01,0.0016895,1.0,1.0,1.0,False,6,lec01-main-p033 lec03-main-p014 lec03-main-p017,,0,4,model is only a small part of an ML system || agent model harness
+heldout,hub,3,ja,H11,1,3,12541,387,4,5.75,0.0047298,0.5,0.5,1.0,False,13,lec01-main-p007 lec02-main-p058,,2,2,adaptation methods fine-tune checklist Lecture 01 Lecture 02 || adaptation methods Lecture 1 adaptation over training || adaptation Lecture 1 prompts fine-tuning
+heldout,hub,3,ja,H11,2,3,12255,389,4,5.28,0.00410333,0.5,0.5,1.0,False,13,lec01-main-p007 lec02-main-p051 lec02-main-p058,,3,3,adaptation methods fine-tune checklist Lecture 01 Lecture 02 || adaptation methods Lecture 1 adaptation over training || adaptation over training Lecture 1
+heldout,hub,3,ja,H11,3,3,12699,622,4,5.15,0.00481849,0.5,0.5,1.0,False,13,lec01-main-p007 lec02-main-p050 lec02-main-p051 lec02-main-p058,,5,5,adaptation methods fine-tune checklist Lecture 01 Lecture 02 || adaptation methods Lecture 1 adaptation over training || adaptation methods fine-tune prompt RAG lecture 1 OR lecture 2
+heldout,vector,3,ja,H11,1,6,27398,654,7,10.2,0.00767334,0.5,0.5,1.0,False,18,lec01-main-p007 lec02-main-p051 lec02-main-p058,,3,3,adaptation methods fine-tune checklist Lecture 01 Lecture 02 || Lecture 01 adaptation methods adaptation over training || adaptation methods Lecture 1 || adaptation methods Lecture 2 PEFT || adaptation prompt fine-tuning Lecture 01 || adaptation methods Lecture 1 adaptation over training
+heldout,vector,3,ja,H11,2,3,4651,440,3,3.54,0.0024953,0.5,0.5,1.0,False,9,lec01-main-p048 lec02-main-p058,,2,2,adaptation methods Lecture 01 || adaptation methods Lecture 1 || fine-tune checklist Lecture 02
+heldout,vector,3,ja,H11,3,4,13903,623,5,5.86,0.00518435,0.5,0.5,1.0,False,12,lec01-main-p048 lec02-main-p050 lec02-main-p051 lec02-main-p058,,8,8,adaptation methods fine-tune checklist Lecture 01 Lecture 02 || Lecture 01 adaptation methods adaptation over training || adaptation methods list Lecture 1 || adaptation methods prompt RAG fine-tuning Lecture 1
