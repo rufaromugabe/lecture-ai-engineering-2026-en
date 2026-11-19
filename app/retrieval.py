@@ -214,3 +214,134 @@ if __name__ == "__main__":
         print(f"Title: {result['title']}")
         print(f"Page: {result.get('citation') or result['page']}")
         print(f"\n{result['content']}")
+
+
+# ---------------------------------------------------------------------------
+# Lecture 05 homework. RETRIEVER chooses what search_materials returns.
+# ---------------------------------------------------------------------------
+from contextvars import ContextVar
+from functools import cache
+
+from app.config import (HUB_DETAIL_PER_SEED, HUB_EDGES, HUB_MAX_RESULTS, HUB_PER_MISSING_LECTURE,
+                        HUB_START_K, NEIGHBOR_MIN_CHARS, RAG_RETRIEVER)
+
+RETRIEVER = RAG_RETRIEVER
+# The learner's question, set by the caller, so the hub retriever can see which lectures it names.
+CURRENT_QUESTION: ContextVar[str] = ContextVar("CURRENT_QUESTION", default="")
+
+
+@cache
+def _pages_by_position() -> tuple[dict, dict]:
+    pages = load_pages(RAG_SOURCE)
+    return {p["page_id"]: p for p in pages}, {(p["document_id"], p["page"]): p for p in pages}
+
+
+def expand_neighbors(hits: list[dict]) -> list[dict]:
+    """Implementation level: return each hit followed by its page-1 / page+1.
+
+    - neighbours come from load_pages() metadata: same document_id AND same section, so a hit never pulls in
+      another lecture or the opener of the next section
+    - "Part N" divider pages (under NEIGHBOR_MIN_CHARS characters) are not added as neighbours
+    - each page appears once; a page that is itself a hit is always labelled "hit" and keeps its own rank
+    - every page keeps its text and citation metadata; neighbours say which hit they belong to
+    """
+    by_id, by_pos = _pages_by_position()
+    hit_ids = {hit["page_id"] for hit in hits}
+    out, seen = [], set()
+    for rank, hit in enumerate(hits, 1):
+        page = by_id.get(hit["page_id"], hit)
+        for offset in (-1, 0, 1):
+            item = page if offset == 0 else by_pos.get((page["document_id"], page["page"] + offset))
+            if item is None or item["page_id"] in seen:
+                continue
+            if offset == 0:
+                entry = {**page, **hit, "role": "hit", "rank": rank}
+            elif (item["page_id"] in hit_ids or item["section"] != page["section"]
+                  or len(item["content"].strip()) < NEIGHBOR_MIN_CHARS):
+                continue
+            else:
+                entry = {**item, "role": "neighbor", "neighbor_of": hit["page_id"],
+                         "side": "before" if offset < 0 else "after"}
+            seen.add(item["page_id"])
+            out.append(entry)
+    return out
+
+
+def search_with_neighbors(query: str) -> list[dict]:
+    """Vector search (RAG_TOP_K hits), then add adjacent pages."""
+    return expand_neighbors(search(query))
+
+
+LECTURE_NUMBER = re.compile(r"\b(?:Lectures?|lec)\s*0?([1-9])((?:\s*(?:,|and|&|or)\s*0?[1-9])*)", re.I)
+
+
+def named_lectures(text: str) -> set[int]:
+    """Lectures named in text: 'Lecture 01', 'Lectures 01 and 02', 'Lecture 1, 2 and 3'."""
+    found = set()
+    for first, rest in LECTURE_NUMBER.findall(text):
+        found |= {int(first)} | {int(n) for n in re.findall(r"[1-9]", rest)}
+    return found
+
+
+@cache
+def elaborates() -> dict[str, list[str]]:
+    """Hand-checked overview -> detail links (lectures/05/hub/elaborates.json)."""
+    data = json.loads(HUB_EDGES.read_text(encoding="utf-8"))
+    return {edge["source"]: edge["targets"] for edge in data["edges"]}
+
+
+def rank_all(query: str) -> list[dict]:
+    """One query embedding, distance for every indexed page (expansion ranks candidates by the same distance)."""
+    if not isinstance(query, str) or not query.strip():
+        raise ValueError("The search query is empty.")
+    with open_index(RAG_DB) as db:
+        vector = embed_text(query.strip(), "RETRIEVAL_QUERY")
+        rows = db.execute("""
+            SELECT page_id, document_id, lecture, document_title, section, title, page, content, citation,
+                   vec_distance_cosine(embedding, ?) AS distance
+            FROM chunks ORDER BY distance, page_id
+        """, (sqlite_vec.serialize_float32(vector),))
+        return [dict(row) for row in rows]
+
+
+def search_hub(query: str, question: str | None = None) -> list[dict]:
+    """Advanced level: vector seeds, then two typed expansions. Each page says why it was returned.
+
+    1. elaborates: a seed that is an overview / agenda / summary page brings in its most query-similar detail pages
+    2. lecture coverage: if the question or query names a lecture that no page so far comes from,
+       add the best pages from inside that lecture (same query vector, restricted to that document)
+    """
+    ranked = rank_all(query)
+    distance = {row["page_id"]: row["distance"] for row in ranked}
+    rows = {row["page_id"]: row for row in ranked}
+    links = elaborates()
+    results = [{**row, "role": "seed", "rank": i} for i, row in enumerate(ranked[:HUB_START_K], 1)]
+    chosen = {row["page_id"] for row in results}
+
+    def add(page_id: str, via: str) -> None:
+        if len(results) < HUB_MAX_RESULTS and page_id not in chosen and page_id in rows:
+            chosen.add(page_id)
+            results.append({**rows[page_id], "role": "expanded", "via": via})
+
+    for seed in list(results):
+        targets = sorted((t for t in links.get(seed["page_id"], []) if t not in chosen), key=lambda t: distance.get(t, 9))
+        for target in targets[:HUB_DETAIL_PER_SEED]:
+            add(target, f"detail of overview {seed['page_id']}")
+
+    named = named_lectures((question or CURRENT_QUESTION.get() or "") + " " + query)
+    for lecture in sorted(named - {row["lecture"] for row in results}):
+        inside = [row["page_id"] for row in ranked if row["lecture"] == lecture]
+        for page_id in inside[:HUB_PER_MISSING_LECTURE]:
+            add(page_id, f"Lecture {lecture} is named but had no result: best pages inside it")
+    return results
+
+
+def retrieve(query: str) -> list[dict]:
+    """What search_materials returns. RETRIEVER = "vector" keeps the original behaviour."""
+    if RETRIEVER == "vector":
+        return search(query)
+    if RETRIEVER == "neighbors":
+        return search_with_neighbors(query)
+    if RETRIEVER == "hub":
+        return search_hub(query)
+    raise ValueError(f"Unknown retriever: {RETRIEVER}")
