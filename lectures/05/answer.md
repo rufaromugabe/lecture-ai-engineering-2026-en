@@ -32,8 +32,8 @@ Extra questions, 1 run each. Q2 (evidence L03 p.13, 39, 40), about compaction vs
 <!-- Completing any one of Basic, Implementation, or Advanced is sufficient. -->
 
 - Level attempted: Basic, Implementation and Advanced.
-- What you did: Basic, `RAG_TOP_K` 1/3/5/10. Implementation, neighbour pages in `app/retrieval.py` (`--retriever neighbors`), plus an English re-embedded index to test the Japanese-vector question. Advanced, my own `hub` retriever (`--retriever hub`, `lectures/05/hub/elaborates.json`). Offline tests are in `tests/test_retrieval_homework.py` (26/26 pass with the existing ones).
-- Comparison question and conditions held fixed: same model, 214-page scope, `INSTRUCTIONS` and `search_materials` tool. `lectures/05/experiments/harness.py` changes only k / index / retriever and calls the same `agent.run_sync` + `print_trace` as `app.agent`. 17 questions I wrote and labelled from the pages (`experiments/questions.json`), with evidence groups and key facts. `score.py` parses all three citation styles into page IDs. 3 runs per cell, interleaved, 366 runs in total. All runs are in `results/runs.csv`.
+- What you did: Basic, `RAG_TOP_K` 1/3/5/10. Implementation, neighbour pages in `app/retrieval.py` (`--retriever neighbors`), plus an English re-embedded index to test the Japanese-vector question. Advanced, my own `hub` retriever (`--retriever hub`, `lectures/05/hub/elaborates.json`), and `hub_auto`, the same with links built by `lectures/05/hub/build_links.py`. Offline tests are in `tests/test_retrieval_homework.py` (29/29 pass with the existing ones).
+- Comparison question and conditions held fixed: same model, 214-page scope, `INSTRUCTIONS` and `search_materials` tool. `lectures/05/experiments/harness.py` changes only k / index / retriever and calls the same `agent.run_sync` + `print_trace` as `app.agent`. 17 questions I wrote and labelled from the pages (`experiments/questions.json`), with evidence groups and key facts. `score.py` parses all three citation styles into page IDs. 3 runs per cell, interleaved, 366 runs in total. All runs are in `results/runs.csv`, plus 66 held-out runs in `results/heldout_runs.csv`.
 
 ### Headline: the Japanese vectors are fine for English queries
 
@@ -79,7 +79,7 @@ Each hit gets page-1 and page+1 from `load_pages()` metadata, only within the sa
 
 Design: vector top 3 as seeds. (1) A seed that's an overview, agenda or summary page adds its 2 most query-similar detail pages from `elaborates.json`, which I wrote by hand from the page text (20 overview pages → 95 links, keyed by page ID so it works for both languages). (2) If the question names a lecture with no page in the results, add the best 2 pages inside that lecture. Max 8 pages, and every page says why it was returned (`via`, shown in `--trace`). I didn't route through the stock graph's terms because they're too uneven: `ai-agent` is on 54 pages, and there's no `benchmark` term at all.
 
-11 questions × 3 runs (M1–M3, X1, O1, A1–A5, N1):
+11 questions × 3 runs (M1–M3, X1, O1, A1–A5, N1). Chart: `results/adv_tradeoff.png`
 
 | Method | evidence cited | evidence retrieved | key facts | searches (mean, max) | input tokens median / mean | time s median | cost USD (33 runs) |
 |---|---|---|---|---|---|---|---|
@@ -88,16 +88,43 @@ Design: vector top 3 as seeds. (1) A seed that's an overview, agenda or summary 
 | stock `--graph` | 0.68 | 0.78 | **0.90** | 1.4, 4 | 4,763 / 7,773 | 3.0 | 0.092 |
 | **hub** | **0.92** | **0.93** | 0.88 | 1.5, 4 | **2,580 / 4,149** | **3.0** | **0.070** |
 
-Chart: `results/adv_tradeoff.png`
-
 - Best example (N1): the agent's query `95 of 100 test questions` seeded three wrong Lecture 2 pages. Lecture 01 is named but missing, so hub added L01 p.41/40, and the agent's next search got p.42. It was correct 3/3 with 5,227 median tokens, against 30,134 for vector k=3 (0.67 evidence). X1 worked the same way: 1.00 with one search.
 - Overview links worked as intended: on A4, seed L02 p.3 pulled in whichever of p.13/14/15 weren't already seeds, giving 1.00 at 2,304 tokens vs 0.67 at 6,334.
 - Added pages were useful far more often: 22 of the 68 pages hub added were cited as evidence (32%), compared with 20 of 312 for the stock graph (6%).
-- I'd adopt it, with vector k=3 as the fallback. The link file is 20 entries for 3 lectures, and the named-lecture rule is free.
+- What I'd keep is the named-lecture rule: it does most of the work and needs no upkeep. The held-out check shows no general gain, and auto-built links lose the overview wins (both below). For everyday questions, vector k=3 is enough.
+
+#### Held-out check
+
+The questions above include the failures hub was built for, so I wrote 11 new ones (`experiments/heldout_questions.json`) from the page text before running hub on anything new, and froze the file (sha256 `55a0ca45…b58b`) before the first run. Mix: 3 single facts, 2 two-fact same-lecture, 3 framed by an overview or agenda page with the answer on a detail page, 3 cross-lecture. Same harness and scorer, 3 runs each, interleaved. Runs: `results/heldout_runs.csv`.
+
+| Method | evidence cited | key facts | searches (mean, max) | input tokens median / mean | cost USD (33 runs) |
+|---|---|---|---|---|---|
+| vector k=3 | 0.95 | 1.00 | 1.7, 6 | 2,053 / 3,876 | 0.064 |
+| hub | 0.92 | 0.97 | 1.4, 3 | 1,950 / 3,543 | 0.060 |
+
+- It's a tie. Reading the 9 answers below 1.0: two hub misses are scorer misses (one cited "page 36" with no lecture, one regex missed a correct wording), one hub answer turned the second fact into a hint, and H11 scored 0.50 in all 6 runs for both methods because L01 p.68 (an appendix page) never came back. Hand-corrected, both are 0.95 on evidence.
+- Single-fact, same-lecture and overview-framed questions: hub's rules never fired. The question's own words (Jev, AIME, Darwin Gödel) put the detail page at rank 1, so hub returned exactly vector's top 3, and any difference is noise. The H5 token gap (1,445 vs 7,266) is the agent writing one combined query in 2 of 3 hub runs, not retrieval.
+- Cross-lecture: the rules fired in 9/9 runs, but vector reached both lectures anyway with a second search. Evidence tied at 0.83. Hub used fewer searches (2.3 vs 2.8), but more tokens on H9 and H10 (median 5,039 vs 3,981 and 4,761 vs 3,492) for pages it didn't need. 12 of its 39 added pages were cited (31%, close to the 32% before).
+- So the 0.92 vs 0.83 on my original set doesn't carry over. Hub helps when a named lecture goes missing or a search lands on an overview page. Otherwise it changes nothing, or adds pages the agent doesn't need. I didn't change hub after seeing these results.
+
+#### Auto-built links
+
+Nobody would maintain a hand link file across 13 lectures, so `hub/build_links.py` builds `hub/elaborates_auto.json` from structure alone. Dividers are each section's title page and pages under 150 characters. Overviews are opening-section pages, pages with agenda/outline/contents/overview or summary in the title or first line, and the first page after each section divider (not in appendices). Each links to the 6 pages most similar to it (cosine of the stored page embeddings) within its span: the rest of the lecture, the earlier pages for a summary, or the rest of the section. I fixed the rules before any agent run. `hub_auto` is hub with this file, and the named-lecture rule is unchanged. Offline overlap with my hand file: overview pages 13 shared of 29 auto / 20 hand (precision 0.45, recall 0.65); links 28 shared of 156 / 95 (0.18, 0.29). Similarity picks related pages, not the ones a slide actually points to. I reused the vector and hub runs, filled in hub on the 6 original questions it hadn't been run on, and ran hub_auto on both sets (`results/autolink_runs.csv`). The original columns cover all 16 answerable questions, so they differ from the 10-question table above.
+
+| Method | original 16: evidence / facts / median tokens | held-out 11: evidence / facts / median tokens |
+|---|---|---|
+| vector k=3 | 0.90 / 0.93 / 3,683 | 0.95 / 1.00 / 2,053 |
+| hub (hand links) | **0.95** / 0.91 / 2,434 | 0.92 / 0.97 / 1,950 |
+| hub_auto | 0.91 / 0.91 / 2,452 | 0.95 / 1.00 / 2,065 |
+
+- hub_auto keeps the named-lecture wins (N1 1.00 at 5,169 tokens, X1 1.00) but loses the overview ones: A4 0.83 vs 1.00, and M3 needs 2 searches and 5,540 tokens again (hand: 1 and 2,187). On held-out it ties with vector, like hand hub. 26 of its 92 added pages were cited as evidence on the original set (28%, hand 32%).
+- I read the 18 new answers below 1.0. Three are scorer misses ("On ("on")", a bold "**do not** specify"), five turned part of the answer into a hint (M1 ×2, A1, A2, N3), and A5 and H11 fail exactly as they do for the other methods.
+- So the overview idea only paid off with hand-picked links. Automated, it's about vector k=3 with fewer searches, and the named-lecture rule carries hub's real gain. I didn't change the builder after seeing these results.
+- The Gemini credits ran out after 95 of 102 runs, so 6 hub_auto cells and hub N2 have 2 runs, not 3. On runs 1–2 only, the order is the same (original 0.89 / 0.97 / 0.89, held-out 0.95 / 0.91 / 0.95).
 
 ### Limitations
 
-- I wrote and labelled all 17 questions myself, and the hard ones (X1, N1, A1–A5) were chosen because I'd seen them fail, so the hub gain is measured on the failures it was built for.
+- I wrote and labelled all questions myself. The hard ones in the main set (X1, N1, A1–A5) were picked after I'd seen them fail, so hub's 0.92 vs 0.83 there is an upper bound. On the 11 held-out questions, written and frozen before any hub run, it tied with vector.
 - 3 runs per setting, so differences of about ±0.05 are noise. The X1, N1 and neighbour search-count effects held in every run.
 - Hub still fails A5 (0.50). The 2-per-seed cap picked Lecture 3 detail pages, and an off-topic Lecture 2 seed counted as covering Lecture 2, so the missing pages never came in.
 - Key facts are regex checks. I read every answer below 1.0 and every cited page outside my labels. `[cost]` excludes embeddings, which came to under $0.02.
@@ -107,4 +134,4 @@ Chart: `results/adv_tradeoff.png`
 - Could the tool return only the `citation` label, or the instruction be stricter? 69% of citations ignore it.
 - Is re-embedding the English text planned? My numbers say it isn't needed.
 
-Total API spend: about $1.04 for generation plus under $0.02 for embeddings.
+Total API spend: about $1.34 for generation (including $0.12 for the held-out check and $0.17 for auto-built links) plus under $0.02 for embeddings.
