@@ -1,0 +1,107 @@
+qid,query,words,JA,EN
+M1,OpenClaw daily notes long term memory all notes,8,1,1
+M1,compaction memory across sessions daily notes long-term memory,8,1,1
+M1,compaction memory across sessions daily notes long-term memory Lecture 03,10,1,1
+M1,compaction memory daily notes long-term memory Lecture 03,8,1,1
+M1,compaction memory sessions daily notes long-term memory,7,1,1
+M1,compaction memory sessions daily notes long-term memory Lecture 03,9,2,1
+M1,daily notes long-term memory Claude Code notes,7,1,1
+M1,daily notes long-term memory Lecture 03,6,1,1
+M2,Lecture 02 different answers fluent wrong answers,7,1,1
+M2,Lecture 02 probabilistic selection why same question different answers,9,2,2
+M2,choose between provide information adapt it let it think more lecture 02,12,14,34
+M2,confidently says something wrong mechanism Lecture 02,7,2,1
+M2,different answer each time confidence wrong lecture 02 mechanism why suggest doing,12,1,1
+M2,different answer each time mechanism Lecture 02,7,1,1
+M2,different answers fluent wrong answers Lecture 02,7,1,1
+M2,probabilistic selection why different answers fluent wrong lecture 02,9,1,2
+M2,probabilistic selection why wrong different answers lecture 02,8,1,1
+M2,same answer different questions probabilistic selection Lecture 02,8,1,1
+M2,same question different answer Lecture 02 mechanism countermeasure,8,2,1
+M2,same question different answer mechanism lecture 02,7,2,1
+M2,same question different answers fluent wrong answers Lecture 02,9,2,1
+M2,same question different answers why mechanisms Lecture 02,8,3,3
+M2,same question fluent wrong answers lecture 02,7,1,1
+M2,same question get different answers fluent wrong answers Lecture 02,10,2,1
+M2,why can an LLM give fluent wrong answers Lecture 02,10,1,1
+M2,why can the same question get different answers Lecture 02 mechanisms,11,1,1
+M2,wrong answer mechanism Lecture 02 hallucination confident,7,1,1
+M3,Building the model is just one part Lecture 01,9,2,6
+M3,Building the model is just one part Lecture 1,9,3,3
+M3,Building the model is just one part Problem formulation Data collection Model training Deployment Improvement Lecture 1,17,1,2
+M3,Lecture 01 stress especially important AI engineering cycle,8,1,1
+M3,Lecture 01 stress especially important stages AI engineering,8,1,1
+M3,Lecture 1 important stage problem formulation data collection model training deployment improvement,12,1,1
+M3,Mindset Understand beyond the model AI Engineering Is Mixed Martial Arts,11,1,1
+M3,Problem formulation Data collection Model training Deployment Improvement Lecture 01 stress important,12,1,1
+M3,Problem formulation Data collection Model training Deployment Improvement especially important stress,11,1,2
+M3,Problem formulation Lecture 1 important,5,5,7
+M3,especially important Lecture 01 AI engineering stages,7,1,1
+M3,especially important Lecture 01 stages AI engineering,7,1,1
+M3,five stages of AI engineering Lecture 01,7,1,1
+M3,five stages of AI engineering Lecture 01 especially important,9,1,1
+M3,five stages of AI engineering Lecture 01 important,8,1,1
+M3,five stages of AI engineering Lecture 01 important part,9,1,1
+M3,mixed martial art evaluation improvement cycle Lecture 1,8,1,1
+M3,most important crucial stress Lecture 1,6,3,9
+M3,stress especially important Lecture 01,5,3,14
+M3,stress especially important Lecture 01 AI engineering,7,1,3
+M3,stress especially important Lecture 01 cycle,6,2,1
+M3,stress especially important stage Lecture 01 AI engineering,8,1,1
+M3,stress important AI engineering Lecture 01 cycle,7,1,1
+M3,stress important Lecture 01 evaluation improvement cycle,7,1,1
+M4,Ensuring idempotency Record external actions Lecture 03,7,1,1
+M4,Retry safely prevent duplicates pull request countermeasure Lecture 03,9,1,2
+M4,countermeasure ensure idempotency Lecture 03,5,1,1
+M4,countermeasure idempotency key retry,4,1,1
+M4,countermeasure idempotent key retry,4,1,1
+M4,countermeasure idempotent key token,4,1,1
+M4,countermeasure retry tool call non-idempotent,5,1,1
+M4,countermeasure tool call retry idempotent,5,1,1
+M4,idempotency OR idempotent,3,1,1
+M4,idempotency countermeasure key token Lecture 03,6,1,1
+M4,idempotency key Lecture 03,4,1,1
+M4,idempotency key lecture 3,4,1,1
+M4,idempotency keys API Design Guide,5,1,1
+M4,idempotent countermeasure retry,3,1,1
+M4,idempotent key OR key OR id OR countermeasure,8,1,1
+M4,idempotent key countermeasure tool call retry Lecture 03,8,1,1
+M4,idempotent key slide,3,1,1
+M4,idempotent lecture 3,3,1,1
+M4,idempotent retry countermeasure Lecture 3,5,1,1
+M4,retry tool call problems countermeasure,5,1,1
+M4,retry tool call problems countermeasure Lecture 03,7,2,2
+M4,retry tool call safety non-idempotent Lecture 03,7,1,1
+M4,retrying a tool call problem countermeasure,6,1,1
+M4,retrying a tool call problems countermeasure,6,1,1
+M4,retrying a tool call problems countermeasure Lecture 03,8,2,2
+S1,METR study developers perceived speed up measured result,8,1,1
+S1,METR study developers perceived speed-up measured result,7,1,1
+S1,METR study perceived speed-up measured result Lecture 01,8,1,1
+S1,METR study speed-up developers measured Lecture 01,7,1,1
+S1,METR study speed-up developers measured result Lecture 01,8,1,1
+S1,METR study speed-up measured result developers perceived,7,1,1
+S2,200 questions cost large model small model Lecture 02,9,1,1
+S2,200 questions cost lecture large model small model,8,1,1
+S2,Lecture 02 cost estimate 200 questions large model small model,10,1,1
+S2,cost estimate 200 questions large model small model Lecture 02,10,1,1
+S2,cost estimate 200 questions lecture large model small model,9,1,1
+S3,Lecture 02 Quiz 3 sorting 10000 student inquiries,8,1,2
+S3,"Quiz 3 10,000 student inquiries",5,1,2
+S3,"Quiz 3 10,000 student inquiries sorting Lecture 02",8,1,1
+S3,Quiz 3 Lecture 02 sorting 10000 student inquiries,8,1,1
+S3,"Quiz 3 sorting 10,000 student inquiries",6,1,2
+S3,Quiz 3 sorting 10000 student inquiries,6,1,2
+S3,Quiz 3 sorting 10000 student inquiries Lecture 02,8,1,2
+X1,Lecture 1 benchmark public rankings trustworthy,6,1,1
+X1,Lecture 1 public benchmark choices trust model,7,1,1
+X1,benchmark lecture 1,3,1,1
+X1,lecture 1 public benchmarks,4,1,1
+X1,public benchmarks,2,1,1
+X1,public benchmarks are not enough choosing trusting model,8,1,1
+X1,public benchmarks choosing trusting model,5,1,1
+X1,public benchmarks model trust choosing,5,1,1
+X1,public benchmarks models trusting choosing,5,1,1
+X1,public benchmarks not enough choosing trusting model,7,1,1
+X1,public benchmarks trust choose model,5,1,1
+X1,public benchmarks why not enough choosing trusting model,8,1,1

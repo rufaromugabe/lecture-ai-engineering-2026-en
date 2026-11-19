@@ -1,0 +1,23 @@
+[model] gemini-3.5-flash-lite
+[retriever] hub
+Based on the course materials, Lectures 01 and 02 explain that public benchmarks are not enough for choosing or trusting a model for several key reasons:
+
+* **Differences in Evaluation Conditions:** Public benchmark conditions differ across companies (such as variations in tools and compute), meaning their rankings cannot simply be compared directly or guarantee performance on your specific use case [Lecture 2, p. 39].
+* **Data Contamination ("Cheating"):** A model may have seen the test questions during its training phase, which acts as a form of cheating and artificially inflates its benchmark score [Lecture 2, p. 39].
+* **Label Errors in Datasets:** Even famous, major benchmark test sets (such as MNIST and ImageNet) contain incorrect labels [Lecture 1, p. 46].
+
+To decide how to choose and trust a model, the materials recommend relying on your own evaluation set using real questions rather than public benchmark rankings [Lecture 2, p. 39].
+
+--- trace ---
+[tool call]   search_materials({'query': 'public benchmarks not enough choosing trusting model'})
+[tool return] search_materials -> {"results": [{"page_id": "lec02-main-p039", "document_id": "lec02-main", "lecture": 2, "document_title": "Fundamentals o…
+    - seed     lec02-main-p039  Choose with your own evaluation set, not benc  (rank 1)
+    - seed     lec02-main-p038  Where to obtain and run models: three choices  (rank 2)
+    - seed     lec02-main-p044  Steps for choosing a model  (rank 3)
+    - expanded lec02-main-p040  Cost below benefit is decisive: lower costs e  (detail of overview lec02-main-p044)
+    - expanded lec02-main-p070  Cost estimate: 200 questions per lecture  (detail of overview lec02-main-p044)
+    - expanded lec01-main-p014  Hugging Face hosts a wide variety of models  (Lecture 1 is named but had no result: best pages inside it)
+    - expanded lec01-main-p046  Even well-known benchmarks contain label erro  (Lecture 1 is named but had no result: best pages inside it)
+[time] Answer completed in 2.62 seconds (including retrieval and embedding)
+[usage] Input 3,299 tokens / Output 230 tokens / Model responses 2
+[cost] Estimated generation API cost: $0.001565 USD (excludes embedding and index construction)
