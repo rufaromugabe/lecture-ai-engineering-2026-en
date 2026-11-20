@@ -1,0 +1,112 @@
+{
+  "ranks": {
+    "4": {
+      "rank_check": {
+        "CONFIG_lora_r": 4,
+        "peft_config_r": 4,
+        "peft_config_alpha": 32,
+        "trainable_params": 1597440,
+        "total_params": 753990464,
+        "trainable_pct": 0.2119,
+        "example_lora_A": {
+          "name": "base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight",
+          "shape": [
+            4,
+            1024
+          ]
+        },
+        "train_runtime_s": 172.1127
+      },
+      "before": {
+        "label": "before",
+        "n": 21,
+        "format_rate": 0.9523809523809523,
+        "content_rate": 0.38095238095238093,
+        "both_rate": 0.38095238095238093,
+        "seconds": 58.9
+      },
+      "after": {
+        "label": "after",
+        "n": 21,
+        "format_rate": 1.0,
+        "content_rate": 0.9523809523809523,
+        "both_rate": 0.9523809523809523,
+        "seconds": 39.4
+      },
+      "knowledge_after": [
+        [
+          "When is the final assignment deadline for this course?",
+          "asserted"
+        ],
+        [
+          "What is the instructor's name?",
+          "needs_review"
+        ],
+        [
+          "What is the topic of the next lecture?",
+          "needs_review"
+        ],
+        [
+          "When is the assignment deadline?",
+          "asserted"
+        ]
+      ]
+    },
+    "16": {
+      "rank_check": {
+        "CONFIG_lora_r": 16,
+        "peft_config_r": 16,
+        "peft_config_alpha": 32,
+        "trainable_params": 6389760,
+        "total_params": 758782784,
+        "trainable_pct": 0.8421,
+        "example_lora_A": {
+          "name": "base_model.model.model.layers.0.mlp.gate_proj.lora_A.default.weight",
+          "shape": [
+            16,
+            1024
+          ]
+        },
+        "train_runtime_s": 176.1597
+      },
+      "before": {
+        "label": "before",
+        "n": 21,
+        "format_rate": 0.9523809523809523,
+        "content_rate": 0.38095238095238093,
+        "both_rate": 0.38095238095238093,
+        "seconds": 31.9
+      },
+      "after": {
+        "label": "after",
+        "n": 21,
+        "format_rate": 1.0,
+        "content_rate": 0.9047619047619048,
+        "both_rate": 0.9047619047619048,
+        "seconds": 40.3
+      },
+      "knowledge_after": [
+        [
+          "When is the final assignment deadline for this course?",
+          "asserted"
+        ],
+        [
+          "What is the instructor's name?",
+          "needs_review"
+        ],
+        [
+          "What is the topic of the next lecture?",
+          "needs_review"
+        ],
+        [
+          "When is the assignment deadline?",
+          "asserted"
+        ]
+      ]
+    }
+  },
+  "after_outputs_identical": "20/21",
+  "after_outputs_differing": [
+    "Can I submit a format other than PDF?"
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "summary": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.047619047619047616,
+    "both_rate": 0.047619047619047616,
+    "seconds": 36.6
+  },
+  "rows": [
+    {
+      "question": "What has to be enabled in Zoom for Kage to work?",
+      "raw": "{\"answer\": \"Kage works only from Zoom's live captions, not the meeting audio, so the host must enable live captions\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Does Kage use the lecture audio or the captions?",
+      "raw": "{\"answer\": \"Kage works only from Zoom's live captions, not the meeting audio, so the host must enable live captions; Kage never turns captions on itself.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Who has to turn on captions in Zoom?",
+      "raw": "{\"answer\": \"The host\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "What does a listener need to hear the English voice?",
+      "raw": "{\"answer\": \"Kage never turns captions on itself.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Is there an app listeners must download?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Tell me the link listeners should open",
+      "raw": "{\"answer\": \"kage.spot-fi.com\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Does Kage still speak without a connection to the relay?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "What voice do I hear if the relay is down?",
+      "raw": "{\"answer\": \"Kokoro\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "How do I know Kage is running offline?",
+      "raw": "{\"answer\": \"If the relay cannot be reached, Kage switches to a local Kokoro voice on the laptop and the status line shows Offline.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Will lines be spoken twice if two apps send captions?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "If two classmates run Kage, whose captions are spoken?",
+      "raw": "{\"answer\": \"The leader\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Who takes over when the leader goes offline?",
+      "raw": "{\"answer\": \"A standby app\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "What does Kage do with Zoom's volume?",
+      "raw": "{\"answer\": \"Kage lowers Zoom's volume while it speaks.\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Is my mic muted when Kage joins Zoom?",
+      "raw": "{\"answer\": \"Yes\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Does Kage change the Zoom volume?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "Which languages can Kage translate from?",
+      "raw": "{\"answer\": \"None\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "How many listeners can join at once?",
+      "raw": "{\"answer\": \"Several\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "Does the listener page need a password?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "How big is the offline voice download?",
+      "raw": "{\"answer\": \"The FAQ does not specify the size of the offline voice download.\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "Does Kage save a transcript of the lecture?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    },
+    {
+      "question": "Can the host see that Kage is in the meeting?",
+      "raw": "{\"answer\": \"No\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": true
+    }
+  ]
+}

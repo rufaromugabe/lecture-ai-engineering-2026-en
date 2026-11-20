@@ -1,0 +1,351 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "variant": "plain",
+    "run_name": "plain_ep20",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 150,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "variant": "plain",
+  "epochs": 20,
+  "run_name": "plain_ep20",
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA (no quantization)",
+  "train_set_size": 116,
+  "train_set_breakdown": {
+    "plain": 116,
+    "alias": 0,
+    "abstain": 0
+  },
+  "sft_jsonl_sha256": "df11fef8e6251754ff7c814ed2f7d979b96bd927a252aef36819d1ddf361386f",
+  "train_runtime_seconds": 712.9147,
+  "train_steps": 300,
+  "final_loss": 0.07244939804077148,
+  "train_loss_curve": [
+    [
+      10,
+      2.8847
+    ],
+    [
+      20,
+      1.9389
+    ],
+    [
+      30,
+      1.3484
+    ],
+    [
+      40,
+      0.6966
+    ],
+    [
+      50,
+      0.35
+    ],
+    [
+      60,
+      0.2125
+    ],
+    [
+      70,
+      0.1556
+    ],
+    [
+      80,
+      0.1279
+    ],
+    [
+      90,
+      0.1249
+    ],
+    [
+      100,
+      0.1084
+    ],
+    [
+      110,
+      0.1038
+    ],
+    [
+      120,
+      0.0978
+    ],
+    [
+      130,
+      0.0932
+    ],
+    [
+      140,
+      0.0911
+    ],
+    [
+      150,
+      0.0927
+    ],
+    [
+      160,
+      0.0793
+    ],
+    [
+      170,
+      0.0807
+    ],
+    [
+      180,
+      0.0846
+    ],
+    [
+      190,
+      0.079
+    ],
+    [
+      200,
+      0.0749
+    ],
+    [
+      210,
+      0.0791
+    ],
+    [
+      220,
+      0.0754
+    ],
+    [
+      230,
+      0.0765
+    ],
+    [
+      240,
+      0.0767
+    ],
+    [
+      250,
+      0.073
+    ],
+    [
+      260,
+      0.0754
+    ],
+    [
+      270,
+      0.0744
+    ],
+    [
+      280,
+      0.0728
+    ],
+    [
+      290,
+      0.0742
+    ],
+    [
+      300,
+      0.0724
+    ]
+  ],
+  "eval_loss_curve": [],
+  "mean_train_loss": 0.3191728913784027,
+  "eval_set_size": {
+    "in_glossary": 12,
+    "paraphrased": 13,
+    "absent": 10
+  },
+  "before": {
+    "label": "before",
+    "seconds": 269.2,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.0,
+      "keyword_frac": 0.028,
+      "f1": 0.182
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.0,
+      "keyword_frac": 0.0,
+      "f1": 0.2
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.0,
+      "assert_rate": 1.0
+    }
+  },
+  "after": {
+    "label": "after_plain_ep20",
+    "seconds": 115.6,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 1.0,
+      "keyword_frac": 1.0,
+      "f1": 1.0
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.308,
+      "keyword_frac": 0.423,
+      "f1": 0.491
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.0,
+      "assert_rate": 1.0
+    }
+  },
+  "search": {
+    "label": "search",
+    "seconds": 0.9,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 1.0,
+      "keyword_frac": 1.0,
+      "f1": 1.0
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.154,
+      "keyword_hit_rate": 0.692,
+      "keyword_frac": 0.692,
+      "f1": 0.764
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.9,
+      "assert_rate": 0.1
+    },
+    "avg_latency_ms": 25.2,
+    "retrieval_accuracy": {
+      "in_glossary": 1.0,
+      "paraphrased": 0.692,
+      "absent": 0.9
+    }
+  },
+  "rag_base": {
+    "label": "rag_base",
+    "seconds": 72.0,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.5,
+      "keyword_frac": 0.694,
+      "f1": 0.684
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.154,
+      "keyword_hit_rate": 0.231,
+      "keyword_frac": 0.474,
+      "f1": 0.478
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.9,
+      "assert_rate": 0.1
+    },
+    "model_calls": 24,
+    "retrieval_accuracy": {
+      "in_glossary": 1.0,
+      "paraphrased": 0.692,
+      "absent": 0.9
+    }
+  },
+  "rag_trained": {
+    "label": "rag_trained_plain_ep20",
+    "seconds": 71.9,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.833,
+      "keyword_frac": 0.931,
+      "f1": 0.982
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.154,
+      "keyword_hit_rate": 0.615,
+      "keyword_frac": 0.692,
+      "f1": 0.668
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.9,
+      "assert_rate": 0.1
+    },
+    "model_calls": 24,
+    "retrieval_accuracy": {
+      "in_glossary": 1.0,
+      "paraphrased": 0.692,
+      "absent": 0.9
+    }
+  },
+  "4bit": {
+    "label": "4bit_plain_ep20",
+    "seconds": 376.9,
+    "in_glossary": {
+      "n": 12,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.0,
+      "keyword_frac": 0.069,
+      "f1": 0.186
+    },
+    "paraphrased": {
+      "n": 13,
+      "abstain_rate": 0.0,
+      "keyword_hit_rate": 0.0,
+      "keyword_frac": 0.0,
+      "f1": 0.196
+    },
+    "absent": {
+      "n": 10,
+      "abstain_rate": 0.0,
+      "assert_rate": 1.0
+    },
+    "weight_memory_gb": {
+      "fp32": 3.01,
+      "4bit": 0.76
+    },
+    "compared_with": "before (fp32 base model, no adapter)",
+    "regressed_vs_fp32": [],
+    "improved_vs_fp32": []
+  },
+  "regressed": [],
+  "improved": [
+    "What is LLM (Large Language Model)?",
+    "Briefly explain Context window.",
+    "What is Hallucination?",
+    "What is LoRA?",
+    "Briefly explain QLoRA.",
+    "What is Overfitting?",
+    "What is MCP (Model Context Protocol)?",
+    "Briefly explain Guardrail.",
+    "What is Harness?",
+    "What is Pi?",
+    "What is Default model?",
+    "Briefly explain answer.md.",
+    "In LoRA, what does the r hyperparameter control?",
+    "Why would I get a 429 error from an LLM API?",
+    "What goes into devcontainer.json?",
+    "Explain quantisation of model weights."
+  ],
+  "executed_training_myself": true
+}
